@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CinemachinPOVExtension : MonoBehaviour
 {
+
+    private
     // Start is called before the first frame update
     void Start()
     {

@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 243711764}
   m_Layer: 7
   m_Name: InterActionCollider
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -775,7 +775,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4496563948193692745, guid: b410db4f5a9473e479686396a44d8287, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4496563948193692746, guid: b410db4f5a9473e479686396a44d8287, type: 3}
       propertyPath: m_Mesh

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InputManager
 {
+    
+
     private float _deltaMouseX;
     private float _deltaMouseY;
     // Start is called before the first frame update
