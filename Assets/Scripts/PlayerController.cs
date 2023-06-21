@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool isGround = true;
 
 
+
     // 앉았을 때 얼마나 앉을지 결정하는 변수.
     [SerializeField]
     private float crouchPosY;
@@ -52,6 +53,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody myRigid;
 
+
+    public float mouseXPos;
+    public float mouseYPos;
 
     // Use this for initialization
     void Start()
@@ -212,7 +216,9 @@ public class PlayerController : MonoBehaviour
     // 좌우 캐릭터 회전
     private void CharacterRotation()
     {
+
         float _yRotation = Input.GetAxisRaw("Mouse X");
+        mouseXPos = _yRotation;
         Vector3 _characterRotationY = new Vector3(0f, _yRotation, 0f) * lookSensitivity;
         myRigid.MoveRotation(myRigid.rotation * Quaternion.Euler(_characterRotationY));
     }
@@ -223,6 +229,7 @@ public class PlayerController : MonoBehaviour
     private void CameraRotation()
     {
         float _xRotation = Input.GetAxisRaw("Mouse Y");
+        mouseYPos = _xRotation;
         float _cameraRotationX = _xRotation * lookSensitivity;
         currentCameraRotationX -= _cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);

@@ -15,6 +15,7 @@ public class Door : MonoBehaviour
     {
         defaulRot = transform.eulerAngles;
         openRot = new Vector3(defaulRot.x, defaulRot.y + DoorOpenAngle, defaulRot.z);
+        txt = GameObject.FindObjectOfType<Text>();
     }
 
     // Update is called once per frame
