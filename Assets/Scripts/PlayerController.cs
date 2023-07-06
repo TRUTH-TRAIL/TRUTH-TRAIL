@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     private float runSpeed;
     [SerializeField]
     private float crouchSpeed;
+    [SerializeField]
+    private float slowSpeed;
 
     private float applySpeed;
 
@@ -23,7 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool isRun = false;
     private bool isCrouch = false;
     private bool isGround = true;
-
+    private bool isSlow = false;
 
 
     // 앉았을 때 얼마나 앉을지 결정하는 변수.
@@ -78,13 +80,14 @@ public class PlayerController : MonoBehaviour
 
         IsGround();
         TryJump();
+        TrySlow();
         TryRun();
-        TryCrouch();
+        //TryCrouch();
         Move();
         CharacterRotation();
         CameraRotation();
 
-
+        Debug.Log(applySpeed);
     }
 
     // 앉기 시도
@@ -136,6 +139,7 @@ public class PlayerController : MonoBehaviour
         theCamera.transform.localPosition = new Vector3(0, applyCrouchPosY, 0f);
     }
 
+   
 
     // 지면 체크.
     private void IsGround()
@@ -158,10 +162,6 @@ public class PlayerController : MonoBehaviour
     private void Jump()
     {
 
-        // 앉은 상태에서 점프시 앉은 상태 해제.
-        if (isCrouch)
-            Crouch();
-
         myRigid.velocity = transform.up * jumpForce;
     }
 
@@ -182,8 +182,6 @@ public class PlayerController : MonoBehaviour
     // 달리기 실행
     private void Running()
     {
-        if (isCrouch)
-            Crouch();
 
         isRun = true;
         applySpeed = runSpeed;
@@ -196,6 +194,31 @@ public class PlayerController : MonoBehaviour
         isRun = false;
         applySpeed = walkSpeed;
     }
+
+
+    private void TrySlow()
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            WalkSlow();
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            WalkSlowCancel();
+        }
+    }
+    private void WalkSlow()
+    {
+        isSlow = true;
+        applySpeed = slowSpeed;
+    }
+
+    private void WalkSlowCancel()
+    {
+        isSlow = false;
+        applySpeed = walkSpeed;
+    }
+
 
 
     // 움직임 실행
