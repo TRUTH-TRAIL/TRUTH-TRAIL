@@ -87,7 +87,6 @@ public class PlayerController : MonoBehaviour
         CharacterRotation();
         CameraRotation();
 
-        Debug.Log(applySpeed);
     }
 
     // ¾É±â ½Ãµµ
