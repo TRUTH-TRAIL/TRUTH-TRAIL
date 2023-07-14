@@ -5,6 +5,7 @@ public class Door : MonoBehaviour
 {
 
     bool trig, open;//trig-проверка входа выхода в триггер(игрок должен быть с тегом Player) open-закрыть и открыть дверь
+    public bool Open { get { return open; } set { open = value; } }
     public float smooth = 2.0f;//скорость вращения
     public float DoorOpenAngle = 90.0f;//угол вращения 
     private Vector3 defaulRot;
@@ -45,6 +46,7 @@ public class Door : MonoBehaviour
             }
         }
     }
+
     private void OnTriggerEnter(Collider coll)//вход и выход в\из  триггера 
     {
         if (coll.tag == "Player")

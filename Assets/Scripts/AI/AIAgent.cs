@@ -7,6 +7,7 @@ public class AIAgent : MonoBehaviour
 {
     public AIStateId _initialState;
     public AIAgentConfig _config;
+    public Animator _animator;
 
     [HideInInspector] public Transform _playerTransform;
     [HideInInspector] public AIStateMachine _stateMachine;
@@ -23,6 +24,7 @@ public class AIAgent : MonoBehaviour
         SetNavMeshAgent();
         _stateMachine = new AIStateMachine(this);
         _sensor = GetComponent<AISensor>();
+        _animator.GetComponent<Animator>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         _stateMachine.RegisterState(new AIChasePlayerState());
@@ -36,6 +38,8 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_stateMachine.currentState != AIStateId.OpenDoor)
+            CheckDoor();
         _stateMachine.Update();
     }
     
@@ -43,7 +47,19 @@ public class AIAgent : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
-
+    public void CheckDoor()
+    {
+        RaycastHit hit;
+        if(Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), transform.forward + new Vector3(0, 0.5f, 0), out hit, 1f, LayerMask.NameToLayer("Door")))
+        {
+            Door door = hit.transform.GetComponent<Door>();
+            if (!door.Open)
+            {
+                _stateMachine.ChangeState(AIStateId.OpenDoor);
+            }
+                
+        }
+    }
 
     private void OnDrawGizmos()
     {

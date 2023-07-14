@@ -33,13 +33,14 @@ public class AIChasePlayerState : AIState
         if (!agent.enabled)
             return;
 
+
         chasingTime -= Time.deltaTime;
         /**
          * if(Target is On My Sight){
          * ChasingTime = 0;
          * }
          */
-        if(agent._sensor.Objects.Count > 0)
+        if(agent._sensor.Objects.Count > 0 || GameManager.Instance.aggroGauge >= 100.0f)
         {
             chasingTime = agent._config._maxChasingTime;
         }
@@ -67,13 +68,21 @@ public class AIChasePlayerState : AIState
 
         if (timer < 0.0f)
         {
-            Debug.Log("FFFFF");
+            
             float sqDistance = (agent._playerTransform.position - agent._navMeshAgent.destination).sqrMagnitude;
 
             if (sqDistance > agent._config._maxDistance * agent._config._maxDistance)
             {
                 if (agent._navMeshAgent.pathStatus != NavMeshPathStatus.PathPartial)
+                {
+                    Debug.Log("PathPartial");
                     agent._navMeshAgent.destination = agent._playerTransform.position;
+                }
+                else
+                {
+                    Debug.Log("Not Partial");
+                    agent._navMeshAgent.SetDestination(agent._playerTransform.position);
+                }
             }
 
             timer = agent._config._maxTime;
@@ -92,8 +101,8 @@ public class AIChasePlayerState : AIState
     }
     private bool IsCatchPlayer(AIAgent agent)
     {
-        float distance = (agent._playerTransform.position - agent.transform.position).magnitude;
-        if(distance < agent._config._catchDistance && !Physics.Linecast(agent.transform.position, agent._playerTransform.position)){
+        float distance = (agent._playerTransform.position - agent.transform.position).sqrMagnitude;
+        if(distance < agent._config._catchDistance * agent._config._catchDistance && !Physics.Linecast(agent.transform.position, agent._playerTransform.position)){
             return true;
         }
         return false;

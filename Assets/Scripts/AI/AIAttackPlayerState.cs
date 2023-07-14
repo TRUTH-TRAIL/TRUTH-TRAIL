@@ -17,6 +17,7 @@ public class AIAttackPlayerState : AIState
          * if(Cutcene == end) Show GameOverScene;
          */
         Debug.Log("Catch1");
+        agent._navMeshAgent.isStopped = true;
         agent._stateMachine.ChangeState(AIStateId.Idle);
     }
 
@@ -27,7 +28,7 @@ public class AIAttackPlayerState : AIState
 
     public void Exit(AIAgent agent)
     {
-
+        agent._navMeshAgent.isStopped = false;
     }
 
 
