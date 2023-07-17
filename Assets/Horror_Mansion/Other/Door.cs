@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
-
+    [SerializeField]
     bool trig, open;//trig-проверка входа выхода в триггер(игрок должен быть с тегом Player) open-закрыть и открыть дверь
     public bool Open { get { return open; } set { open = value; } }
     public float smooth = 2.0f;//скорость вращения

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager
 {
     private static GameManager _instance;
     public static GameManager Instance { get { Init(); return _instance; } }

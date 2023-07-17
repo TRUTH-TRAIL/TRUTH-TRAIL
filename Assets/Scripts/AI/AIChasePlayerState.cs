@@ -17,7 +17,7 @@ public class AIChasePlayerState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent._navMeshAgent.speed = 3f;
+        agent._navMeshAgent.speed = 2f;
         chasingTime = agent._config._maxChasingTime;
     }
 

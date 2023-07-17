@@ -30,9 +30,13 @@ public class AIIdleState : AIState
          * if(agent.chasingTime < agent.config.MaxChasingTime) // 쫒고 있는 시간이 최대 쫒기 시간보다 낮으면 ChasePlayer State로 전환
          *  agent._stateMachine.ChangeState(AIStateId.ChasePlayer); 
          **/
-        if (agent._sensor.IsInSight(agent._playerTransform.gameObject))
+        if (agent._sensor.IsInSight(agent._playerTransform.gameObject) || GameManager.Instance.aggroGauge >= 100)
         {
             agent._stateMachine.ChangeState(AIStateId.ChasePlayer);
+        }
+        else
+        {
+            agent._stateMachine.ChangeState(AIStateId.Move);
         }
         /** 
         * Find 판단

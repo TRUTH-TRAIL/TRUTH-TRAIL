@@ -24,7 +24,7 @@ public class AIAgent : MonoBehaviour
         SetNavMeshAgent();
         _stateMachine = new AIStateMachine(this);
         _sensor = GetComponent<AISensor>();
-        _animator.GetComponent<Animator>();
+        _animator = GetComponent<Animator>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
 
         _stateMachine.RegisterState(new AIChasePlayerState());
@@ -38,8 +38,10 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log($" currentState : {_stateMachine.currentState}");
         if (_stateMachine.currentState != AIStateId.OpenDoor)
             CheckDoor();
+
         _stateMachine.Update();
     }
     
@@ -50,7 +52,7 @@ public class AIAgent : MonoBehaviour
     public void CheckDoor()
     {
         RaycastHit hit;
-        if(Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), transform.forward + new Vector3(0, 0.5f, 0), out hit, 1f, LayerMask.NameToLayer("Door")))
+        if(Physics.Raycast(this.transform.position + new Vector3(0, 0.5f, 0), transform.forward, out hit, 0.5f, 1 << LayerMask.NameToLayer("Door")))
         {
             Door door = hit.transform.GetComponent<Door>();
             if (!door.Open)
@@ -66,7 +68,9 @@ public class AIAgent : MonoBehaviour
         if(_stateMachine?.currentState == AIStateId.ChasePlayer)
         {
             Gizmos.color = Color.white;
-            Gizmos.DrawSphere(transform.position, 0.5f);
+            Gizmos.DrawSphere(this.transform.position + new Vector3(0, 0.5f, 0), 0.5f);
         }
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward*0.5f);
     }
 }
