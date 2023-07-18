@@ -604,6 +604,7 @@ MonoBehaviour:
   smooth: 2
   DoorOpenAngle: 90
   txt: {fileID: 8057050384760974268, guid: c129f1f930e536e4980cc7ddc2937399, type: 3}
+  player: {fileID: 2071072150}
 --- !u!65 &6718584
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2683,6 +2684,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -4356,6 +4361,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -4676,6 +4685,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -6945,6 +6958,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -12777,6 +12794,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -20342,6 +20363,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -43133,6 +43158,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -44301,6 +44330,7 @@ MonoBehaviour:
   smooth: 2
   DoorOpenAngle: 90
   txt: {fileID: 8057050384760974268, guid: c129f1f930e536e4980cc7ddc2937399, type: 3}
+  player: {fileID: 2071072150}
 --- !u!65 &2045884389
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -45069,6 +45099,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 687956436444696183, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2071072150}
     - target: {fileID: 1669140559431989166, guid: 8e593afa8c38ae84fa6f2c5030d04ea5, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
