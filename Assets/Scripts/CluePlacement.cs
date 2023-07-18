@@ -67,6 +67,7 @@ public class CluePlacement : MonoBehaviour
             if (i < realClue)
             {
                 //clues[i].GetComponent<>().type = "realClue"   이 부분은 clue script 작성 후 추후 수정
+                //clues[i].GetComponent<>().text = ""   이 부분은 clue text list에서 랜덤 추출하여 추가(근데 이 부분이 어디있지?)
             }
             else if (i>= (realClue + fakeClue))
             {

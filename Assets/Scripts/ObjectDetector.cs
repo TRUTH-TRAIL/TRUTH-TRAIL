@@ -20,7 +20,9 @@ public class ObjectDetector : MonoBehaviour
     }
     private void Update(){
         if(Input.GetMouseButtonDown(0)){
-            ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Vector3 cameraCenter = new Vector3(mainCamera.pixelWidth * 0.5f, mainCamera.pixelHeight * 0.5f, 0f);
+            ray = mainCamera.ScreenPointToRay(cameraCenter);
+            //ray = mainCamera.ScreenPointToRay(Input.mousePosition);
             if(Physics.Raycast(ray,out hit,5)){
                 raycastEvent.Invoke(hit.transform);
             }

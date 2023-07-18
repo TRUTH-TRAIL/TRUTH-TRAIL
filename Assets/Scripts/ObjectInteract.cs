@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenDoor : MonoBehaviour
+public class ObjectInteract : MonoBehaviour
 {
     [SerializeField] ObjectDetector objectDetector;
     [SerializeField] float smooth = 2.0f;
@@ -31,6 +31,12 @@ public class OpenDoor : MonoBehaviour
                 door.isOpen = false;
             }
         }
+
+        if(target.CompareTag("Clue")){
+            Destroy(target.gameObject);
+            //ClueUpdate(target.gameObject);
+        }
+
     }
 
     private IEnumerator DoorRotate(Transform target, bool isOpen, float openAngle)
@@ -54,5 +60,10 @@ public class OpenDoor : MonoBehaviour
             yield return null;
         }
         isRotating = false;
+    }
+
+    private void ClueUpdate(GameObject clue){
+        //string Text = clue.GetComponent<>().text;
+        //GameManager.instance.clueList.Add(Text);
     }
 }
