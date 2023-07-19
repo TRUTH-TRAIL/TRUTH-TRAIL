@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class specialPaper : MonoBehaviour
 {
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,7 @@ public class specialPaper : MonoBehaviour
                 Time.timeScale = 0;
             }
         }
+
         else{
             if(Input.GetKeyDown(KeyCode.Tab)){
                 GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.SetActive(true);

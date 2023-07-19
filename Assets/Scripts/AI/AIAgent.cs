@@ -32,6 +32,7 @@ public class AIAgent : MonoBehaviour
         _stateMachine.RegisterState(new AIFindState());
         _stateMachine.RegisterState(new AIOpenDoorState());
         _stateMachine.RegisterState(new AIAttackPlayerState());
+        _stateMachine.RegisterState(new AIMoveState());
         _stateMachine.ChangeState(_initialState);
     }
 

@@ -1,32 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIMoveState : AIState
 {
     List<Transform> Locations = new List<Transform>();
+    NavMeshPathManager pathManager;
+    float animeTime = 3.0f;
+
+    public AIMoveState()
+    {
+        pathManager = new NavMeshPathManager();
+    }
     public AIStateId GetId()
     {
         return AIStateId.Move;
     }
 
-    public void Init()
-    {
-        Transform[] locs = GameObject.FindGameObjectWithTag("Location").transform.GetComponentsInChildren<Transform>();
-        foreach(Transform loc in locs)
-        {
-            Locations.Add(loc);
-        }
-    }
     public void Enter(AIAgent agent)
     {
         agent._navMeshAgent.speed = 1f;
-        if (Locations.Count <= 0)
-        {
-            Init();
-        }
-        int rand = Random.Range(0, Locations.Count);
-        agent._navMeshAgent.SetDestination(Locations[rand].transform.position);
+        pathManager.SetShortestDestination(agent._navMeshAgent);
+        Debug.Log($"{pathManager.ShowNodes()[pathManager.curDestination].name} is {pathManager.ShowNodeVisit()[pathManager.curDestination]}");
+        Debug.Log("Move Start!");
     }
 
 
@@ -37,7 +34,13 @@ public class AIMoveState : AIState
             agent._stateMachine.ChangeState(AIStateId.ChasePlayer);
         }
 
-        
+        if((agent._navMeshAgent.destination - agent.transform.position).sqrMagnitude <= agent._navMeshAgent.stoppingDistance * agent._navMeshAgent.stoppingDistance)
+        {
+            pathManager.SetVisit(true);
+            pathManager.SetShortestDestination(agent._navMeshAgent);
+        }
+
+
     }
 
     public void Exit(AIAgent agent)
@@ -45,10 +48,6 @@ public class AIMoveState : AIState
         
     }
 
-    public void SetDestination()
-    {
-
-    }
 
 
 }
