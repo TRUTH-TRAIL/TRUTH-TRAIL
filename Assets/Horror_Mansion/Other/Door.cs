@@ -29,7 +29,7 @@ public class Door : MonoBehaviour
         {
             transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaulRot, Time.deltaTime * smooth);
         }
-        if (Input.GetMouseButtonDown(0) && trig)
+        if (Input.GetKeyDown(KeyCode.E) && trig)
         {
             open = !open;
         }
@@ -37,11 +37,11 @@ public class Door : MonoBehaviour
         {
             if (open)
             {
-                txt.text = "문 닫기(클릭)";
+                txt.text = "Close E";
             }
             else
             {
-                txt.text = "문 열기(클릭)";
+                txt.text = "Open E";
             }
         }
     }
@@ -51,11 +51,11 @@ public class Door : MonoBehaviour
         {
             if (!open)
             {
-                txt.text = "문 닫기(클릭)";
+                txt.text = "Close E ";
             }
             else
             {
-                txt.text = "문 열기(클릭)";
+                txt.text = "Open E";
             }
             trig = true;
         }
