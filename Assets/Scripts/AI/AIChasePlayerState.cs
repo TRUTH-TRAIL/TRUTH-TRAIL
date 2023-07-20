@@ -18,6 +18,7 @@ public class AIChasePlayerState : AIState
     public void Enter(AIAgent agent)
     {
         agent._navMeshAgent.speed = 2f;
+        agent._navMeshAgent.isStopped = false;
         chasingTime = agent._config._maxChasingTime;
     }
 
@@ -101,8 +102,13 @@ public class AIChasePlayerState : AIState
     }
     private bool IsCatchPlayer(AIAgent agent)
     {
-        float distance = (agent._playerTransform.position - agent.transform.position).sqrMagnitude;
-        if(distance < agent._config._catchDistance * agent._config._catchDistance && !Physics.Linecast(agent.transform.position, agent._playerTransform.position, agent._sensor.occlusionLayers)){
+        Vector3 playerPos = agent._playerTransform.position;
+        Vector3 agentPos = agent.transform.position;
+        playerPos.y = agentPos.y;
+        float distance = (playerPos - agentPos).sqrMagnitude;
+        Debug.Log($"Distance : {distance}, catchDistance : {agent._config._catchDistance * agent._config._catchDistance} ");
+        Debug.Log($"InSight : {agent._sensor.IsInSight(agent._playerTransform.gameObject)}");
+        if (distance < agent._config._catchDistance * agent._config._catchDistance && agent._sensor.IsInSight(agent._playerTransform.gameObject)){
             return true;
         }
         return false;

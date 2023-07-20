@@ -43,9 +43,11 @@ public class AIMoveState : AIState
                 agent._animator.Play("Find");
                 return;
             }
-            Debug.Log(agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"));
-            Debug.Log(agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
-            if (agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime>= 1.0f)
+        }
+
+        if (agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"))
+        {
+            if (agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
                 Debug.Log("Move Start!");
                 pathManager.SetVisit(true);

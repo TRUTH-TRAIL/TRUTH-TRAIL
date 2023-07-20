@@ -53,25 +53,16 @@ public class NavMeshPathManager
                 var prevCorner = agent.transform.position;
                 foreach (var corner in path.corners)
                 {
-                    Debug.Log($"Corner position : {corner}");
                     length += (prevCorner - corner).sqrMagnitude;
                     prevCorner = corner;
                 }
-
-                Debug.Log($"{nodes[i].name}'s length is {length}");
 
                 if (shortestPathLength > length)
                 {
                     shortestPathNumber = i;
                     shortestPathLength = length;
                 }
-                Debug.Log($"ShortestPath : {shortestPathNumber} - {shortestPathLength}");
             }
-            else
-            {
-                Debug.Log("CalculatePath failed");
-            }
-
             i++;
             if (visitCount == visited.Length)
             {
