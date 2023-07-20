@@ -3,68 +3,78 @@ using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField]
-    bool trig, open;//trig-проверка входа выхода в триггер(игрок должен быть с тегом Player) open-закрыть и открыть дверь
-    public bool Open { get { return open; } set { open = value; } }
-    public float smooth = 2.0f;//скорость вращения
-    public float DoorOpenAngle = 90.0f;//угол вращения 
-    private Vector3 defaulRot;
-    private Vector3 openRot;
-    public Text txt;//text 
-    // Start is called before the first frame update
+    bool trig, open;
+    public float smooth = 2.0f;
+    public float DoorOpenAngle = 90.0f;
+    private Quaternion defaultRot;
+    private Quaternion openRot;
+    public Text txt;
+    public Transform player;
+
     void Start()
     {
-        defaulRot = transform.eulerAngles;
-        openRot = new Vector3(defaulRot.x, defaulRot.y + DoorOpenAngle, defaulRot.z);
+        defaultRot = transform.rotation;
+        openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
         txt = GameObject.FindObjectOfType<Text>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (open)//открыть
+        if (open)
         {
-            transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, openRot, Time.deltaTime * smooth);
+            transform.rotation = Quaternion.Slerp(transform.rotation, openRot, Time.deltaTime * smooth);
         }
-        else//закрыть
+        else
         {
-            transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, defaulRot, Time.deltaTime * smooth);
+            transform.rotation = Quaternion.Slerp(transform.rotation, defaultRot, Time.deltaTime * smooth);
         }
-        if (Input.GetKeyDown(KeyCode.E) && trig)
+
+        if (Input.GetMouseButtonDown(0) && trig)
         {
+            if (Vector3.Dot(transform.right, player.position - transform.position) > 0)
+            {
+                openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
+            }
+            else
+            {
+                openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y - DoorOpenAngle, defaultRot.eulerAngles.z);
+            }
             open = !open;
         }
+
         if (trig)
         {
             if (open)
             {
-                txt.text = "Close E";
+                txt.text = "문 닫기(클릭)";
             }
             else
             {
-                txt.text = "Open E";
+                txt.text = "문 열기(클릭)";
             }
         }
     }
 
-    private void OnTriggerEnter(Collider coll)//вход и выход в\из  триггера 
+    private void OnTriggerEnter(Collider coll)
     {
-        if (coll.tag == "Player")
+        if (coll.CompareTag("Player"))
         {
             if (!open)
             {
-                txt.text = "Close E ";
+                txt.text = "문 닫기(클릭)";
             }
             else
             {
-                txt.text = "Open E";
+                txt.text = "문 열기(클릭)";
             }
             trig = true;
         }
     }
-    private void OnTriggerExit(Collider coll)//вход и выход в\из  триггера 
+
+    private void OnTriggerExit(Collider coll)
     {
-        if (coll.tag == "Player")
+        if (coll.CompareTag("Player"))
         {
             txt.text = " ";
             trig = false;
