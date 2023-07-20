@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class Door : MonoBehaviour
 {
     bool trig, open;
+    public bool Open { get { return open; } set { open = value; } }
     public float smooth = 2.0f;
     public float DoorOpenAngle = 90.0f;
     private Quaternion defaultRot;
@@ -53,6 +54,22 @@ public class Door : MonoBehaviour
             {
                 txt.text = "문 열기(클릭)";
             }
+        }
+    }
+
+    public void OpenDoor(Transform interactor)
+    {
+        if (Input.GetMouseButtonDown(0) && trig)
+        {
+            if (Vector3.Dot(transform.right, interactor.position - transform.position) > 0)
+            {
+                openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
+            }
+            else
+            {
+                openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y - DoorOpenAngle, defaultRot.eulerAngles.z);
+            }
+            open = !open;
         }
     }
 

@@ -7,5 +7,161 @@ AvatarMask:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: New Avatar Mask
-  m_Mask: 00000000000000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  m_Elements: []
+  m_Mask: 00000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:body
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:hair
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:headset
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:ribbon
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:shirt
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:shoes
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:shorts
+    m_Weight: 1
+  - m_Path: CruelDoll:Geometry/CruelDoll:socks
+    m_Weight: 1
+  - m_Path: CruelDoll:root
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_foot_root
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_foot_root/CruelDoll:ik_foot_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_foot_root/CruelDoll:ik_foot_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_hand_root
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_hand_root/CruelDoll:ik_hand_gun
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_hand_root/CruelDoll:ik_hand_gun/CruelDoll:ik_hand_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:ik_hand_root/CruelDoll:ik_hand_gun/CruelDoll:ik_hand_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:index_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:index_01_l/CruelDoll:index_02_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:index_01_l/CruelDoll:index_02_l/CruelDoll:index_03_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:middle_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:middle_01_l/CruelDoll:middle_02_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:middle_01_l/CruelDoll:middle_02_l/CruelDoll:middle_03_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:pinky_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:pinky_01_l/CruelDoll:pinky_02_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:pinky_01_l/CruelDoll:pinky_02_l/CruelDoll:pinky_03_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:ring_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:ring_01_l/CruelDoll:ring_02_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:ring_01_l/CruelDoll:ring_02_l/CruelDoll:ring_03_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:thumb_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:thumb_01_l/CruelDoll:thumb_02_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:hand_l/CruelDoll:thumb_01_l/CruelDoll:thumb_02_l/CruelDoll:thumb_03_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:lowerarm_l/CruelDoll:lowerarm_twist_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_l/CruelDoll:upperarm_l/CruelDoll:upperarm_twist_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:index_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:index_01_r/CruelDoll:index_02_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:index_01_r/CruelDoll:index_02_r/CruelDoll:index_03_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:middle_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:middle_01_r/CruelDoll:middle_02_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:middle_01_r/CruelDoll:middle_02_r/CruelDoll:middle_03_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:pinky_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:pinky_01_r/CruelDoll:pinky_02_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:pinky_01_r/CruelDoll:pinky_02_r/CruelDoll:pinky_03_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:ring_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:ring_01_r/CruelDoll:ring_02_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:ring_01_r/CruelDoll:ring_02_r/CruelDoll:ring_03_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:thumb_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:thumb_01_r/CruelDoll:thumb_02_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:hand_r/CruelDoll:thumb_01_r/CruelDoll:thumb_02_r/CruelDoll:thumb_03_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:lowerarm_r/CruelDoll:lowerarm_twist_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:clavicle_r/CruelDoll:upperarm_r/CruelDoll:upperarm_twist_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:neck_01
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:spine_01/CruelDoll:spine_02/CruelDoll:spine_03/CruelDoll:neck_01/CruelDoll:head
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_l/CruelDoll:calf_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_l/CruelDoll:calf_l/CruelDoll:calf_twist_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_l/CruelDoll:calf_l/CruelDoll:foot_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_l/CruelDoll:calf_l/CruelDoll:foot_l/CruelDoll:ball_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_l/CruelDoll:thigh_twist_01_l
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_r/CruelDoll:calf_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_r/CruelDoll:calf_r/CruelDoll:calf_twist_01_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_r/CruelDoll:calf_r/CruelDoll:foot_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_r/CruelDoll:calf_r/CruelDoll:foot_r/CruelDoll:ball_r
+    m_Weight: 1
+  - m_Path: CruelDoll:root/CruelDoll:pelvis/CruelDoll:thigh_r/CruelDoll:thigh_twist_01_r
+    m_Weight: 1

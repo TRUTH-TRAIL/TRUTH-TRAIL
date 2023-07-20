@@ -6,6 +6,7 @@ public class AIFindState : AIState
 {
     float _time = 0.0f;
     float _findTime = 1.0f;
+    float _speed = 2f;
     public AIStateId GetId()
     {
         return AIStateId.FindPlayer;
@@ -14,7 +15,7 @@ public class AIFindState : AIState
 
     public void Enter(AIAgent agent)
     {
-        throw new System.NotImplementedException();
+        agent._navMeshAgent.speed = _speed;
     }
 
     public void Update(AIAgent agent)

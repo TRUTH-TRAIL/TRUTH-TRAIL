@@ -50,6 +50,11 @@ public class AIAgent : MonoBehaviour
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
     }
+
+    public void CheckPlayerIsInSight()
+    {
+
+    }
     public void CheckDoor()
     {
         RaycastHit hit;

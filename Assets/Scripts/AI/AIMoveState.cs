@@ -29,23 +29,31 @@ public class AIMoveState : AIState
 
     public void Update(AIAgent agent)
     {
-        if (agent._sensor.IsInSight(agent._playerTransform.gameObject) || GameManager.Instance.aggroGauge >= 100)
+        if (agent._sensor.Objects.Count > 0 || GameManager.Instance.aggroGauge >= 100)
         {
             agent._stateMachine.ChangeState(AIStateId.ChasePlayer);
         }
 
         if((agent._navMeshAgent.destination - agent.transform.position).sqrMagnitude <= agent._navMeshAgent.stoppingDistance * agent._navMeshAgent.stoppingDistance)
         {
-            pathManager.SetVisit(true);
-            pathManager.SetShortestDestination(agent._navMeshAgent);
+            if (!agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"))
+            {
+                agent._animator.Play("Find");
+                return;
+            }
+            if (agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime>= 1.0f)
+            {
+                pathManager.SetVisit(true);
+                pathManager.SetShortestDestination(agent._navMeshAgent);
+                agent._animator.Play("Idle And Walk", -1, 0);
+            }
         }
-
 
     }
 
     public void Exit(AIAgent agent)
     {
-        
+        agent._animator.Play("Idle And Walk");
     }
 
 

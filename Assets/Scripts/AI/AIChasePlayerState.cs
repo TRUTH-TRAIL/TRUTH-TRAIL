@@ -40,7 +40,7 @@ public class AIChasePlayerState : AIState
          * ChasingTime = 0;
          * }
          */
-        if(agent._sensor.Objects.Count > 0 || GameManager.Instance.aggroGauge >= 100.0f)
+        if(agent._sensor.Objects.Count > 0)
         {
             chasingTime = agent._config._maxChasingTime;
         }

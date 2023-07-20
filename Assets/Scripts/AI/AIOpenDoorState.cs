@@ -25,8 +25,9 @@ public class AIOpenDoorState : AIState
         {
             Debug.Log("Door Animation");
             agent._animator.Play("OpenDoor",-1, 0f);
-            door.Open = true;
+            door.OpenDoor(agent.transform);
         }
+        else { agent._stateMachine.ChangeState(AIStateId.Idle); }
     }
 
     public void Update(AIAgent agent)
@@ -36,6 +37,7 @@ public class AIOpenDoorState : AIState
             Debug.Log(agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             if(agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
             {
+                door = null; 
                 agent._animator.Play("Idle And Walk", -1, 0);
                 agent._stateMachine.ChangeState(AIStateId.Idle);
             }
@@ -59,10 +61,5 @@ public class AIOpenDoorState : AIState
             }
         }
         return false;
-    }
-
-    public void OpenDoorIsOver()
-    {
-        
     }
 }
