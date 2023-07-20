@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class Stop : MonoBehaviour
 {
+    GameObject specialPaper;
     // Start is called before the first frame update
     void Start()
     {
-        
+        specialPaper = GameObject.Find("Canvas").transform.Find("specialPaper").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.activeSelf == true){
+        if(specialPaper.activeSelf == true){
             Time.timeScale = 0;
         }
         else{

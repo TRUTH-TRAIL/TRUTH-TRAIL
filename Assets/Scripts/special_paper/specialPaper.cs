@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class specialPaper : MonoBehaviour
 {
+    GameObject special_Paper;
     // Start is called before the first frame update
     void Start()
     {
-        
+        special_Paper = GameObject.Find("Canvas").transform.Find("specialPaper").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.activeSelf ==true){
+        if(special_Paper.activeSelf ==true){
             if(Input.GetKeyDown(KeyCode.Tab)){
-                GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.SetActive(false);
+                special_Paper.SetActive(false);
                 Time.timeScale = 0;
             }
         }
         else{
             if(Input.GetKeyDown(KeyCode.Tab)){
-                GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.SetActive(true);
+                special_Paper.SetActive(true);
                 Time.timeScale = 1.0f;
             }
         }

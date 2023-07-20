@@ -2,24 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class judgeProviso : MonoBehaviour
 {
-    public ArrayList getproviso = new ArrayList();
-    public string[] proviso;
-    public string[] trueproviso;
-    public string[] falseproviso;
-    public string[] curse;
+    public List<Memo> getproviso = new List<Memo>();
+   /* public string[] proviso;
+    public bool[] trueproviso;
+    public bool[] falseproviso;
+    public string[] curse;*/
     public Text[] text;
-    int a;
-    // Start is called before the first frame update
-    void Start()
+    public string memoType;
+    public string memoData;
+    int index = 0;
+   /* void Awake()
     {
-        a = 0;
+        for(int i = 0; i < 10; i++){
+            text[i] = GameObject.Find("Canvas").transform.Find("specialPaper").transform.Find("list").transform.GetChild(i).gameObject.GetComponent<Text>();
+        }
+    }*/
+    void setMemo(){
+        Memo memo = new Memo();
+        string jsonData = JsonUtility.ToJson(memo);
+        memoType = jsonData.Substring(jsonData.IndexOf("memoType") + 10, jsonData.IndexOf(",") - jsonData.IndexOf(":") - 1);
+        memoData = jsonData.Substring(jsonData.IndexOf("memoData") + 11, jsonData.IndexOf("}") - jsonData.IndexOf("memoData") - 12);
     }
 
     private void OnEnable() {
-        if(a < 10){
+        if(index < 10){
+            setMemo();
+            getproviso.Add(new Memo() { memoType = Convert.ToBoolean(memoType), memoData = memoData});
+            foreach(Memo memo in getproviso){
+                text[index].text = memo.memoData;
+            }
+            text[index].gameObject.SetActive(true);
+            index++;
+        }
+    }
+}
+        /*if(a < 10){
             bool find = false;
             int r = Random.Range(0, 9);
             getproviso.Add(proviso[r]);
@@ -40,16 +61,5 @@ public class judgeProviso : MonoBehaviour
                         find = true;
                     }
                 }
-            }
-            text[a].text = (string)getproviso[a];
-            text[a].gameObject.SetActive(true);
-            a++;
-        }
-    }
+            }*/
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-}
