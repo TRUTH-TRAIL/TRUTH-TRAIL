@@ -59,8 +59,6 @@ public class Door : MonoBehaviour
 
     public void OpenDoor(Transform interactor)
     {
-        if (Input.GetMouseButtonDown(0) && trig)
-        {
             if (Vector3.Dot(transform.right, interactor.position - transform.position) > 0)
             {
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
@@ -70,7 +68,6 @@ public class Door : MonoBehaviour
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y - DoorOpenAngle, defaultRot.eulerAngles.z);
             }
             open = !open;
-        }
     }
 
     private void OnTriggerEnter(Collider coll)

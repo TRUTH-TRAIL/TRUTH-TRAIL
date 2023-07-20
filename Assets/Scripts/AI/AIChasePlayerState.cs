@@ -102,7 +102,7 @@ public class AIChasePlayerState : AIState
     private bool IsCatchPlayer(AIAgent agent)
     {
         float distance = (agent._playerTransform.position - agent.transform.position).sqrMagnitude;
-        if(distance < agent._config._catchDistance * agent._config._catchDistance && !Physics.Linecast(agent.transform.position, agent._playerTransform.position)){
+        if(distance < agent._config._catchDistance * agent._config._catchDistance && !Physics.Linecast(agent.transform.position, agent._playerTransform.position, agent._sensor.occlusionLayers)){
             return true;
         }
         return false;

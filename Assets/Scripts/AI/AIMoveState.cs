@@ -38,14 +38,20 @@ public class AIMoveState : AIState
         {
             if (!agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"))
             {
+                agent._navMeshAgent.isStopped = true;
+                agent._navMeshAgent.velocity = Vector3.zero;
                 agent._animator.Play("Find");
                 return;
             }
+            Debug.Log(agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"));
+            Debug.Log(agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
             if (agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime>= 1.0f)
             {
+                Debug.Log("Move Start!");
                 pathManager.SetVisit(true);
                 pathManager.SetShortestDestination(agent._navMeshAgent);
                 agent._animator.Play("Idle And Walk", -1, 0);
+                agent._navMeshAgent.isStopped = false;
             }
         }
 

@@ -18,6 +18,8 @@ public class AIAttackPlayerState : AIState
          */
         Debug.Log("Catch1");
         agent._navMeshAgent.isStopped = true;
+        GameOverUI gameOverUI = Transform.FindObjectOfType<GameOverUI>(true);
+        gameOverUI.gameObject.SetActive(true);
         agent._stateMachine.ChangeState(AIStateId.Idle);
     }
 
