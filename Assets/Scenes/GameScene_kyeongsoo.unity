@@ -49809,6 +49809,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 851914974, guid: 986901e932181c347b08982334e7dba8, type: 3}
+      propertyPath: layers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 851914974, guid: 986901e932181c347b08982334e7dba8, type: 3}
+      propertyPath: occlusionLayers.m_Bits
+      value: 1792
+      objectReference: {fileID: 0}
     - target: {fileID: 1705075643629710559, guid: 986901e932181c347b08982334e7dba8, type: 3}
       propertyPath: m_RootOrder
       value: 4
