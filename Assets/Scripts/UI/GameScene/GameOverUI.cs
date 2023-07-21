@@ -12,7 +12,6 @@ public class GameOverUI : MonoBehaviour
 
     void Start()
     {
-        Time.timeScale = 0;
 
 
         RetryBtn = this.transform.Find("RetryButton").GetComponent<Button>();
@@ -22,6 +21,10 @@ public class GameOverUI : MonoBehaviour
         BackToMainBtn.onClick.AddListener(() => BackToMainBtnEvent());
     }
 
+    private void OnEnable()
+    {
+        Time.timeScale = 0;
+    }
 
     void RetryBtnEvent()
     {

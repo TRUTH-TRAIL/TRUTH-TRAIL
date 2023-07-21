@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private float footGaugeTimer; 
     private float footGaugeIncreaseInterval = 1f;
     private float footGaugeDecreaseTimer = 2f;
+    public float FootGauge { get { return footGauge; } set { footGauge = Mathf.Clamp(value, minFootGauge, maxFootGauge); } }
     //특수용지
     bool activePaper = false;
     [SerializeField]
