@@ -27,6 +27,5 @@ public class ObjectDetector : MonoBehaviour
                 raycastEvent.Invoke(hit.transform);
             }
         }
-        
     }
 }

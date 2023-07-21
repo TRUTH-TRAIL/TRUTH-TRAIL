@@ -14,7 +14,7 @@ public class ObjectInteract : MonoBehaviour
     private int clueTextIndex = 0;
     [SerializeField] Text[] text;
 
-    private bool[] getClue = new bool[15];
+    private bool[] getClue = new bool[15]; //단서 습득 유무
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);

@@ -17,7 +17,8 @@ public class Door : MonoBehaviour
     {
         defaultRot = transform.rotation;
         openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
-        txt = GameObject.FindObjectOfType<Text>();
+        //txt = GameObject.FindObjectOfType<Text>();
+        txt = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
