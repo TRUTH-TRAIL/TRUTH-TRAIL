@@ -64,10 +64,15 @@ public class Player : MonoBehaviour
  
     private void ViewPaper() //특수용지 On/OFF
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKey(KeyCode.Tab))
         {
-            activePaper = !activePaper;
-            paperPanel.SetActive(activePaper);
+            paperPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            paperPanel.SetActive(false);
+            Time.timeScale = 1;
         }
     }
 }

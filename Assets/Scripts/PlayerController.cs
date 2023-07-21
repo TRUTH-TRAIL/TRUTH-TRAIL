@@ -83,9 +83,13 @@ public class PlayerController : MonoBehaviour
         TrySlow();
         TryRun();
         //TryCrouch();
-        Move();
-        CharacterRotation();
-        CameraRotation();
+        if(Time.timeScale != 0)
+        {
+            Move();
+            CharacterRotation();
+            CameraRotation();
+        }
+        
 
     }
 

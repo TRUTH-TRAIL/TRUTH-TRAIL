@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class ObjectInteract : MonoBehaviour
 {
@@ -9,10 +11,18 @@ public class ObjectInteract : MonoBehaviour
     private Vector3 defaultRot;
     private Vector3 openRot;
     private bool isRotating;
+    private int clueTextIndex = 0;
+    [SerializeField] Text[] text;
+
+    private bool[] getClue = new bool[15];
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
         isRotating = false;
+    }
+    private void Start()
+    {
+        
     }
 
     private void OnHit(Transform target)
@@ -34,7 +44,7 @@ public class ObjectInteract : MonoBehaviour
 
         if(target.CompareTag("Clue")){
             Destroy(target.gameObject);
-            //ClueUpdate(target.gameObject);
+            ClueUpdate(target.gameObject);
         }
 
     }
@@ -63,7 +73,9 @@ public class ObjectInteract : MonoBehaviour
     }
 
     private void ClueUpdate(GameObject clue){
-        //string Text = clue.GetComponent<>().text;
-        //GameManager.instance.clueList.Add(Text);
+        text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
+        getClue[clue.GetComponent<MemoScript>().key] = true; // 이부분은 추후 GameManager를 통해 관리
+        text[clueTextIndex].gameObject.SetActive(true);
+        clueTextIndex++;
     }
 }
