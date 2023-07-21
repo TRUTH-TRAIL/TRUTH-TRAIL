@@ -25,13 +25,14 @@ public class Player : MonoBehaviour
     bool activePaper = false;
     [SerializeField]
     GameObject paperPanel;
+    [SerializeField]
+    GameObject gameoverui;
 
     // Start is called before the first frame update
     void Start()
     {
         footGaugeTimer = footGaugeIncreaseInterval;
         paperPanel.SetActive(activePaper);
-
     }
 
     // Update is called once per frame
@@ -92,15 +93,17 @@ public class Player : MonoBehaviour
  
     private void ViewPaper() //특수용지 On/OFF
     {
-        if (Input.GetKey(KeyCode.Tab))
-        {
-            paperPanel.SetActive(true);
-            Time.timeScale = 0;
-        }
-        else
-        {
-            paperPanel.SetActive(false);
-            Time.timeScale = 1;
+        if(gameoverui.activeSelf != true){
+            if (Input.GetKey(KeyCode.Tab))
+            {
+                paperPanel.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                paperPanel.SetActive(false);
+                Time.timeScale = 1;
+            }
         }
     }
 
