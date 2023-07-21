@@ -18393,18 +18393,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2071072150}
---- !u!114 &851914973
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 851914970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db042075292df364391a2d4ce29f21a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &864592247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18833,6 +18821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db042075292df364391a2d4ce29f21a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayertimeScale: 0
 --- !u!1001 &881479999
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36390,7 +36379,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1674879923}
-  - component: {fileID: 1674879921}
   m_Layer: 0
   m_Name: Memo
   m_TagString: Untagged
@@ -36398,19 +36386,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1674879921
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1674879920}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee55476175cba1148843204379919065, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  memoList: []
 --- !u!4 &1674879923
 Transform:
   m_ObjectHideFlags: 0

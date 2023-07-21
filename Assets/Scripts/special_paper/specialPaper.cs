@@ -17,13 +17,11 @@ public class specialPaper : MonoBehaviour
         if(special_Paper.activeSelf ==true){
             if(Input.GetKeyDown(KeyCode.Tab)){
                 special_Paper.SetActive(false);
-                Time.timeScale = 0;
             }
         }
         else{
             if(Input.GetKeyDown(KeyCode.Tab)){
                 special_Paper.SetActive(true);
-                Time.timeScale = 1.0f;
             }
         }
     }
