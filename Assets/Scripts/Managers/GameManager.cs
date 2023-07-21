@@ -6,12 +6,12 @@ public class GameManager
 {
     private static GameManager _instance;
     public static GameManager Instance { get { Init(); return _instance; } }
-    private GameObject players;
     private HashSet<GameObject> Enemies;
+    public float _playerTimeScale = 1f;
+    public float PlayerTimeScale { get { return _playerTimeScale; } set { if (value >= 1) value = 1; else if (value < 0) value = 0;  _playerTimeScale = value; } }
+    float _enemyTimeScale = 1f;
+    public float EnemyTimeScale { get { return _enemyTimeScale * Time.timeScale; } set { if (value >= 1) value = 1; else if (value < 0) value = 0; _enemyTimeScale = value; } }
 
-
-    private float _aggruGauge = 0;
-    public float aggroGauge { get { return _aggruGauge; } set { _aggruGauge = value; } }
 
     private static void Init()
     {

@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     private int maxFootGauge = 100;
     private float footGaugeTimer; 
     private float footGaugeIncreaseInterval = 1f;
+    public float FootGauge { get { return footGauge; } private set { } }
 
     //특수용지
     bool activePaper = false;

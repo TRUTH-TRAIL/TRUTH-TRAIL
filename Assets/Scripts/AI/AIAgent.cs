@@ -10,13 +10,15 @@ public class AIAgent : MonoBehaviour
     public Animator _animator;
 
     [HideInInspector] public Transform _playerTransform;
+    
     [HideInInspector] public AIStateMachine _stateMachine;
     
     [HideInInspector] public NavMeshAgent _navMeshAgent;
     
     [HideInInspector] public AISensor _sensor;
 
-    bool isCatchPlayer = false;
+    private Player player;
+    public float AggroGauge { get { return player.FootGauge; } }
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class AIAgent : MonoBehaviour
         _sensor = GetComponent<AISensor>();
         _animator = GetComponent<Animator>();
         _playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        player = _playerTransform.GetComponent<Player>();
 
         _stateMachine.RegisterState(new AIChasePlayerState());
         _stateMachine.RegisterState(new AIIdleState());
@@ -78,5 +81,10 @@ public class AIAgent : MonoBehaviour
         }
         Gizmos.color = Color.green;
         Gizmos.DrawRay(this.transform.position + new Vector3(0, 0.5f, 0), this.transform.forward*0.5f);
+    }
+
+    public float SetSpeed(float speedValue)
+    {
+        return speedValue * GameManager.Instance.EnemyTimeScale;
     }
 }

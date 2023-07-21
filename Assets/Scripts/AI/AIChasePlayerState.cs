@@ -17,7 +17,7 @@ public class AIChasePlayerState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent._navMeshAgent.speed = 2f;
+        agent._navMeshAgent.speed = agent.SetSpeed(2f);
         agent._navMeshAgent.isStopped = false;
         chasingTime = agent._config._maxChasingTime;
     }
@@ -51,7 +51,11 @@ public class AIChasePlayerState : AIState
          *  agent._stateMachine.ChangeState(AIStateId.IdleState); 
          */
         if (chasingTime < 0)
+        {
+            chasingTime = agent._config._maxChasingTime;
             agent._stateMachine.ChangeState(AIStateId.Idle);
+        }
+            
 
         LookTarget(agent);
         ChaseTarget(agent);

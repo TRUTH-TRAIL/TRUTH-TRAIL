@@ -15,14 +15,17 @@ public class AIFindState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent._navMeshAgent.speed = _speed;
+        agent._navMeshAgent.speed = agent.SetSpeed(_speed);
     }
 
     public void Update(AIAgent agent)
     {
-        if (GameManager.Instance.aggroGauge <= 0)
+        if (agent._sensor.Objects.Count > 0 || agent.AggroGauge >= 90)
+        {
+            agent._stateMachine.ChangeState(AIStateId.ChasePlayer);
+        }
+        if (agent.AggroGauge <= 0)
             agent._stateMachine.ChangeState(AIStateId.Idle);
-        GameManager.Instance.aggroGauge -= 1;
 
 
         /**
@@ -36,6 +39,6 @@ public class AIFindState : AIState
 
     public void Exit(AIAgent agent)
     {
-        throw new System.NotImplementedException();
+
     }
 }

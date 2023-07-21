@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Memo
+public class Memo2
 {
 
     //전체 메모지 데이터만 저장

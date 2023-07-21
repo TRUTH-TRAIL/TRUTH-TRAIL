@@ -13,12 +13,12 @@ public class AIIdleState : AIState
     public void Enter(AIAgent agent)
     {
         //Chase
-        if (agent._sensor.Objects.Count > 0 || GameManager.Instance.aggroGauge >= 100)
+        if (agent._sensor.Objects.Count > 0 || agent.AggroGauge >= 90)
         {
             agent._stateMachine.ChangeState(AIStateId.ChasePlayer);
         }
         //Find
-        else if (GameManager.Instance.aggroGauge > 0)
+        else if (agent.AggroGauge > 20)
         {
             agent._stateMachine.ChangeState(AIStateId.FindPlayer);
         }

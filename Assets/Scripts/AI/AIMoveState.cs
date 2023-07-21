@@ -7,7 +7,6 @@ public class AIMoveState : AIState
 {
     List<Transform> Locations = new List<Transform>();
     NavMeshPathManager pathManager;
-    float animeTime = 3.0f;
 
     public AIMoveState()
     {
@@ -20,7 +19,7 @@ public class AIMoveState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent._navMeshAgent.speed = 1f;
+        agent._navMeshAgent.speed = agent.SetSpeed(1f);
         pathManager.SetShortestDestination(agent._navMeshAgent);
         Debug.Log($"{pathManager.ShowNodes()[pathManager.curDestination].name} is {pathManager.ShowNodeVisit()[pathManager.curDestination]}");
         Debug.Log("Move Start!");
@@ -29,12 +28,12 @@ public class AIMoveState : AIState
 
     public void Update(AIAgent agent)
     {
-        if (agent._sensor.Objects.Count > 0 || GameManager.Instance.aggroGauge >= 100)
+        if (agent._sensor.Objects.Count > 0 || agent.AggroGauge >= 90)
         {
             agent._stateMachine.ChangeState(AIStateId.ChasePlayer);
         }
 
-        if((agent._navMeshAgent.destination - agent.transform.position).sqrMagnitude <= agent._navMeshAgent.stoppingDistance * agent._navMeshAgent.stoppingDistance)
+        if ((agent._navMeshAgent.destination - agent.transform.position).sqrMagnitude <= agent._navMeshAgent.stoppingDistance * agent._navMeshAgent.stoppingDistance)
         {
             if (!agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"))
             {
