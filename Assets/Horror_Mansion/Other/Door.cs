@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Door : MonoBehaviour
 {
     bool trig, open;

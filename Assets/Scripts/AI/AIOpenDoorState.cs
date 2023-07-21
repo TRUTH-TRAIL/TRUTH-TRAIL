@@ -5,6 +5,8 @@ using UnityEngine;
 public class AIOpenDoorState : AIState
 {
     Door door;
+    
+
     public AIStateId GetId()
     {
         return AIStateId.OpenDoor;
