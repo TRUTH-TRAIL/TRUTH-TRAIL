@@ -7,6 +7,8 @@ public class AIMoveState : AIState
 {
     List<Transform> Locations = new List<Transform>();
     NavMeshPathManager pathManager;
+    float maxSpeed = 2f;
+    float moveSpeed = 1f;
 
     public AIMoveState()
     {
@@ -19,7 +21,7 @@ public class AIMoveState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent._navMeshAgent.speed = agent.SetSpeed(1f);
+        agent._navMeshAgent.speed = agent.SetSpeed(moveSpeed * maxSpeed);
         pathManager.SetShortestDestination(agent._navMeshAgent);
         Debug.Log($"{pathManager.ShowNodes()[pathManager.curDestination].name} is {pathManager.ShowNodeVisit()[pathManager.curDestination]}");
         Debug.Log("Move Start!");
