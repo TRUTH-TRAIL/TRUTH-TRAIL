@@ -117,7 +117,7 @@ MonoBehaviour:
     value: {x: 50, y: 95}
   minLuminance:
     overrideState: 1
-    value: 2.6
+    value: 3
   maxLuminance:
     overrideState: 1
     value: 9
@@ -240,7 +240,7 @@ MonoBehaviour:
     value: {x: 1, y: 1, z: 1, w: 0}
   gamma:
     overrideState: 1
-    value: {x: 0.9466229, y: 0.9505197, z: 1, w: 0}
+    value: {x: 0.9292431, y: 0.92971, z: 1, w: -0.008141296}
   gain:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
