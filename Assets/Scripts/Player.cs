@@ -5,13 +5,8 @@ using UnityEngine.UI; //FootGauge UI를 위한 임시 적용
 
 public class Player : MonoBehaviour
 {
-    //FootGauge UI 표시를 위한 임시 선언
-    [SerializeField]
-    private Slider footGaugeSlider;
-    [SerializeField]
-    private Text footText;
-
     private float speed = 4f;
+    
 
     //발소리 게이지
     private float footGauge;  //내부적으로 작용되는 발소리 게이지
@@ -27,23 +22,22 @@ public class Player : MonoBehaviour
     GameObject paperPanel;
     [SerializeField]
     GameObject gameoverui;
-
+    
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         footGaugeTimer = footGaugeIncreaseInterval;
         paperPanel.SetActive(activePaper);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         FootStepGauge();
-        ViewPaper();
-
-        //FootGauge UI를 위한 임시 동작
-        footGaugeSlider.value = footGauge;
-        footText.text = footGauge.ToString("F1");
+        //ViewPaper();
     }
 
     private void FootStepGauge() //발소리 게이지 관리
@@ -106,6 +100,6 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    
 
 }

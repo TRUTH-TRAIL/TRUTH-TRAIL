@@ -8,6 +8,7 @@ TagManager:
   - Door
   - Clue
   - AILocation
+  - Item
   layers:
   - Default
   - TransparentFX

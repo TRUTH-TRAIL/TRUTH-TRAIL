@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5588292045385918993}
   - component: {fileID: 6473339991303433316}
   - component: {fileID: 7229086187661858258}
+  - component: {fileID: 2172410229920321979}
   m_Layer: 0
   m_Name: Memo
-  m_TagString: Clue
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,5 +110,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9ca029af12c0d540b7a3dd7608f17c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 0
   type: 0
   memoData: 
+--- !u!114 &2172410229920321979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836333816214051096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50d456bcbd4764994284973edf6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 1
