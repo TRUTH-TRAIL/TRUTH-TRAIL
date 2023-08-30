@@ -6,6 +6,14 @@ using UnityEngine.UI;
 
 public class ObjectInteract : MonoBehaviour
 {
+    public enum ObjectType
+    {
+        Door,
+        Clue,
+        Flash,
+        Battery,
+    }
+
     [SerializeField] ObjectDetector objectDetector;
     [SerializeField] float smooth = 2.0f;
     private Vector3 defaultRot;
@@ -22,12 +30,37 @@ public class ObjectInteract : MonoBehaviour
     }
     private void Start()
     {
-        
+
     }
 
     private void OnHit(Transform target)
     {
-        if (target.CompareTag("Door") && !isRotating)
+        ObjectTypeController controller = target.GetComponent<ObjectTypeController>();
+        if (controller == null) return;
+
+        ObjectType objectType = controller.objectType;
+
+        switch (objectType)
+        {
+            case ObjectType.Door:
+                HandleDoor(target);
+                break;
+            case ObjectType.Clue:
+                HandleClue(target);
+                break;
+            case ObjectType.Flash:
+                HandleFlash(target);
+                break;
+            case ObjectType.Battery:
+                HandleBattery(target);
+                break;
+                // 추가 케이스를 여기에 작성합니다.
+        }
+    }
+
+    private void HandleDoor(Transform target)
+    {
+        if (!isRotating)
         {
             DoorFSM door = target.GetComponent<DoorFSM>();
             if (!door.isOpen)
@@ -41,14 +74,7 @@ public class ObjectInteract : MonoBehaviour
                 door.isOpen = false;
             }
         }
-
-        if(target.CompareTag("Clue")){
-            Destroy(target.gameObject);
-            ClueUpdate(target.gameObject);
-        }
-
     }
-
     private IEnumerator DoorRotate(Transform target, bool isOpen, float openAngle)
     {
         isRotating = true;
@@ -72,10 +98,31 @@ public class ObjectInteract : MonoBehaviour
         isRotating = false;
     }
 
-    private void ClueUpdate(GameObject clue){
+
+    private void HandleClue(Transform target)
+    {
+        Destroy(target.gameObject);
+        ClueUpdate(target.gameObject);
+    }
+    private void ClueUpdate(GameObject clue)
+    {
         text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
         getClue[clue.GetComponent<MemoScript>().key] = true; // 이부분은 추후 GameManager를 통해 관리
         text[clueTextIndex].gameObject.SetActive(true);
         clueTextIndex++;
+    }
+
+    private void HandleFlash(Transform target)
+    {
+        GameObject.FindWithTag("Player").GetComponent<FlashLight>().getFlash = true;
+        Destroy(target.parent.gameObject);
+
+
+    }
+
+    private void HandleBattery(Transform target)
+    {
+        Destroy(target.gameObject);
+        GameObject.FindWithTag("Player").GetComponent<FlashLight>().UpdateBattery(false);
     }
 }
