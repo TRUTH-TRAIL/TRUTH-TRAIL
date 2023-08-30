@@ -12,11 +12,7 @@ public class Player : MonoBehaviour
     private Text footText;
 
     private float speed = 4f;
-<<<<<<< Updated upstream
-
-=======
     RaycastHit hitData;
->>>>>>> Stashed changes
     //발소리 게이지
     private float footGauge;  //내부적으로 작용되는 발소리 게이지
     private int minFootGauge = 0;
@@ -31,11 +27,7 @@ public class Player : MonoBehaviour
     GameObject paperPanel;
     [SerializeField]
     GameObject gameoverui;
-<<<<<<< Updated upstream
-
-=======
     public Ray ray;
->>>>>>> Stashed changes
     // Start is called before the first frame update
     void Start()
     {
