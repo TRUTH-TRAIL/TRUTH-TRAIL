@@ -8,6 +8,11 @@ TagManager:
   - Door
   - Clue
   - AILocation
+<<<<<<< Updated upstream
+=======
+  - Item
+  - poster
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
