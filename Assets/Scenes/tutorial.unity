@@ -30585,7 +30585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee13094285a8da4cb8522e6ef827636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AIobject: {fileID: 0}
+  AIobject: {fileID: 1124189862}
   cam: {fileID: 1712510698}
   inCamera: 0
   AIMemo: {fileID: 1274247257}
@@ -36253,6 +36253,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4e99eb58b609dc49a06ec1c382c196a, type: 3}
+--- !u!1 &1124189862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8299457458641954808, guid: d4e99eb58b609dc49a06ec1c382c196a, type: 3}
+  m_PrefabInstance: {fileID: 1124189861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1125127333
 PrefabInstance:
   m_ObjectHideFlags: 0
