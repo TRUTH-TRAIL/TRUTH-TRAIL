@@ -19,7 +19,15 @@ public class DoorCheck : MonoBehaviour
        // }
         if(other.CompareTag("Player")){
             if(cameraViewCheck.inCamera == true)
+            {
+                StartCoroutine(gameStart());
                 door.GetComponent<Door>().OpenDoor(other.transform);
+            }
         }
+    }
+
+    IEnumerator gameStart(){
+        yield return new WaitForSeconds(5.0f);
+        LoadingScene.Instance.LoadScene("GameScene_woo");
     }
 }
