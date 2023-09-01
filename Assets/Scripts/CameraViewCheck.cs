@@ -9,7 +9,9 @@ public class CameraViewCheck : MonoBehaviour
     [SerializeField]
     private Camera cam;
     public bool inCamera;
-    public Vector3 viewPos;
+    Vector3 viewPos;
+    [SerializeField]
+    private GameObject AIMemo;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class CameraViewCheck : MonoBehaviour
             viewPos = cam.WorldToViewportPoint(AIobject.transform.position);
             if(viewPos.x <= 0 || viewPos.x >= 1 && viewPos.y <= 0 || viewPos.y >= 1){
                 AIobject.SetActive(false);
+                AIMemo.SetActive(true);
             }
         }
     }
