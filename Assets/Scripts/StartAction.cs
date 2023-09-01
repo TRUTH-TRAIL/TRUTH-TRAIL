@@ -13,7 +13,7 @@ public class StartAction : MonoBehaviour
 
     public void gameStart()
     {
-        SceneManager.LoadScene(1);
+        LoadingScene.Instance.LoadScene("tutorial");
     }
     public void setting()
     {
