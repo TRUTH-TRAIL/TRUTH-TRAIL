@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 2319059650092072102}
   - component: {fileID: 561264672322160748}
   - component: {fileID: 6257426425248577016}
+  - component: {fileID: 8878792924552255987}
+  - component: {fileID: 5712601283460360810}
   m_Layer: 0
   m_Name: Picture_07
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +31,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -103,3 +104,29 @@ LODGroup:
     renderers:
     - renderer: {fileID: 561264672322160748}
   m_Enabled: 1
+--- !u!65 &8878792924552255987
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074751292522277305}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.018393423, y: 0.9017158, z: 0.67446625}
+  m_Center: {x: 0.009196712, y: 0, z: 0}
+--- !u!114 &5712601283460360810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074751292522277305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50d456bcbd4764994284973edf6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 7

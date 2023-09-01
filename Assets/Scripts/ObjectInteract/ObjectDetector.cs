@@ -21,6 +21,8 @@ public class ObjectDetector : MonoBehaviour
     List<Material> materialList = new List<Material>();
     private Renderer currentRenderer = null;
 
+    [SerializeField]
+    private CrossHair crosshair;
 
     private void Awake(){
         mainCamera = Camera.main;
@@ -36,7 +38,8 @@ public class ObjectDetector : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, 5) && (hit.transform.CompareTag("Item") || hit.transform.CompareTag("Door")))
         {
-            
+            crosshair.ChangeColor(Color.blue);
+            /*
             Renderer hitRenderer = hit.transform.gameObject.GetComponent<Renderer>(); materialList.Clear();
             if (currentRenderer == null || currentRenderer != hitRenderer)
             {
@@ -47,7 +50,7 @@ public class ObjectDetector : MonoBehaviour
                 materialList.Add(outline);
                 currentRenderer.materials = materialList.ToArray();
             }
-
+            */
             if (Input.GetMouseButtonDown(0))
             {
                 //ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -56,7 +59,8 @@ public class ObjectDetector : MonoBehaviour
         }
         else
         {
-            RestoreMaterials();
+            crosshair.ChangeColor(Color.white);
+            //RestoreMaterials();
         }
         
 

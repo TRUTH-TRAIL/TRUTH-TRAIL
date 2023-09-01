@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float jumpForce;
 
+    [SerializeField]
+    private GameObject inventoryUI;
 
     // 상태 변수
     private bool isRun = false;
@@ -89,8 +91,12 @@ public class PlayerController : MonoBehaviour
         if(Time.timeScale != 0)
         {
             Move();
-            CharacterRotation();
-            CameraRotation();
+            if(!inventoryUI.activeSelf)
+            {
+                CharacterRotation();
+                CameraRotation();
+            }
+            
         }
         
 

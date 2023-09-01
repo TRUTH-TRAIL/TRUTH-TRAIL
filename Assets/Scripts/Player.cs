@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
     {
         Debug.DrawRay(transform.position, transform.forward * 15f, Color.red, 0.3f);
         if(Physics.Raycast(transform.position, transform.forward, out hitData, 15f)){
-            Debug.Log(hitData.collider.name);
+            //Debug.Log(hitData.collider.name);
         }
         FootStepGauge();
         //ViewPaper();

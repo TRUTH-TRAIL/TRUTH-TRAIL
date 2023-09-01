@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3404750563047618222}
   - component: {fileID: 1254172483906973672}
   - component: {fileID: 2303656963687151527}
-  - component: {fileID: 1389510693657579995}
-  - component: {fileID: 6341082879641554679}
   m_Layer: 0
   m_Name: Sofa_LOD0
   m_TagString: Untagged
@@ -30,7 +28,6 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5435193187471657810}
   m_RootOrder: 0
@@ -85,32 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1389510693657579995
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872963998763397309}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.91884494, y: 0.67228127, z: 2.282773}
-  m_Center: {x: 0.07999551, y: 0.3350067, z: 7.1054274e-15}
---- !u!65 &6341082879641554679
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872963998763397309}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.26917666, y: 0.5962795, z: 2.282773}
-  m_Center: {x: -0.24483863, y: 0.97858256, z: 2.3092639e-14}
 --- !u!1 &3718733761285346002
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +110,6 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5435193187471657810}
   m_RootOrder: 1
@@ -222,7 +192,6 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5435193187471657810}
   m_RootOrder: 2
@@ -304,7 +273,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3404750563047618222}
   - {fileID: 4370290448540313922}

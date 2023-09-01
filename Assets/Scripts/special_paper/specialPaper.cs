@@ -15,18 +15,6 @@ public class specialPaper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.activeSelf ==true){
-            if(Input.GetKeyDown(KeyCode.Tab)){
-                GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.SetActive(false);
-                Time.timeScale = 0;
-            }
-        }
 
-        else{
-            if(Input.GetKeyDown(KeyCode.Tab)){
-                GameObject.Find("Canvas").transform.Find("specialPaper").gameObject.SetActive(true);
-                Time.timeScale = 1.0f;
-            }
-        }
     }
 }

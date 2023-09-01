@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static ObjectInteract;
 
 public class CluePlacement : MonoBehaviour
 {
@@ -12,9 +13,9 @@ public class CluePlacement : MonoBehaviour
     private int clueListCount = 15;  //json에 들어가 있는 데이터 수
 
     private int totalClues = 10;  //real + fake + curse
-    private int realClue = 3;
-    private int fakeClue = 5;
-    private int cursedClue = 2;
+    private int realClue = 5;
+    private int fakeClue = 0;
+    private int cursedClue = 5;
 
     private List<Vector3> cluePositions = new List<Vector3>();
 
@@ -27,21 +28,21 @@ public class CluePlacement : MonoBehaviour
     {
         readMemos = MemoReader.ReadMemos();
         //임의로 선정된 위치(이 부분은 추후 수정)
-        cluePositions.Add(new Vector3(300, 0, 221.2534f));
-        cluePositions.Add(new Vector3(302, 0, 221.2534f));
-        cluePositions.Add(new Vector3(304, 0, 221.2534f));
-        cluePositions.Add(new Vector3(306, 0, 221.2534f));
-        cluePositions.Add(new Vector3(308, 0, 221.2534f));
-        cluePositions.Add(new Vector3(310, 0, 221.2534f));
-        cluePositions.Add(new Vector3(312, 0, 221.2534f));
-        cluePositions.Add(new Vector3(314, 0, 221.2534f));
-        cluePositions.Add(new Vector3(316, 0, 221.2534f));
-        cluePositions.Add(new Vector3(318, 0, 221.2534f));
-        cluePositions.Add(new Vector3(320, 0, 221.2534f));
-        cluePositions.Add(new Vector3(322, 0, 221.2534f));
-        cluePositions.Add(new Vector3(324, 0, 221.2534f));
-        cluePositions.Add(new Vector3(326, 0, 221.2534f));
-        cluePositions.Add(new Vector3(328, 0, 221.2534f));
+        cluePositions.Add(new Vector3(271.053894f, 7.32079983f, 253.649994f));
+        cluePositions.Add(new Vector3(271.56601f, 6.65299988f, 258.602997f));
+        cluePositions.Add(new Vector3(272.390015f, 7.10300016f, 258.571991f));
+        cluePositions.Add(new Vector3(276.166168f, 6.94990015f, 257.136475f));
+        cluePositions.Add(new Vector3(276.928986f, 6.27600002f, 253.695999f));
+        cluePositions.Add(new Vector3(275.903992f, 6.8130002f, 256.533997f));
+        cluePositions.Add(new Vector3(276.497986f, 7.61100006f, 257.723999f));
+        cluePositions.Add(new Vector3(266.422211f, 6.51200008f, 249.523224f));
+        cluePositions.Add(new Vector3(269.98999f, 6.76999998f, 248.823959f));
+        cluePositions.Add(new Vector3(269.492004f, 6.63800001f, 252.872955f));
+        cluePositions.Add(new Vector3(267.501007f, 7.18100023f, 253.358597f));
+        cluePositions.Add(new Vector3(266.760834f, 6.99319983f, 258.552185f));
+        cluePositions.Add(new Vector3(276.5f, 7.75400019f, 257.723999f));
+        cluePositions.Add(new Vector3(268.214752f, 6.8670001f, 266.479004f));
+        cluePositions.Add(new Vector3(274.506989f, 6.61000013f, 267.640991f));
 
         PlaceClues();
 
@@ -58,6 +59,7 @@ public class CluePlacement : MonoBehaviour
             {
                 selectedPositions.Add(randomIndex);
                 GameObject newClue = Instantiate(cluePrefab, cluePositions[randomIndex], Quaternion.identity);  //랜덤한 위치에 단서 생성
+                AttachClueToNearbyObject(newClue);
                 clues.Add(newClue);
             }
         }
@@ -107,4 +109,25 @@ public class CluePlacement : MonoBehaviour
 
     }
 
+    private void AttachClueToNearbyObject(GameObject clue)
+    {
+        float searchRadius = 0.1f;
+        Collider[] hitColliders = Physics.OverlapSphere(clue.transform.position, searchRadius);
+
+        foreach (var hitCollider in hitColliders)
+        {
+            ObjectTypeController objTypeController = hitCollider.GetComponent<ObjectTypeController>();
+            if (objTypeController && objTypeController.objectType == ObjectType.Drawer)
+            {
+                clue.transform.SetParent(hitCollider.transform, true);
+                break;
+            }
+            if (objTypeController && objTypeController.objectType == ObjectType.Frame)
+            {
+                clue.transform.Rotate(0f, 0f, 90f);
+                clue.transform.SetParent(hitCollider.transform, true);
+                break;
+            }
+        }
+    }
 }
