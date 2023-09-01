@@ -9,6 +9,7 @@ public class AIChasePlayerState : AIState
     float timer = 0.0f;
     float chasingTime = 0.0f;
     float extraRotationSpeed = 30f;
+    float speed = 1.5f;
     Collider[] colliders = new Collider[50];
     public AIStateId GetId()
     {
@@ -17,7 +18,7 @@ public class AIChasePlayerState : AIState
 
     public void Enter(AIAgent agent)
     {
-        agent._navMeshAgent.speed = agent.SetSpeed(2f);
+        agent._navMeshAgent.speed = agent.SetSpeed(speed);
         agent._navMeshAgent.isStopped = false;
         chasingTime = agent._config._maxChasingTime;
     }

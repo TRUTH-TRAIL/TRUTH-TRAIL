@@ -10,7 +10,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 1
   m_Acceleration: 20
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -168,6 +168,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
       propertyPath: m_LocalPosition.x
       value: 333.79
       objectReference: {fileID: 0}
@@ -209,7 +221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
       propertyPath: m_Name
-      value: SK_CruelDoll Variant
+      value: Alley
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
       propertyPath: m_Controller
@@ -219,6 +231,10 @@ PrefabInstance:
       propertyPath: m_ApplyRootMotion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7619282331220952282, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d42fe6a8ff8b2274bab0cfbd21353d7c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f2be9e6117b26a4c896e53551634267, type: 3}
 --- !u!1 &2081355647408436837 stripped
