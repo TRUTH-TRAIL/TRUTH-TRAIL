@@ -7,7 +7,7 @@ public class AIMoveState : AIState
 {
     List<Transform> Locations = new List<Transform>();
     NavMeshPathManager pathManager;
-    float maxSpeed = 2f;
+    float maxSpeed = 1f;
     float moveSpeed = 1f;
 
     public AIMoveState()
@@ -37,25 +37,8 @@ public class AIMoveState : AIState
 
         if ((agent._navMeshAgent.destination - agent.transform.position).sqrMagnitude <= agent._navMeshAgent.stoppingDistance * agent._navMeshAgent.stoppingDistance)
         {
-            if (!agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"))
-            {
-                agent._navMeshAgent.isStopped = true;
-                agent._navMeshAgent.velocity = Vector3.zero;
-                agent._animator.Play("Find");
-                return;
-            }
-        }
-
-        if (agent._animator.GetCurrentAnimatorStateInfo(0).IsName("Find"))
-        {
-            if (agent._animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1.0f)
-            {
-                Debug.Log("Move Start!");
-                pathManager.SetVisit(true);
-                pathManager.SetShortestDestination(agent._navMeshAgent);
-                agent._animator.Play("Idle And Walk", -1, 0);
-                agent._navMeshAgent.isStopped = false;
-            }
+            pathManager.SetVisit(true);
+            pathManager.SetShortestDestination(agent._navMeshAgent);
         }
 
     }
