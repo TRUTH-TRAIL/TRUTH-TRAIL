@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: f8242abdb0ff7f34fa90a28be6329cee
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      74: -8917043005847392888
+    second: cutscene|Armature.001|mixamo.com|Layer0
+  - first:
+      74: 9181159364320967271
+    second: cutscene|Armature|mixamo.com|Layer0
+  - first:
+      74: -4431814040469039675
+    second: cutscene|Armature|mixamo.com|Layer0.001
+  - first:
+      74: 7843995345592713037
+    second: cutscene|cutscene
+  - first:
+      74: -6607666573750170137
+    second: cutscene|cutscene.001
+  - first:
+      74: 7222197487643191175
+    second: cutscene|Drunk Walk
+  - first:
+      74: -1393385383281895439
+    second: cutscene|hittobody
+  - first:
+      74: -2029934761929534064
+    second: cutscene|idle
+  - first:
+      74: 2030791196354861669
+    second: cutscene|injured_run
+  - first:
+      74: -3446655042594288098
+    second: cutscene|kidneyhit
+  - first:
+      74: -621714610777533539
+    second: cutscene|lookaround
+  - first:
+      74: 443576639000157821
+    second: cutscene|Looking Around
+  - first:
+      74: -267777728812572887
+    second: cutscene|Running
+  - first:
+      74: 3760194591183183249
+    second: cutscene|Running Crawl
+  - first:
+      74: -8827329322710959010
+    second: cutscene|Sitting Dazed
+  - first:
+      74: -3558921961123343154
+    second: cutscene|Situp To Idle
+  - first:
+      74: 6319968210875738981
+    second: cutscene|sneaking walk
+  - first:
+      74: 5811144764405545990
+    second: cutscene|Stand Up
+  - first:
+      74: 5186658504866977242
+    second: cutscene|Standing Idle 02
+  - first:
+      74: 8615950750417756229
+    second: cutscene|Standing React Death Backward
+  - first:
+      74: 6679736978432185451
+    second: cutscene|Standing React Death Forward
+  - first:
+      74: 1968817239015653370
+    second: cutscene|Standing React Large Gut
+  - first:
+      74: -7456267752776389806
+    second: cutscene|Standing Run Forward
+  - first:
+      74: -4150690621980349747
+    second: cutscene|Standing Up
+  - first:
+      74: -9054121833780475552
+    second: cutscene|Walk W_ Briefcase
+  - first:
+      74: -4570160895276054401
+    second: cutscene|Wheelbarrow Walk
+  - first:
+      74: -3585982882584503144
+    second: cutscene|Zombie Agonizing
+  - first:
+      74: -7523148934998442969
+    second: cutscene|Zombie Crawl
+  - first:
+      74: -8949112001071100730
+    second: cutscene|Zombie Dying
+  - first:
+      74: -1609926220203783694
+    second: cutscene|Zombie Idle
+  - first:
+      74: -2543992612333566531
+    second: cutscene|Zombie Punching
+  - first:
+      74: 7868194711272176785
+    second: cutscene|Zombie Reaction Hit
+  - first:
+      74: 1649173797093624575
+    second: cutscene|Zombie Scream
+  - first:
+      74: 8374838676397905307
+    second: cutscene|Zombie Stand Up
+  - first:
+      74: -339843208537324263
+    second: cutscene|Zombie Walk
+  - first:
+      74: -1157986306770296308
+    second: cutscene|zombiewalkinjured
+  - first:
+      74: -7583355975851158942
+    second: CruelDoll:body_Mesh.001|cutscene
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mouth
+    second: {fileID: 2100000, guid: 1b843bf9253725740b3bdfc8d309394c, type: 2}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: cutscene|cutscene
+      takeName: cutscene|cutscene
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 31
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
