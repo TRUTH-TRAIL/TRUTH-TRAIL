@@ -26,7 +26,7 @@ public class FlashLight : MonoBehaviour
     //손전등 배터리
     private float batGauge;
     private int minBatGauge = 0;
-    private int maxBatGauge = 100;
+    private int maxBatGauge = 10000;
     private float batGaugeTimer;
     private float batGaugeInterval = 1f;
     private float lowBat = 10f;
