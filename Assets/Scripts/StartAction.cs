@@ -2,45 +2,102 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class StartAction : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject title;
+    public GameObject Start;
+    public GameObject Option;
+   // public GameObject Back;
+    public GameObject BG;
+    public GameObject[] Option_list;
+    //public GameObject VideoPanel;
+    //public GameObject ControlPanel;
 
-    public void gameStart()
+    // Start is called before the first frame update
+    public void GameStart()
     {
         LoadingScene.Instance.LoadScene("tutorial");
     }
-    public void setting()
+    public void StartB()
     {
-        GameObject.Find("Canvas").transform.Find("Setting").gameObject.SetActive(true);
-        GameObject.Find("Start").SetActive(false);
+        Start.SetActive(true);
+        title.SetActive(false);
     }
-    public void esc()
+    public void OptionB()
     {
-        GameObject.Find("Setting").SetActive(false);
-        GameObject.Find("Canvas").transform.Find("Start").gameObject.SetActive(true);
+        Option.SetActive(true);
+        title.SetActive(false);
     }
-    public void interAction()
+    public void Back()
     {
-        GameObject.Find("Setting").transform.Find("Action").gameObject.SetActive(true);
-        GameObject.Find("Setting").transform.Find("Audio").gameObject.SetActive(false);
-        GameObject.Find("Setting").transform.Find("Language").gameObject.SetActive(false);
+        EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
+        title.SetActive(true);
+    }
+    public void Exit()
+    {
+        Application.Quit();
+    }
+    public void Video()
+    {
+        Option_list[1].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[2].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[3].transform.GetChild(0).gameObject.SetActive(false);
+        if(Option_list[0].transform.GetChild(0).gameObject.activeSelf == true){
+            BG.SetActive(false);
+            //VideoPanel.SetActive(false);
+            Option_list[0].transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else{
+            BG.SetActive(true);
+           // VideoPanel.SetActive(true);
+            Option_list[0].transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
     public void Audio()
     {
-        GameObject.Find("Setting").transform.Find("Action").gameObject.SetActive(false);
-        GameObject.Find("Setting").transform.Find("Audio").gameObject.SetActive(true);
-        GameObject.Find("Setting").transform.Find("Language").gameObject.SetActive(false);
+        Option_list[0].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[2].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[3].transform.GetChild(0).gameObject.SetActive(false);
+        if(Option_list[1].transform.GetChild(0).gameObject.activeSelf == true){
+            BG.SetActive(false);
+            Option_list[1].transform.GetChild(0).gameObject.SetActive(false);
+        }
+        else{
+            BG.SetActive(true);
+            Option_list[1].transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
-    public void Language()
+    public void Control()
     {
-        GameObject.Find("Setting").transform.Find("Action").gameObject.SetActive(false);
-        GameObject.Find("Setting").transform.Find("Audio").gameObject.SetActive(false);
-        GameObject.Find("Setting").transform.Find("Language").gameObject.SetActive(true);
+        Option_list[0].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[1].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[3].transform.GetChild(0).gameObject.SetActive(false);
+        if(Option_list[2].transform.GetChild(0).gameObject.activeSelf == true){
+            BG.SetActive(false);
+            Option_list[2].transform.GetChild(0).gameObject.SetActive(false);
+            //ControlPanel.SetActive(false);
+        }
+        else{
+            BG.SetActive(true);
+           // ControlPanel.SetActive(true);
+            Option_list[2].transform.GetChild(0).gameObject.SetActive(true);
+        }
+    }
+    public void Language(){
+        Option_list[0].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[1].transform.GetChild(0).gameObject.SetActive(false);
+        Option_list[2].transform.GetChild(0).gameObject.SetActive(false);
+        if(Option_list[3].transform.GetChild(0).gameObject.activeSelf == true){
+            BG.SetActive(false);
+            Option_list[3].transform.GetChild(0).gameObject.SetActive(false);
+            //ControlPanel.SetActive(false);
+        }
+        else{
+            BG.SetActive(true);
+           // ControlPanel.SetActive(true);
+            Option_list[3].transform.GetChild(0).gameObject.SetActive(true);
+        }
     }
 }
