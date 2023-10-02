@@ -5,6 +5,7 @@ using UnityEngine.UI; //FootGauge UI를 위한 임시 적용
 
 public class Player : MonoBehaviour
 {
+    public GameObject escB;
     private float speed = 4f;
     RaycastHit hitData;
     //발소리 게이지
@@ -102,7 +103,5 @@ public class Player : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
-    }
-    
-
+    }   
 }

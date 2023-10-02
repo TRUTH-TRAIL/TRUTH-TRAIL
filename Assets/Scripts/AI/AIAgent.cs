@@ -42,7 +42,7 @@ public class AIAgent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($" currentState : {_stateMachine.currentState}");
+//        Debug.Log($" currentState : {_stateMachine.currentState}");
         if (_stateMachine.currentState != AIStateId.OpenDoor)
             CheckDoor();
 
