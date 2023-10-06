@@ -32022,7 +32022,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1153478671}
         m_TargetAssemblyTypeName: StartAction, Assembly-CSharp
-        m_MethodName: back
+        m_MethodName: Back
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

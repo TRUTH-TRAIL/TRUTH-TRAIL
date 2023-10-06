@@ -4152,6 +4152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   escB: {fileID: 785393081}
   BG: {fileID: 412355973}
+  text: {fileID: 0}
+  tutorialStory: []
 --- !u!1001 &124039449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9152,7 +9154,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 123643945}
         m_TargetAssemblyTypeName: PlayUI, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: Exitcheck
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

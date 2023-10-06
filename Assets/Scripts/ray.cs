@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ray : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ray : MonoBehaviour
     GameObject tuText;
     bool check;
     GameObject sp;
+    public GameObject Panel;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,32 +33,37 @@ public class ray : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * 1f, Color.red, 0.3f);
-        if(Input.GetMouseButtonDown(0)){
-            if(Physics.Raycast(transform.position, transform.forward, out hitData, 1f)){
-                hitData.collider.gameObject.SetActive(false);
-                if(hitData.collider.name == "poster"){
-                    poster[0].SetActive(true);
-                }
-                else if(hitData.collider.name == "poster (1)"){
-                    poster[1].SetActive(true);
-                }
-                else if(hitData.collider.name == "poster (2)"){
-                    poster[2].SetActive(true);
+        if(Panel.activeSelf == false){
+            Debug.DrawRay(transform.position, transform.forward * 1f, Color.red, 0.3f);
+            if(Input.GetMouseButtonDown(0)){
+                if(Physics.Raycast(transform.position, transform.forward, out hitData, 1f)){
+                    if(EventSystem.current.IsPointerOverGameObject() == false){
+                        Debug.Log("?");
+                        hitData.collider.gameObject.SetActive(false);
+                        if(hitData.collider.name == "poster"){
+                            poster[0].SetActive(true);
+                        }
+                        else if(hitData.collider.name == "poster (1)"){
+                            poster[1].SetActive(true);
+                        }
+                        else if(hitData.collider.name == "poster (2)"){
+                            poster[2].SetActive(true);
+                        }
+                    }
                 }
             }
-        }
 
-        if(poster[0].activeSelf == true && poster[1].activeSelf == true && poster[2].activeSelf == true){
-            if(tuText.activeSelf == false && check == false)
-                tuText.SetActive(true);
-                check = true;
-            StartCoroutine(textDestroy());
-        }
+            if(poster[0].activeSelf == true && poster[1].activeSelf == true && poster[2].activeSelf == true){
+                if(tuText.activeSelf == false && check == false)
+                    tuText.SetActive(true);
+                    check = true;
+                StartCoroutine(textDestroy());
+            }
 
-        if(sp.activeSelf == true){
-            if(Input.GetKeyDown(KeyCode.Escape)){
-                sp.SetActive(false);
+            if(sp.activeSelf == true){
+                if(Input.GetKeyDown(KeyCode.Escape)){
+                    sp.SetActive(false);
+                }
             }
         }
     }
