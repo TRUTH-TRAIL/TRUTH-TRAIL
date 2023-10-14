@@ -18,6 +18,8 @@ public class ObjectInteract : MonoBehaviour
         Drawer,
         Fabric,
         Frame,
+        Poster,
+
     }
     private bool isBookMoving = false;
     private bool isDrawerMoving = false;
@@ -35,7 +37,8 @@ public class ObjectInteract : MonoBehaviour
 
     //책 관리
     private float slideSpeed = 2f;
-
+    //Poster 관리
+    private int cnt = 0;
     private bool[] getClue = new bool[15]; //단서 습득 유무
     private void Awake()
     {
@@ -81,6 +84,9 @@ public class ObjectInteract : MonoBehaviour
                 HandleFrame(target);
                 break;
                 // 추가 케이스를 여기에 작성합니다.
+            case ObjectType.Poster:
+                HandlePoster(target);
+                break;
         }
     }
 
@@ -318,5 +324,36 @@ public class ObjectInteract : MonoBehaviour
         }
 
         isFrameRotating = false;
+    }
+
+    private void HandlePoster(Transform target)
+    {
+        
+        if(target.gameObject.name=="poster_A"){
+            cnt++;
+            Debug.Log("Alley Poster");
+            //inventory 포스터 부분 업데이트
+            //추후 inventory script에서 포스터 선택 시 포스터 내용 보이도록 수정
+        }else if(target.gameObject.name=="poster_L"){
+            Debug.Log("Light Poster");
+            cnt++;
+        }else if(target.gameObject.name=="poster_S"){
+            Debug.Log("Special paper Poster");
+            cnt++;
+        }
+        Destroy(target.gameObject);
+
+        if(cnt==3){
+            StartCoroutine(GoCellarText());
+        }
+    
+    }
+
+    IEnumerator GoCellarText()
+    {
+        GameObject Text = GameObject.Find("Canvas").transform.Find("tuText").gameObject;
+        Text.SetActive(true);
+        yield return new WaitForSeconds(5.0f);
+        Text.SetActive(false);
     }
 }
