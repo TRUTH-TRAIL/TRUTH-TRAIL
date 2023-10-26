@@ -7,16 +7,17 @@ using UnityEngine.UI;
 
 public class AlleyNav : MonoBehaviour
 {
-    //¸ñÀûÁö
+    //ëª©ì ì§€
     public Transform target;
-    //¿ä¿ø
+    //ìš”ì›
     NavMeshAgent agent;
     public Animator anim;
     enum State
     {
         Idle,
-        Run,
-        Attack
+        Walk,
+        Attack,
+        Find
     }
 
     State state;
@@ -25,25 +26,26 @@ public class AlleyNav : MonoBehaviour
     void Start()
     {
         state = State.Idle;
-        //¿ä¿øÀ» Á¤ÀÇÇØÁà¼­
+        //ìš”ì›ì„ ì •ì˜í•´ì¤˜ì„œ
         agent = GetComponent<NavMeshAgent>();
 
-        //»ı¼ºµÉ¶§ ¸ñÀûÁö(Player)¸¦ ªO´Â´Ù.
+        //ìƒì„±ë ë•Œ ëª©ì ì§€(Player)ë¥¼ ì°¿ëŠ”ë‹¤.
         //target = GameObject.Find("Player").transform;
-        //¿ä¿ø¿¡°Ô ¸ñÀûÁö¸¦ ¾Ë·ÁÁØ´Ù.
+        //ìš”ì›ì—ê²Œ ëª©ì ì§€ë¥¼ ì•Œë ¤ì¤€ë‹¤.
         //agent.destination = target.transform.position;
     }
     // Update is called once per frame
     void Update()
     {
-        //¸¸¾à state°¡ idleÀÌ¶ó¸é
+        Debug.Log(state);
+        //ë§Œì•½ stateê°€ idleì´ë¼ë©´
         if (state == State.Idle)
         {
             UpdateIdle();
         }
-        else if (state == State.Run)
+        else if (state == State.Walk)
         {
-            UpdateRun();
+            UpdateWalk();
         }
         else if (state == State.Attack)
         {
@@ -55,40 +57,57 @@ public class AlleyNav : MonoBehaviour
     {
         agent.speed = 0;
         float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (distance > 2)
+        if (distance > 10)
         {
-            state = State.Run;
-            anim.SetTrigger("Run");
+            state = State.Walk;
+            anim.SetTrigger("Walk");
         }
     }
 
-    private void UpdateRun()
+    private void UpdateWalk()
     {
-        //³²Àº °Å¸®°¡ 2¹ÌÅÍ¶ó¸é °ø°İÇÑ´Ù.
+        //ë‚¨ì€ ê±°ë¦¬ê°€ 2ë¯¸í„°ë¼ë©´ ê³µê²©í•œë‹¤.
         float distance = Vector3.Distance(transform.position, target.transform.position);
         if (distance <= 2)
         {
             state = State.Attack;
             anim.SetTrigger("Hit");
         }
-
-        //Å¸°Ù ¹æÇâÀ¸·Î ÀÌµ¿ÇÏ´Ù°¡
+        //íƒ€ê²Ÿ ë°©í–¥ìœ¼ë¡œ ì´ë™í•˜ë‹¤ê°€
         agent.speed = 3.5f;
-        //¿ä¿ø¿¡°Ô ¸ñÀûÁö¸¦ ¾Ë·ÁÁØ´Ù.
+        //ìš”ì›ì—ê²Œ ëª©ì ì§€ë¥¼ ì•Œë ¤ì¤€ë‹¤.
         agent.destination = target.transform.position;
+        StartCoroutine(ReFind());
     }
 
     private void UpdateIdle()
     {
         agent.speed = 0;
-        //»ı¼ºµÉ¶§ ¸ñÀûÁö(Player)¸¦ ªO´Â´Ù.
+        //ìƒì„±ë ë•Œ ëª©ì ì§€(Player)ë¥¼ ì°¿ëŠ”ë‹¤.
         target = GameObject.Find("Player").transform;
-        //targetÀ» Ã£À¸¸é Run»óÅÂ·Î ÀüÀÌÇÏ°í ½Í´Ù.
+        //targetì„ ì°¾ìœ¼ë©´ Runìƒíƒœë¡œ ì „ì´í•˜ê³  ì‹¶ë‹¤.
         if (target != null)
         {
-            state = State.Run;
-            //ÀÌ·¸°Ô state°ªÀ» ¹Ù²å´Ù°í animation±îÁö ¹Ù²ğ±î? no! µ¿±âÈ­¸¦ ÇØÁà¾ßÇÑ´Ù.
-            anim.SetTrigger("Run");
+            state = State.Walk;
+            //ì´ë ‡ê²Œ stateê°’ì„ ë°”ê¿¨ë‹¤ê³  animationê¹Œì§€ ë°”ë€”ê¹Œ? no! ë™ê¸°í™”ë¥¼ í•´ì¤˜ì•¼í•œë‹¤.
+            anim.SetTrigger("Walk");
+        }
+    }
+
+    IEnumerator ReFind(){
+        yield return new WaitForSeconds(5.0f);
+        state = State.Attack;
+        //íƒ€ê²Ÿ ë°©í–¥ìœ¼ë¡œ ì´ë™í•˜ë‹¤ê°€
+        //anim.SetTrigger("Idle");
+    }
+
+    IEnumerator ReIdle()
+    {
+        while(true){
+            target = GameObject.Find("Player").transform;
+            float distance = Vector3.Distance(transform.position, target.transform.position);
+            if(distance > 30)
+            yield return new WaitForSeconds(3.0f);
         }
     }
 }
