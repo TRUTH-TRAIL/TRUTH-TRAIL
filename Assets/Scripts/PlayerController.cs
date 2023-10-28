@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -52,8 +53,7 @@ public class PlayerController : MonoBehaviour
 
     //필요한 컴포넌트
     [SerializeField]
-    private Camera theCamera;
-
+    private CinemachineVirtualCamera virtualCamera_Player;
     private Rigidbody myRigid;
 
 
@@ -68,7 +68,7 @@ public class PlayerController : MonoBehaviour
         applySpeed = walkSpeed;
 
         // 초기화.
-        originPosY = theCamera.transform.localPosition.y;
+        originPosY = virtualCamera_Player.transform.localPosition.y;
         applyCrouchPosY = originPosY;
 
     }
@@ -133,19 +133,19 @@ public class PlayerController : MonoBehaviour
     IEnumerator CrouchCoroutine()
     {
 
-        float _posY = theCamera.transform.localPosition.y;
+        float _posY = virtualCamera_Player.transform.localPosition.y;
         int count = 0;
 
         while (_posY != applyCrouchPosY)
         {
             count++;
             _posY = Mathf.Lerp(_posY, applyCrouchPosY, 0.3f);
-            theCamera.transform.localPosition = new Vector3(0, _posY, 0);
+            virtualCamera_Player.transform.localPosition = new Vector3(0, _posY, 0);
             if (count > 15)
                 break;
             yield return null;
         }
-        theCamera.transform.localPosition = new Vector3(0, applyCrouchPosY, 0f);
+        virtualCamera_Player.transform.localPosition = new Vector3(0, applyCrouchPosY, 0f);
     }
 
    
@@ -266,7 +266,7 @@ public class PlayerController : MonoBehaviour
         currentCameraRotationX -= _cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
 
-        theCamera.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
+        virtualCamera_Player.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
     }
 
 
