@@ -6725,9 +6725,10 @@ GameObject:
   - component: {fileID: 195716738}
   - component: {fileID: 195716737}
   - component: {fileID: 195716736}
+  - component: {fileID: 195716740}
   m_Layer: 0
-  m_Name: poster (2)
-  m_TagString: poster
+  m_Name: poster_S
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6810,6 +6811,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &195716740
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195716735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50d456bcbd4764994284973edf6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 8
 --- !u!4 &197688860 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6696956618689891707, guid: 57da35d728a6ed34ab6ea08fd8d5154f, type: 3}
@@ -12898,9 +12912,10 @@ GameObject:
   - component: {fileID: 373619137}
   - component: {fileID: 373619136}
   - component: {fileID: 373619135}
+  - component: {fileID: 373619139}
   m_Layer: 0
-  m_Name: poster (1)
-  m_TagString: poster
+  m_Name: poster_L
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12983,6 +12998,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &373619139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373619134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50d456bcbd4764994284973edf6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 8
 --- !u!1001 &374566842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39782,9 +39810,10 @@ GameObject:
   - component: {fileID: 1227594857}
   - component: {fileID: 1227594856}
   - component: {fileID: 1227594855}
+  - component: {fileID: 1227594859}
   m_Layer: 0
-  m_Name: poster
-  m_TagString: poster
+  m_Name: poster_A
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39867,6 +39896,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1227594859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1227594854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50d456bcbd4764994284973edf6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 8
 --- !u!1001 &1228230023
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -52342,8 +52384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db042075292df364391a2d4ce29f21a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialPaper: {fileID: 0}
-  PlayertimeScale: 0
 --- !u!114 &1611008742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52358,6 +52398,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poster: []
   postertx: []
+  tuText: {fileID: 0}
+  check: 0
+  sp: {fileID: 0}
   Panel: {fileID: 951019591}
 --- !u!114 &1611008743
 MonoBehaviour:
