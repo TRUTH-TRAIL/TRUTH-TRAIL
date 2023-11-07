@@ -25,8 +25,8 @@ public class PlayUI : MonoBehaviour
             Cursor.visible = true;
         }
         else{
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         if(Input.GetKey(KeyCode.Escape) && !escB.activeSelf){
             escB.SetActive(true);

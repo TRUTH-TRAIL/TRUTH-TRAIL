@@ -32,8 +32,12 @@ public class ObjectInteract : MonoBehaviour
     private Vector3 defaultRot;
     private Vector3 openRot;
     private bool isRotating;
+
+    //단서 관리
     private int clueTextIndex = 0;
+    [SerializeField] Curses curse;
     [SerializeField] Text[] text;
+    [SerializeField] Text curseText;
 
     //책 관리
     private float slideSpeed = 2f;
@@ -99,6 +103,7 @@ public class ObjectInteract : MonoBehaviour
             {
                 StartCoroutine(DoorRotate(target, door.isOpen, door.openAngle));
                 door.isOpen = true;
+                
             }
             else
             {
@@ -138,10 +143,21 @@ public class ObjectInteract : MonoBehaviour
     }
     private void ClueUpdate(GameObject clue)
     {
-        text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
-        getClue[clue.GetComponent<MemoScript>().key] = true; // 이부분은 추후 GameManager를 통해 관리
-        text[clueTextIndex].gameObject.SetActive(true);
-        clueTextIndex++;
+        int RandomInt = Random.Range(0, 5);
+        Debug.Log(RandomInt);
+        if (RandomInt!=0 || curse.activeCurse)
+        {
+            text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
+            getClue[clue.GetComponent<MemoScript>().key] = true; // 이부분은 추후 GameManager를 통해 관리
+            text[clueTextIndex].gameObject.SetActive(true);
+            clueTextIndex++;
+        }
+        else
+        {
+            curseText.gameObject.SetActive(true);
+            curseText.text = curse.ActiveCurse();
+        }
+        
     }
 
     private void HandleFlash(Transform target)

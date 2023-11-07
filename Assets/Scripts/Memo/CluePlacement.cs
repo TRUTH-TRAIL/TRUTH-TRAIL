@@ -13,9 +13,9 @@ public class CluePlacement : MonoBehaviour
     private int clueListCount = 15;  //json에 들어가 있는 데이터 수
 
     private int totalClues = 10;  //real + fake + curse
-    private int realClue = 5;
+    private int realClue = 10;
     private int fakeClue = 0;
-    private int cursedClue = 5;
+    private int cursedClue = 0;
 
     private List<Vector3> cluePositions = new List<Vector3>();
 

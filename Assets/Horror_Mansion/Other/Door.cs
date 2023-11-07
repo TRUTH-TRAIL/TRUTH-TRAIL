@@ -37,6 +37,7 @@ public class Door : MonoBehaviour
         {
             if (Vector3.Dot(transform.right, player.position - transform.position) > 0)
             {
+
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
             }
             else
