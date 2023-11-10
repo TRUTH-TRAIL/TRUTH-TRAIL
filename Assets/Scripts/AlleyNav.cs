@@ -8,8 +8,6 @@ using Random = UnityEngine.Random;
 
 public class AlleyNav : MonoBehaviour
 {
-    //목적지
-    public Transform target;
     //요원
     public NavMeshAgent agent;
     public Animator anim;
@@ -17,16 +15,19 @@ public class AlleyNav : MonoBehaviour
     {
         Idle,
         Walk,
-        Attack,
-        Find
+        Attack
     }
     State state;
     string[] str;
     int i;
     int spotn;
+    bool stand;
+    int p;
     // Start is called before the first frame update
     void Start()
     {
+        stand = false;
+        p = 0;
         i = 0;
         spotn = Random.Range(0, 7);
         state = State.Idle;
@@ -70,6 +71,7 @@ public class AlleyNav : MonoBehaviour
 
     private void UpdateWalk()
     {
+        anim.SetTrigger("Walk");
         agent.speed = 3.5f;
         SMove(str);
       /*  //남은 거리가 2미터라면 공격한다.
@@ -87,14 +89,16 @@ public class AlleyNav : MonoBehaviour
 
     private void UpdateIdle()
     {
-        agent.speed = 0;
-        if(i != 0){
+        if(i != 0 && agent.speed != 0){
             state = State.Walk;
         }
-        else{
+        else if(agent.speed == 0){
+            state = State.Idle;
+            anim.SetTrigger("Idle");
+        }
+        else if(i == 0){
             SpotNum(spotn);
         }
-        anim.SetTrigger("Walk");
         //생성될때 목적지(Player)를 찿는다.
        //int r = AlleySpot.Instance.SpotNum(s);
         //target을 찾으면 Run상태로 전이하고 싶다.
@@ -107,10 +111,9 @@ public class AlleyNav : MonoBehaviour
     public void SpotNum(int s)
     {
         Debug.Log(s);
-        int p = 0;
         switch(s){
             case 0:
-                p = Random.Range(0, 1);
+                p = Random.Range(0, 2);
                 break;
             case 1:
                 p = Random.Range(0, 2);
@@ -119,7 +122,7 @@ public class AlleyNav : MonoBehaviour
                 p = Random.Range(0, 1);
                 break;
             case 3:
-                p = Random.Range(0, 3);
+                p = Random.Range(0, 4);
                 break;
             case 4:
                 p = Random.Range(0, 1);
@@ -149,6 +152,10 @@ public class AlleyNav : MonoBehaviour
                     case 0:
                         str = new string[3]{"0_spot_1", "8_spot", "4_spot"};
                         spotNumber = 4;
+                        break;
+                    case 1:
+                        str = new string[1]{"0_spot"};
+                        spotNumber = 0;
                         break;
                 }
                 break;
@@ -194,6 +201,10 @@ public class AlleyNav : MonoBehaviour
                         str = new string[1]{"2_spot"};
                         spotNumber = 2;
                         break;
+                    case 3:
+                        str = new string[1]{"3_spot_3"};
+                        spotNumber = 3;
+                        break;
                 }
                 break;
             case 4:
@@ -215,8 +226,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 가만히x
-                        str = new string[3]{"5_spot_1", "5_spot", "1_spot"};
+                        str = new string[4]{"5_spot", "5_spot_4", "5_spot", "1_spot"};
                         spotNumber = 1;
                         break;
                     }
@@ -273,8 +283,8 @@ public class AlleyNav : MonoBehaviour
         return spotNumber;
     }
     public void SMove(string[] s){
+        Debug.Log(i);
         if(s.Length == i){
-            Debug.Log("?");
             i = 0;
             SpotNum(spotn);
         }
@@ -283,10 +293,29 @@ public class AlleyNav : MonoBehaviour
             if(agent.remainingDistance <= agent.stoppingDistance){
                 if(!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                 {
+                    if(s[i] == "3_spot_3"){
+                        StartCoroutine(Standstill());
+                    }
+                    else if(s[i] == "5_spot_4"){
+                        if(p == 1){
+                            StartCoroutine(Standstill());
+                        }
+                    }
+                    else if(s[i] == "0_spot"){
+                        if(p == 1){
+                            StartCoroutine(Standstill());
+                        }
+                    }
                     i++;
                     state = State.Idle;
                 } 
             }
         }
+    }
+    IEnumerator Standstill(){
+        agent.speed = 0;
+        state = State.Idle;
+        yield return new WaitForSeconds(7.0f);
+        state = State.Walk;
     }
 }
