@@ -33,6 +33,7 @@ public class FlashLight : MonoBehaviour
     private bool isFlashing = false;
     private Coroutine flashCoroutine;
 
+    private Curses curse;
 
     public float battGauge { get { return batGauge; } set { batGauge = Mathf.Clamp(value, minBatGauge, maxBatGauge); } }
 
@@ -41,6 +42,7 @@ public class FlashLight : MonoBehaviour
         batGauge = 100;
         batGaugeTimer = batGaugeInterval;
         lightComponent = flashLight.GetComponent<Light>();
+        curse = GameObject.Find("CurseManager").GetComponent<Curses>();
     }
     private void Update()
     {
@@ -53,16 +55,35 @@ public class FlashLight : MonoBehaviour
     {
         if (getFlash)
         {
-            if(batGauge<=0)
+            if (curse.activeCurse && curse.curseKey == 10)
+            {
+                flashLight.SetActive(false);
+            }
+
+            if (batGauge<=0)
                 flashLight.SetActive(false);
             else
             {
                 batGaugeSlider.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Alpha1))
+                {
                     ToggleFlashLight(Color.white);
+                    if (curse.activeCurse && curse.curseKey == 10)
+                    {
+                        flashLight.SetActive(false);
+                        curse.die = true;
+                    }
+                }
 
                 if (Input.GetKeyDown(KeyCode.Alpha2))
+                {
                     ToggleFlashLight(Color.red);
+                    if (curse.activeCurse && curse.curseKey == 10)
+                    {
+                        flashLight.SetActive(false);
+                        curse.die = true;
+                    }
+                }
 
                 if (lightComponent.color == Color.white && flashLight.activeSelf)
                     UpdateBatGauge(1);
@@ -75,12 +96,23 @@ public class FlashLight : MonoBehaviour
 
     private void ToggleFlashLight(Color targetColor)
     {
+        if (curse.activeCurse && curse.curseKey == 13)
+        {
+            if(lightComponent.color != targetColor) {
+                flashLight.SetActive(false);
+                curse.die = true;
+            }
+        }
         if (flashLight.activeSelf)
         {
             if (lightComponent.color == targetColor)
+            {
                 flashLight.SetActive(false);
+            }
             else
+            {
                 lightComponent.color = targetColor;
+            }
         }
         else
         {

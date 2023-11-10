@@ -60,6 +60,8 @@ public class PlayerController : MonoBehaviour
     public float mouseXPos;
     public float mouseYPos;
 
+    private Curses curse;
+
     // Use this for initialization
     void Start()
     {
@@ -70,7 +72,7 @@ public class PlayerController : MonoBehaviour
         // 초기화.
         originPosY = virtualCamera_Player.transform.localPosition.y;
         applyCrouchPosY = originPosY;
-
+        curse = GameObject.Find("CurseManager").GetComponent<Curses>();
     }
 
 
@@ -218,7 +220,11 @@ public class PlayerController : MonoBehaviour
     }
     private void WalkSlow()
     {
-        isSlow = true;
+        if (curse.activeCurse && curse.curseKey == 12)
+        {
+            curse.die = true;
+        }
+            isSlow = true;
         applySpeed = slowSpeed;
     }
 
@@ -233,10 +239,25 @@ public class PlayerController : MonoBehaviour
     // 움직임 실행
     private void Move()
     {
-
+        
         float _moveDirX = Input.GetAxisRaw("Horizontal");
         float _moveDirZ = Input.GetAxisRaw("Vertical");
-
+        bool isMoving = _moveDirX !=0 || _moveDirZ !=0;
+        if (curse.activeCurse)
+        {
+            if(curse.curseKey == 11 && isMoving)
+            {
+                if (!Input.GetKey(KeyCode.LeftControl))
+                {
+                    curse.die = true;
+                }
+            }
+            if(curse.curseKey ==2 && _moveDirX != 0)
+            {
+                curse.die = true;
+            }
+            
+        }
         Vector3 _moveHorizontal = transform.right * _moveDirX;
         Vector3 _moveVertical = transform.forward * _moveDirZ;
 

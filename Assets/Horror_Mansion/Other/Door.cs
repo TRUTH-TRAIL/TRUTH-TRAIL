@@ -12,11 +12,12 @@ public class Door : MonoBehaviour
     private Quaternion openRot;
     public Text txt;
     public Transform player;
-
+    private Curses curse;
     void Start()
     {
         defaultRot = transform.rotation;
         openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
+        curse = GameObject.Find("CurseManager").GetComponent<Curses>();
         //txt = GameObject.FindObjectOfType<Text>();
 //        txt = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -37,7 +38,7 @@ public class Door : MonoBehaviour
         {
             if (Vector3.Dot(transform.right, player.position - transform.position) > 0)
             {
-
+                
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
             }
             else
@@ -45,6 +46,21 @@ public class Door : MonoBehaviour
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y - DoorOpenAngle, defaultRot.eulerAngles.z);
             }
             open = !open;
+            if (curse.activeCurse)
+            {
+                if(curse.curseKey == 3 && open)
+                {
+                    curse.doorCurseCount++;
+                    if(curse.doorCurseCount == 2)
+                    {
+                        curse.die = true;
+                    }
+                }
+                if(curse.curseKey == 14)
+                {
+                    curse.die = true;
+                }
+            }
         }
 
         if (trig)

@@ -8009,7 +8009,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6736457673431791202, guid: be5347ede03f84d10a887a8a5e8026df, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6736457673431791202, guid: be5347ede03f84d10a887a8a5e8026df, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -59514,6 +59514,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4496563948193692756, guid: b410db4f5a9473e479686396a44d8287, type: 3}
+      propertyPath: slowSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4496563948193692756, guid: b410db4f5a9473e479686396a44d8287, type: 3}
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1017098699}
@@ -68165,6 +68169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeCurse: 0
   curseKey: 0
+  die: 0
   doorCurseCount: 0
   player: {fileID: 1611008732}
   curseText: {fileID: 1421279451}

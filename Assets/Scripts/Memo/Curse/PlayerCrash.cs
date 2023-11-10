@@ -10,12 +10,12 @@ public class PlayerCrash : MonoBehaviour
     {
         if (curse.activeCurse)
         {
-            if(curse.curseKey == 1)
+            if(curse.curseKey == 0||curse.curseKey==15)
             {
                 if (collision.gameObject.name == "Ladder_Collider")
                 {
                     Debug.Log("OnCollisionEnter " + collision.gameObject.name);
-                    collisionObject = collision.gameObject.name;
+                    curse.die = true;
                 }
             }
             

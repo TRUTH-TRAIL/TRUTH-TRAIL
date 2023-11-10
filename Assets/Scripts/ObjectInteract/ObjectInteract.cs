@@ -144,6 +144,7 @@ public class ObjectInteract : MonoBehaviour
     private void ClueUpdate(GameObject clue)
     {
         int RandomInt = Random.Range(0, 5);
+        RandomInt = 0;//임시 저주만 발생
         Debug.Log(RandomInt);
         if (RandomInt!=0 || curse.activeCurse)
         {
@@ -176,7 +177,11 @@ public class ObjectInteract : MonoBehaviour
 
     private void HandleBook(Transform target)
     {
-        if(!isBookMoving)
+        if (curse.activeCurse && curse.curseKey == 18)
+        {
+            curse.die = true;
+        }
+        if (!isBookMoving)
             StartCoroutine(MoveBook(target));  
     }
     private IEnumerator MoveBook(Transform target)
@@ -224,7 +229,11 @@ public class ObjectInteract : MonoBehaviour
 
     private void HandleDrawer(Transform target)
     {
-        if(!isDrawerMoving)
+        if (curse.activeCurse && curse.curseKey == 17)
+        {
+            curse.die = true;
+        }
+        if (!isDrawerMoving)
             StartCoroutine(MoveDrawer(target));
     }
 
@@ -292,7 +301,11 @@ public class ObjectInteract : MonoBehaviour
 
     private void HandleFrame(Transform target)
     {
-        if(!isFrameRotating)
+        if (curse.activeCurse && curse.curseKey == 16)
+        {
+            curse.die = true;
+        }
+        if (!isFrameRotating)
             StartCoroutine(FrameRotate(target));
 
     }
