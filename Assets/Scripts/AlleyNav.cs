@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class AlleyNav : MonoBehaviour
 {
-    //요원
+    public Transform target;
     public NavMeshAgent agent;
     public Animator anim;
     enum State
@@ -21,29 +21,24 @@ public class AlleyNav : MonoBehaviour
     string[] str;
     int i;
     int spotn;
-    bool stand;
+    bool Attack_state;
     int p;
+    float timeSpan;
     // Start is called before the first frame update
     void Start()
     {
-        stand = false;
+        timeSpan = 0;
+        Attack_state = true;
         p = 0;
         i = 0;
         spotn = Random.Range(0, 7);
         state = State.Idle;
-        //요원을 정의해줘서
         agent = GetComponent<NavMeshAgent>();
-
-        //생성될때 목적지(Player)를 찿는다.
-        //target = GameObject.Find("Player").transform;
-        //요원에게 목적지를 알려준다.
-        //agent.destination = target.transform.position;
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(state);
-        //만약 state가 idle이라면
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -52,7 +47,7 @@ public class AlleyNav : MonoBehaviour
         {
             UpdateWalk();
         }
-        else if (state == State.Attack)
+        else if (state == State.Attack && Attack_state == true)
         {
             UpdateAttack();
         }
@@ -60,13 +55,19 @@ public class AlleyNav : MonoBehaviour
 
     private void UpdateAttack()
     {
-      /*  agent.speed = 0;
-        float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (distance > 10)
-        {
-            state = State.Walk;
-            anim.SetTrigger("Walk");
-        }*/
+      //  Debug.Log(Attack_state);
+        agent.destination = target.position;
+        if(Vector3.Distance(transform.position, target.position) < 2.0f){
+            Debug.Log("게임 종료");
+        }
+        timeSpan += Time.deltaTime;
+        if(timeSpan >= 10.0f){
+            timeSpan = 0;
+            i = 0;
+            state = State.Idle;
+            Attack_state = false;
+            StartCoroutine(AttackChange());
+        }
     }
 
     private void UpdateWalk()
@@ -74,17 +75,9 @@ public class AlleyNav : MonoBehaviour
         anim.SetTrigger("Walk");
         agent.speed = 3.5f;
         SMove(str);
-      /*  //남은 거리가 2미터라면 공격한다.
-        float distance = Vector3.Distance(transform.position, target.transform.position);
-        if (distance <= 2)
-        {
+        if(Vector3.Distance(transform.position, target.position) < 10.0f){
             state = State.Attack;
-            anim.SetTrigger("Hit");
         }
-        //타겟 방향으로 이동하다가
-        agent.speed = 3.5f;
-        //요원에게 목적지를 알려준다.
-      //  agent.destination = target.transform.position;*/
     }
 
     private void UpdateIdle()
@@ -99,14 +92,6 @@ public class AlleyNav : MonoBehaviour
         else if(i == 0){
             SpotNum(spotn);
         }
-        //생성될때 목적지(Player)를 찿는다.
-       //int r = AlleySpot.Instance.SpotNum(s);
-        //target을 찾으면 Run상태로 전이하고 싶다.
-      //  if (target != null)
-      //  {
-           // state = State.Walk;
-            //이렇게 state값을 바꿨다고 animation까지 바뀔까? no! 동기화를 해줘야한다.
-      //  }
     }
     public void SpotNum(int s)
     {
@@ -283,7 +268,6 @@ public class AlleyNav : MonoBehaviour
         return spotNumber;
     }
     public void SMove(string[] s){
-        Debug.Log(i);
         if(s.Length == i){
             i = 0;
             SpotNum(spotn);
@@ -317,5 +301,9 @@ public class AlleyNav : MonoBehaviour
         state = State.Idle;
         yield return new WaitForSeconds(7.0f);
         state = State.Walk;
+    }
+    IEnumerator AttackChange(){
+        yield return new WaitForSeconds(10.0f);
+        Attack_state = true;
     }
 }
