@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using DG.Tweening;
-
 public class PlayUI : MonoBehaviour
 {
     public GameObject escB;
@@ -54,22 +52,5 @@ public class PlayUI : MonoBehaviour
     public void Exit()
     {
         Application.Quit();
-    }
-    
-    public static void TMPDOText(TextMeshProUGUI text, float duration){
-        text.maxVisibleCharacters = 0;
-        DOTween.To(x => text.maxVisibleCharacters = (int)x, 0f, text.text.Length, duration);
-    }
-
-    IEnumerator Typing(string talk){
-        text.text = talk;
-        TMPDOText(text, 1f);
-
-        yield return new WaitForSeconds(1.5f);
-        NextTalk();
-    }
-
-    public void NextTalk(){
-        //tutorialStory.text = nuint;;l
     }
 }
