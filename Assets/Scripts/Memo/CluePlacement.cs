@@ -10,7 +10,7 @@ public class CluePlacement : MonoBehaviour
     private List<GameObject> clues = new List<GameObject>();  //생성된 단서 list
 
     private int totalLocations = 15;  //단서가 생기는 장소 수
-    private int clueListCount = 15;  //json에 들어가 있는 데이터 수
+    private int clueListCount = 10;  //json에 들어가 있는 데이터 수
 
     private int totalClues = 10;  //real + fake + curse
     private int realClue = 10;

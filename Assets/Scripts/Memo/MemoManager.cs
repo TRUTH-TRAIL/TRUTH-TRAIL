@@ -47,21 +47,21 @@ public class MemoManager : MonoBehaviour
     void Start()
     {
         var memos = new List<Memo>();
-        memos.Add(new Memo(1, "first clue"));
-        memos.Add(new Memo(2, "second clue"));
-        memos.Add(new Memo(3, "third clue"));
-        memos.Add(new Memo(4, "fourth clue"));
-        memos.Add(new Memo(5, "fifth clue"));
-        memos.Add(new Memo(6, "sixth clue"));
-        memos.Add(new Memo(7, "seventh clue"));
-        memos.Add(new Memo(8, "eighth clue"));
-        memos.Add(new Memo(9, "ninth clue"));
-        memos.Add(new Memo(10, "tenth clue"));
-        memos.Add(new Memo(11, "eleventh clue"));
-        memos.Add(new Memo(12, "twelfth clue"));
-        memos.Add(new Memo(13, "thirteenth clue"));
-        memos.Add(new Memo(14, "fourteenth clue"));
-        memos.Add(new Memo(15, "fifteenth clue"));
+        memos.Add(new Memo(0, "새벽 4시가 되기 전에 무조건 봉인을 마쳐야 한다."));
+        memos.Add(new Memo(1, "라이터는 OO에 있다."));
+        memos.Add(new Memo(2, "해골은 OO에 있다."));
+        memos.Add(new Memo(3, "십자가는 OO에 있다."));
+        memos.Add(new Memo(4, "집 안의 양초 3개를 모두 모아라."));
+        memos.Add(new Memo(5, "퇴마식을 진행할 마법진을 찾아라."));
+        memos.Add(new Memo(6, "3개의 양초를 마법진 꼭짓점에 놓아라."));
+        memos.Add(new Memo(7, "마법진의 가운데에 해골을 놓아라."));
+        memos.Add(new Memo(8, "해골 앞에 십자가를 놓아라."));
+        memos.Add(new Memo(9, "해골에 퇴마서를 붙이고 양초에 불을 붙여라."));
+        //memos.Add(new Memo(11, "eleventh clue"));
+        //memos.Add(new Memo(12, "twelfth clue"));
+        //memos.Add(new Memo(13, "thirteenth clue"));
+        //memos.Add(new Memo(14, "fourteenth clue"));
+        //memos.Add(new Memo(15, "fifteenth clue"));
 
         string memoStr = JsonUtility.ToJson(new Serialization<Memo> (memos));
         Debug.Log(memoStr);

@@ -34,7 +34,7 @@ public class Curses : MonoBehaviour
         readCurse = MemoReader.ReadCurse();
         CurseCount = readCurse.Count;
         RandomCurse = Random.Range(0, CurseCount);
-        RandomCurse = 8; //Test용 json파일에 들어간 순서다.
+        //RandomCurse = 8; //Test용 json파일에 들어간 순서다.
         retString = readCurse[RandomCurse].GetCurseData();
         curseKey = readCurse[RandomCurse].GetKey();
         readCurse.RemoveAt(RandomCurse);

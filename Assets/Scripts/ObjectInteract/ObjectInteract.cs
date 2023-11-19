@@ -44,6 +44,9 @@ public class ObjectInteract : MonoBehaviour
     //Poster 관리
     private int cnt = 0;
     private bool[] getClue = new bool[15]; //단서 습득 유무
+
+    //
+    private MemoInteract memoInteract;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -51,7 +54,7 @@ public class ObjectInteract : MonoBehaviour
     }
     private void Start()
     {
-
+        memoInteract = gameObject.GetComponent<MemoInteract>();
     }
 
     private void OnHit(Transform target)
@@ -144,14 +147,18 @@ public class ObjectInteract : MonoBehaviour
     private void ClueUpdate(GameObject clue)
     {
         int RandomInt = Random.Range(0, 5);
-        RandomInt = 0;//임시 저주만 발생
+        //RandomInt = 0;//임시 저주만 발생
         Debug.Log(RandomInt);
+        
         if (RandomInt!=0 || curse.activeCurse)
         {
-            text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
-            getClue[clue.GetComponent<MemoScript>().key] = true; // 이부분은 추후 GameManager를 통해 관리
+            MemoScript memoscript = clue.GetComponent<MemoScript>();
+            text[clueTextIndex].text = memoscript.memoData;
+            getClue[memoscript.key] = true; // 이부분은 추후 GameManager를 통해 관리
             text[clueTextIndex].gameObject.SetActive(true);
             clueTextIndex++;
+            Debug.Log(memoscript.key + "AAA");
+            memoInteract.ObjectAppear(memoscript.key);
         }
         else
         {
