@@ -5,38 +5,43 @@ using UnityEngine;
 
 public class tutorial : MonoBehaviour
 {
-    public GameObject[] text;
     public GameObject Panel;
+    private float time;
+    public AudioSource audioSource;
+    private bool play;
+    public GameObject Phone_Text;
     // Start is called before the first frame update
     void Start()
     {
+        play = false;
+        audioSource = GameObject.Find("old_telephone_lod01").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Panel.activeSelf){
+        if(Panel.activeSelf || Phone_Text.activeSelf){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else{
+        else if(!Panel.activeSelf && !Phone_Text.activeSelf){
+            time += Time.deltaTime;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if(Input.GetKeyDown(KeyCode.Return)){
-            text[1].SetActive(true);
-            StartCoroutine(start());
+        if(time >= 1 && !play){
+            audioSource.Play();
+            play = true;
         }
-    }
-
-    public void skip(){
-        Panel.SetActive(false);
-    }
-
-    public IEnumerator start(){
-        yield return new WaitForSeconds(1.0f);
-        if(text[1].activeSelf == true){
-            Panel.SetActive(false);
+        if(Input.GetKeyDown(KeyCode.O)){
+            audioSource.Stop();
+            Phone_Text.SetActive(true);
+            // 딥 보이스 적용 오류
         }
+       /* if(GameObject.Find("Player").GetComponent<Player>().hitData.collider.name == "old_telephone_lod01"
+        && Input.GetMouseButtonDown(0)){
+            audioSource.Stop(); // 레이 인식 안 됨
+        }
+        */
     }
 }

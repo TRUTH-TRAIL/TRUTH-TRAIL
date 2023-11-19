@@ -1,36 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; //FootGauge UI¸¦ À§ÇÑ ÀÓ½Ã Àû¿ë
+using UnityEngine.UI; //FootGauge UIë¥¼ ìœ„í•œ ìž„ì‹œ ì ìš©
 
 public class Player : MonoBehaviour
 {
     public GameObject escB;
     private float speed = 4f;
-    RaycastHit hitData;
-    //¹ß¼Ò¸® °ÔÀÌÁö
-    private float footGauge;  //³»ºÎÀûÀ¸·Î ÀÛ¿ëµÇ´Â ¹ß¼Ò¸® °ÔÀÌÁö
+    public RaycastHit hitData;
+    //ë°œì†Œë¦¬ ê²Œì´ì§€
+    private float footGauge;  //ë‚´ë¶€ì ìœ¼ë¡œ ìž‘ìš©ë˜ëŠ” ë°œì†Œë¦¬ ê²Œì´ì§€
     private int minFootGauge = 0;
     private int maxFootGauge = 100;
     private float footGaugeTimer; 
     private float footGaugeIncreaseInterval = 1f;
     private float footGaugeDecreaseTimer = 2f;
     public float FootGauge { get { return footGauge; } set { footGauge = Mathf.Clamp(value, minFootGauge, maxFootGauge); } }
-    //Æ¯¼ö¿ëÁö
+    //íŠ¹ìˆ˜ìš©ì§€
     bool activePaper = false;
     [SerializeField]
     GameObject paperPanel;
     [SerializeField]
     GameObject gameoverui;
-    public Ray ray;
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
         footGaugeTimer = footGaugeIncreaseInterval;
         paperPanel.SetActive(activePaper);
-        
     }
 
     // Update is called once per frame
@@ -44,27 +40,27 @@ public class Player : MonoBehaviour
         //ViewPaper();
     }
 
-    private void FootStepGauge() //¹ß¼Ò¸® °ÔÀÌÁö °ü¸®
+    private void FootStepGauge() //ë°œì†Œë¦¬ ê²Œì´ì§€ ê´€ë¦¬
     {
-        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) //¹æÇâÅ° ÀÔ·Â¿¡ µû¶ó °ÔÀÌÁö ¼³Á¤Çß´Âµ¥ w¸¸À¸·Îµµ ¹Ù²Ü ¼ö ÀÖÀ½
+        if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0) //ë°©í–¥í‚¤ ìž…ë ¥ì— ë”°ë¼ ê²Œì´ì§€ ì„¤ì •í–ˆëŠ”ë° wë§Œìœ¼ë¡œë„ ë°”ê¿€ ìˆ˜ ìžˆìŒ
         {
-            if (Input.GetKey(KeyCode.LeftShift)) //´Þ¸± ¶§
+            if (Input.GetKey(KeyCode.LeftShift)) //ë‹¬ë¦´ ë•Œ
             {
                 UpdateFootGauge(1.5f*speed);
             }
-            else //°ÉÀ» ¶§
+            else //ê±¸ì„ ë•Œ
             {
                 UpdateFootGauge(1.0f * speed);
             }
             footGaugeDecreaseTimer = 2f;
         }
-        else //°¡¸¸È÷ ÀÖÀ» ¶§
+        else //ê°€ë§Œížˆ ìžˆì„ ë•Œ
         {
             UpdateFootGauge(-2.0f * speed);
         }
     }
 
-    private void UpdateFootGauge(float n) //¹ß¼Ò¸® °ÔÀÌÁö Á¶Àý
+    private void UpdateFootGauge(float n) //ë°œì†Œë¦¬ ê²Œì´ì§€ ì¡°ì ˆ
     {
         if (n > 0)
         {
@@ -89,7 +85,7 @@ public class Player : MonoBehaviour
     }
 
  
-    private void ViewPaper() //Æ¯¼ö¿ëÁö On/OFF
+    private void ViewPaper() //íŠ¹ìˆ˜ìš©ì§€ On/OFF
     {
         if(gameoverui.activeSelf != true){
             if (Input.GetKey(KeyCode.Tab))
