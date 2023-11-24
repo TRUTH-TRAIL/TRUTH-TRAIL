@@ -19,7 +19,7 @@ public class TypingEffect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(j);
+//        Debug.Log(j);
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)){
             StopCoroutine("_typing");
             if(j == m_text.Length-1){

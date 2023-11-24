@@ -11,6 +11,9 @@ public class tutorial : MonoBehaviour
     private bool play;
     public GameObject Phone_Text;
     public GameObject Key_Text;
+    private RaycastHit hitData;
+    public GameObject Key;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +24,25 @@ public class tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 rayOrigin = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.5f));
+        Vector3 rayDir = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.forward;
+        Debug.DrawRay(rayOrigin, rayDir, Color.red, 0.5f);
+        if(Physics.Raycast(rayOrigin, rayDir, out hitData, 0.5f)){
+            //Debug.Log(hitData.collider.name);
+            if(hitData.collider.name == "old_telephone_lod01" && Input.GetMouseButtonDown(0)){
+                audioSource.Stop();
+                if(Key.activeSelf)
+                    Key_Text.SetActive(true);
+                else
+                    Phone_Text.SetActive(true);
+                // 딥 보이스 적용 오류
+            }
+            if(hitData.collider.name == "Key(Clone) (1)" && Input.GetMouseButtonDown(0) && play){
+                hitData.transform.gameObject.SetActive(false);
+                Key.SetActive(true);
+                audioSource.Play();
+            }
+        }
         if(Panel.activeSelf || Phone_Text.activeSelf || Key_Text.activeSelf){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -34,20 +56,5 @@ public class tutorial : MonoBehaviour
             audioSource.Play();
             play = true;
         }
-        if(Input.GetKeyDown(KeyCode.O)){
-            audioSource.Stop();
-            Phone_Text.SetActive(true);
-            // 딥 보이스 적용 오류
-        }
-        if(Input.GetKeyDown(KeyCode.K)){
-            audioSource.Stop();
-            Key_Text.SetActive(true);
-            // 딥 보이스 적용 오류
-        }
-       /* if(GameObject.Find("Player").GetComponent<Player>().hitData.collider.name == "old_telephone_lod01"
-        && Input.GetMouseButtonDown(0)){
-            audioSource.Stop(); // 레이 인식 안 됨
-        }
-        */
     }
 }

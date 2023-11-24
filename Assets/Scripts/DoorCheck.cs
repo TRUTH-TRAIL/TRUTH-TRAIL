@@ -20,7 +20,6 @@ public class DoorCheck : MonoBehaviour
        // }
         if(other.CompareTag("Player")){
             if(Key.activeSelf){
-                Debug.Log("?");
                 GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).GetComponent<Door>().enabled = true;
             }
             if(cameraViewCheck.inCamera == true)
