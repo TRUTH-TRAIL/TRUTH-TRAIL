@@ -12,6 +12,8 @@ public class Inventory : MonoBehaviour
     private CrossHair crosshair;
     [SerializeField]
     private GameObject specialPaper;
+    [SerializeField]
+    private GameObject handSpecialPaper;
 
     private void Update()
     {
@@ -42,6 +44,12 @@ public class Inventory : MonoBehaviour
                 crosshair.ToggleCrosshair(true);
             } 
         }
+        if(handSpecialPaper.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.Tab))
+                handSpecialPaper.SetActive(false);
+            
+        }
     }
     public void InventoryBackButton()
     {
@@ -62,6 +70,8 @@ public class Inventory : MonoBehaviour
             btn.SetActive(false);
         }
         buttons[i].SetActive(true);
+        if(i==5)
+            buttons[6].SetActive(true);
     }
     public void OpenSpecialPaper()
     {
@@ -72,5 +82,16 @@ public class Inventory : MonoBehaviour
         specialPaper.SetActive(true);
         inventoryUI.SetActive(false);
         isInventoryOpen = false;
+    }
+    public void EquipSpecialPaper()
+    {
+        foreach (GameObject btn in buttons)
+        {
+            btn.SetActive(false);
+        }
+        handSpecialPaper.SetActive(true);
+        bool a = isInventoryOpen;
+        InventoryBackButton();
+        isInventoryOpen = a;
     }
 }

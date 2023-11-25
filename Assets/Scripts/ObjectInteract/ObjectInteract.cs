@@ -19,7 +19,7 @@ public class ObjectInteract : MonoBehaviour
         Fabric,
         Frame,
         Poster,
-
+        Candle,
     }
     private bool isBookMoving = false;
     private bool isDrawerMoving = false;
@@ -47,6 +47,7 @@ public class ObjectInteract : MonoBehaviour
 
     //
     private MemoInteract memoInteract;
+    private GameObject Player;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -55,6 +56,7 @@ public class ObjectInteract : MonoBehaviour
     private void Start()
     {
         memoInteract = gameObject.GetComponent<MemoInteract>();
+        Player = GameObject.FindWithTag("Player");
     }
 
     private void OnHit(Transform target)
@@ -93,6 +95,9 @@ public class ObjectInteract : MonoBehaviour
                 // 추가 케이스를 여기에 작성합니다.
             case ObjectType.Poster:
                 HandlePoster(target);
+                break;
+            case ObjectType.Candle:
+                HandleCandle(target);
                 break;
         }
     }
@@ -392,4 +397,17 @@ public class ObjectInteract : MonoBehaviour
         yield return new WaitForSeconds(5.0f);
         Text.SetActive(false);
     }
+    private void HandleCandle(Transform target)
+    {
+        if(Player.transform.GetChild(3).gameObject.activeSelf)
+        {
+            if (curse.curseKey < 20 && curse.activeCurse)
+            {
+                curse.ClaerCurse();
+            }
+        }
+        
+    }
+
+
 }
