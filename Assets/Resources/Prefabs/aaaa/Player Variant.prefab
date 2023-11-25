@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &2098158168205903506
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1611008733, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: batText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611008733, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: batteryGroup
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611008733, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: batGaugeSlider
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611008740, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: curse
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1712510699, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: virtualCamera_Alley
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503368, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 272.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 262.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9990349
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.043923598
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 5.035
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503372, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1924519939950503379, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: inventoryUI
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969552102657227176, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: escB
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969552102657227176, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: gameoverui
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1969552102657227176, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
+      propertyPath: paperPanel
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 070887d7bc0f94fbb8dda973a83d7176, type: 3}
