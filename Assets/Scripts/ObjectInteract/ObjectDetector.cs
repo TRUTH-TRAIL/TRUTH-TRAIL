@@ -45,11 +45,13 @@ public class ObjectDetector : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 5) && (hit.transform.CompareTag("Item") || hit.transform.CompareTag("Door")))
         {
             crosshair.ChangeColor(Color.blue);
+            /*
             if(hit.transform.GetComponent<ObjectTypeController>().objectType== ObjectType.Candle)
             {
                 if(handSpecialPaper.activeSelf)
                     decipherText.SetActive(true);
             }
+            */
             /*
             Renderer hitRenderer = hit.transform.gameObject.GetComponent<Renderer>(); materialList.Clear();
             if (currentRenderer == null || currentRenderer != hitRenderer)

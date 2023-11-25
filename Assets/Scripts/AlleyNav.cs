@@ -103,7 +103,7 @@ public class AlleyNav : MonoBehaviour
                 p = Random.Range(0, 2);
                 break;
             case 1:
-                p = Random.Range(0, 2);
+                p = Random.Range(0, 3);
                 break;
             case 2:
                 p = Random.Range(0, 1);
@@ -149,7 +149,7 @@ public class AlleyNav : MonoBehaviour
             case 1:
                 switch(p){
                     case 0:
-                        str = new string[1]{"6_spot_1"};
+                        str = new string[1]{"6_spot"};
                         spotNumber = 6;
                         break;
                     case 1:
