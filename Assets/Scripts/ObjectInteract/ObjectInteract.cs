@@ -26,7 +26,7 @@ public class ObjectInteract : MonoBehaviour
     private bool isFabricFading = false;
     private bool isFrameRotating = false;
 
-    //¼­¶ø ¹®°ü¸®
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     [SerializeField] ObjectDetector objectDetector;
     [SerializeField] float smooth = 2.0f;
     private Vector3 defaultRot;
@@ -39,15 +39,19 @@ public class ObjectInteract : MonoBehaviour
     [SerializeField] Text[] text;
     [SerializeField] Text curseText;
 
-    //Ã¥ °ü¸®
+    //Ã¥ ï¿½ï¿½ï¿½ï¿½
     private float slideSpeed = 2f;
-    //Poster °ü¸®
+    //Poster ï¿½ï¿½ï¿½ï¿½
     private int cnt = 0;
+<<<<<<< HEAD
     private bool[] getClue = new bool[15]; //´Ü¼­ ½Àµæ À¯¹«
 
     //
     private MemoInteract memoInteract;
     private GameObject Player;
+=======
+    private bool[] getClue = new bool[15]; //ï¿½Ü¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+>>>>>>> c13bb51be1fb5539161fe2912fdd864a24ca4c06
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -92,7 +96,7 @@ public class ObjectInteract : MonoBehaviour
             case ObjectType.Frame:
                 HandleFrame(target);
                 break;
-                // Ãß°¡ ÄÉÀÌ½º¸¦ ¿©±â¿¡ ÀÛ¼ºÇÕ´Ï´Ù.
+                // ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Ì½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½â¿¡ ï¿½Û¼ï¿½ï¿½Õ´Ï´ï¿½.
             case ObjectType.Poster:
                 HandlePoster(target);
                 break;
@@ -151,6 +155,7 @@ public class ObjectInteract : MonoBehaviour
     }
     private void ClueUpdate(GameObject clue)
     {
+<<<<<<< HEAD
         int RandomInt = Random.Range(0, 5);
         //RandomInt = 0;//ÀÓ½Ã ÀúÁÖ¸¸ ¹ß»ý
         Debug.Log(RandomInt);
@@ -171,6 +176,12 @@ public class ObjectInteract : MonoBehaviour
             curseText.text = curse.ActiveCurse();
         }
         
+=======
+        text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
+        getClue[clue.GetComponent<MemoScript>().key] = true; // ï¿½ÌºÎºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ GameManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        text[clueTextIndex].gameObject.SetActive(true);
+        clueTextIndex++;
+>>>>>>> c13bb51be1fb5539161fe2912fdd864a24ca4c06
     }
 
     private void HandleFlash(Transform target)
@@ -291,7 +302,7 @@ public class ObjectInteract : MonoBehaviour
         MeshRenderer fabricMeshRenderer = target.GetComponent<MeshRenderer>();
         Color originalColor = fabricMeshRenderer.material.color;
 
-        float fadeDuration = 0.7f; // ÃµÀÌ »ç¶óÁö´Âµ¥ °É¸®´Â ½Ã°£
+        float fadeDuration = 0.7f; // Ãµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
@@ -299,7 +310,7 @@ public class ObjectInteract : MonoBehaviour
             float progress = elapsedTime / fadeDuration;
 
             fabricMeshRenderer.material.color = new Color(originalColor.r, originalColor.g, originalColor.b, Mathf.Lerp(originalColor.a, 0, progress));
-            //¿Ö ¾ÈÅõ¸íÇØÁú±î...?
+            //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...?
             target.parent.position = Vector3.Lerp(originalPosition, targetPosition, progress);
 
             elapsedTime += Time.deltaTime;
@@ -373,8 +384,8 @@ public class ObjectInteract : MonoBehaviour
         if(target.gameObject.name=="poster_A"){
             cnt++;
             Debug.Log("Alley Poster");
-            //inventory Æ÷½ºÅÍ ºÎºÐ ¾÷µ¥ÀÌÆ®
-            //ÃßÈÄ inventory script¿¡¼­ Æ÷½ºÅÍ ¼±ÅÃ ½Ã Æ÷½ºÅÍ ³»¿ë º¸ÀÌµµ·Ï ¼öÁ¤
+            //inventory ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+            //ï¿½ï¿½ï¿½ï¿½ inventory scriptï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         }else if(target.gameObject.name=="poster_L"){
             Debug.Log("Light Poster");
             cnt++;

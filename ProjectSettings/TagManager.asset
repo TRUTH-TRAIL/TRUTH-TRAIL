@@ -9,6 +9,7 @@ TagManager:
   - Clue
   - AILocation
   - Item
+  - spot
   layers:
   - Default
   - TransparentFX

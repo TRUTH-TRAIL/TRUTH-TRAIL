@@ -40,6 +40,9 @@ public class Door : MonoBehaviour
             {
                 
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
+                if(GameObject.Find("Player").transform.GetChild(1).GetChild(0).transform.gameObject.activeSelf){
+                    GameObject.Find("Player").transform.GetChild(1).GetChild(0).transform.gameObject.SetActive(false);
+                }
             }
             else
             {
@@ -78,15 +81,15 @@ public class Door : MonoBehaviour
 
     public void OpenDoor(Transform interactor)
     {
-            if (Vector3.Dot(transform.right, interactor.position - transform.position) > 0)
-            {
-                openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
-            }
-            else
-            {
-                openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y - DoorOpenAngle, defaultRot.eulerAngles.z);
-            }
-            open = !open;
+        if (Vector3.Dot(transform.right, interactor.position - transform.position) > 0)
+        {
+            openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
+        }
+        else
+        {
+            openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y - DoorOpenAngle, defaultRot.eulerAngles.z);
+        }
+        open = !open;
     }
 
     private void OnTriggerEnter(Collider coll)

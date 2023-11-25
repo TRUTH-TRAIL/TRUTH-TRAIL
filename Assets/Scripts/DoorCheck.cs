@@ -6,6 +6,7 @@ public class DoorCheck : MonoBehaviour
 {
     Transform door;
     CameraViewCheck cameraViewCheck;
+    public GameObject Key;
    // public GameObject tuText;
     private void Start() {
         door = GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).gameObject.transform;
@@ -18,6 +19,9 @@ public class DoorCheck : MonoBehaviour
         //    tuText.SetActive(false);
        // }
         if(other.CompareTag("Player")){
+            if(Key.activeSelf){
+                GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).GetComponent<Door>().enabled = true;
+            }
             if(cameraViewCheck.inCamera == true)
             {
                 StartCoroutine(gameStart());
