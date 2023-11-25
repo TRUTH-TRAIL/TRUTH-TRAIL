@@ -39,11 +39,8 @@ public class AlleyNav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
         //Debug.Log(state);
-        //만약 state가 idle이라면
-=======
->>>>>>> c13bb51be1fb5539161fe2912fdd864a24ca4c06
+        //만약 state�? idle?��?���?
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -244,7 +241,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 가만히x
+                    // 10초간 �?만히x
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;

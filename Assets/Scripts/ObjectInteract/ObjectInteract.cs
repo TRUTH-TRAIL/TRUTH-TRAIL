@@ -43,15 +43,11 @@ public class ObjectInteract : MonoBehaviour
     private float slideSpeed = 2f;
     //Poster ï¿½ï¿½ï¿½ï¿½
     private int cnt = 0;
-<<<<<<< HEAD
     private bool[] getClue = new bool[15]; //´Ü¼­ ½Àµæ À¯¹«
 
     //
     private MemoInteract memoInteract;
     private GameObject Player;
-=======
-    private bool[] getClue = new bool[15]; //ï¿½Ü¼ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
->>>>>>> c13bb51be1fb5539161fe2912fdd864a24ca4c06
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -155,7 +151,6 @@ public class ObjectInteract : MonoBehaviour
     }
     private void ClueUpdate(GameObject clue)
     {
-<<<<<<< HEAD
         int RandomInt = Random.Range(0, 5);
         //RandomInt = 0;//ÀÓ½Ã ÀúÁÖ¸¸ ¹ß»ý
         Debug.Log(RandomInt);
@@ -176,12 +171,6 @@ public class ObjectInteract : MonoBehaviour
             curseText.text = curse.ActiveCurse();
         }
         
-=======
-        text[clueTextIndex].text = clue.GetComponent<MemoScript>().memoData;
-        getClue[clue.GetComponent<MemoScript>().key] = true; // ï¿½ÌºÎºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ GameManagerï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
-        text[clueTextIndex].gameObject.SetActive(true);
-        clueTextIndex++;
->>>>>>> c13bb51be1fb5539161fe2912fdd864a24ca4c06
     }
 
     private void HandleFlash(Transform target)
@@ -302,7 +291,7 @@ public class ObjectInteract : MonoBehaviour
         MeshRenderer fabricMeshRenderer = target.GetComponent<MeshRenderer>();
         Color originalColor = fabricMeshRenderer.material.color;
 
-        float fadeDuration = 0.7f; // Ãµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
+        float fadeDuration = 0.7f; // Ãµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿? ï¿½É¸ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
         float elapsedTime = 0f;
 
         while (elapsedTime < fadeDuration)
