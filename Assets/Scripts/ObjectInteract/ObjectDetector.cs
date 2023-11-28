@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using static ObjectInteract;
+using UnityEngine.UI;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class ObjectDetector : MonoBehaviour
     private Ray ray;
     private RaycastHit hit;
 
-    //Outline �غ���
+    //Outline �غ���
     Material outline;
     Renderer renderers;
     List<Material> materialList = new List<Material>();
@@ -25,7 +26,9 @@ public class ObjectDetector : MonoBehaviour
     [SerializeField]
     private CrossHair crosshair;
 
-    private GameObject decipherText;
+    //private GameObject decipherText;
+    [SerializeField]
+    private Text hitText;
     private GameObject handSpecialPaper;
 
     private void Awake(){
@@ -34,7 +37,7 @@ public class ObjectDetector : MonoBehaviour
     private void Start()
     {
         outline = new Material(Shader.Find("Draw/OutlineShader"));
-        decipherText = GameObject.Find("Canvas").transform.GetChild(5).gameObject;
+        //decipherText = GameObject.Find("Canvas").transform.GetChild(5).gameObject;
         handSpecialPaper = GameObject.FindWithTag("Player").transform.GetChild(3).gameObject;
     }
 
@@ -45,13 +48,19 @@ public class ObjectDetector : MonoBehaviour
         if (Physics.Raycast(ray, out hit, 5) && (hit.transform.CompareTag("Item") || hit.transform.CompareTag("Door")))
         {
             crosshair.ChangeColor(Color.blue);
-            /*
-            if(hit.transform.GetComponent<ObjectTypeController>().objectType== ObjectType.Candle)
+            ObjectType ot = hit.transform.GetComponent<ObjectTypeController>().objectType;
+            if(ot== ObjectType.Candle)
             {
-                if(handSpecialPaper.activeSelf)
-                    decipherText.SetActive(true);
+                if(handSpecialPaper.activeSelf){
+                    hitText.text = "해독하기";
+                    hitText.gameObject.SetActive(true);
+                    //decipherText.SetActive(true);
+                }
+            }else if(ot == ObjectType.Clue){
+                hitText.text = "줍기";
+                hitText.gameObject.SetActive(true);
             }
-            */
+            
             /*
             Renderer hitRenderer = hit.transform.gameObject.GetComponent<Renderer>(); materialList.Clear();
             if (currentRenderer == null || currentRenderer != hitRenderer)
@@ -73,7 +82,8 @@ public class ObjectDetector : MonoBehaviour
         else
         {
             crosshair.ChangeColor(Color.white);
-            decipherText.SetActive(false);
+            hitText.gameObject.SetActive(false);
+            //decipherText.SetActive(false);
             //RestoreMaterials();
         }
         

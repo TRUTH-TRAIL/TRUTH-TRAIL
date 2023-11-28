@@ -20,6 +20,11 @@ public class ObjectInteract : MonoBehaviour
         Frame,
         Poster,
         Candle,
+        Skull,
+        Cross,
+        Decal,
+        Lighter,
+        Basic,
     }
     private bool isBookMoving = false;
     private bool isDrawerMoving = false;
@@ -48,6 +53,12 @@ public class ObjectInteract : MonoBehaviour
     //
     private MemoInteract memoInteract;
     private GameObject Player;
+    private CluePlacement cluePlacement;
+    [SerializeField] private GameObject Blood_Decals_05;
+
+    [SerializeField]
+    Transform itemGroup;
+    private int candleNum = 0;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -56,6 +67,7 @@ public class ObjectInteract : MonoBehaviour
     private void Start()
     {
         memoInteract = gameObject.GetComponent<MemoInteract>();
+        cluePlacement = gameObject.GetComponent<CluePlacement>();
         Player = GameObject.FindWithTag("Player");
     }
 
@@ -98,6 +110,20 @@ public class ObjectInteract : MonoBehaviour
                 break;
             case ObjectType.Candle:
                 HandleCandle(target);
+                break;
+            case ObjectType.Skull:
+                HandleSkull(target);
+                break;
+            case ObjectType.Cross:
+                HandleCross(target);
+                break;
+            case ObjectType.Lighter:
+                HandleLighter(target);
+                break;
+            case ObjectType.Decal:
+                HandleDecal(target);
+                break;
+            case ObjectType.Basic:
                 break;
         }
     }
@@ -146,7 +172,6 @@ public class ObjectInteract : MonoBehaviour
 
     private void HandleClue(Transform target)
     {
-        Destroy(target.gameObject);
         ClueUpdate(target.gameObject);
     }
     private void ClueUpdate(GameObject clue)
@@ -164,11 +189,15 @@ public class ObjectInteract : MonoBehaviour
             clueTextIndex++;
             Debug.Log(memoscript.key + "AAA");
             memoInteract.ObjectAppear(memoscript.key);
+            Destroy(clue);
+            if(clueTextIndex>=10)
+                Blood_Decals_05.SetActive(true);
         }
         else
         {
             curseText.gameObject.SetActive(true);
             curseText.text = curse.ActiveCurse();
+            cluePlacement.RelocationClue(clue);
         }
         
     }
@@ -399,15 +428,36 @@ public class ObjectInteract : MonoBehaviour
     }
     private void HandleCandle(Transform target)
     {
-        if(Player.transform.GetChild(3).gameObject.activeSelf)
-        {
-            if (curse.curseKey < 20 && curse.activeCurse)
+        if(clueTextIndex>=10){
+            Destroy(target.gameObject);
+            itemGroup.GetChild(2+candleNum).gameObject.SetActive(true);
+            candleNum++;
+        }else{
+            if(Player.transform.GetChild(3).gameObject.activeSelf)
             {
-                curse.ClaerCurse();
+                if (curse.curseKey < 20 && curse.activeCurse)
+                {
+                    curse.ClaerCurse();
+                }
             }
         }
-        
     }
 
+    private void HandleSkull(Transform target){
+        Destroy(target.parent.gameObject);
+        itemGroup.GetChild(0).gameObject.SetActive(true);
+    }
+    private void HandleCross(Transform target){
+        Destroy(target.gameObject);
+        itemGroup.GetChild(1).gameObject.SetActive(true);
+    }
+    private void HandleLighter(Transform target){
+        Destroy(target.parent.gameObject);
+        itemGroup.GetChild(5).gameObject.SetActive(true);
+    }
+
+    private void HandleDecal(Transform target){
+
+    }
 
 }

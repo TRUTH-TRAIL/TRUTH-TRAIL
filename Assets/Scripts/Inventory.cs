@@ -15,7 +15,14 @@ public class Inventory : MonoBehaviour
     private GameObject specialPaper;
     [SerializeField]
     private GameObject handSpecialPaper;
-
+    [SerializeField]
+    private GameObject handSkull;
+    [SerializeField]
+    private GameObject handCross;
+    [SerializeField]
+    private GameObject handCandle;
+    [SerializeField]
+    private GameObject handLighter;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab)&&!specialPaper.activeSelf){
@@ -45,10 +52,14 @@ public class Inventory : MonoBehaviour
                 crosshair.ToggleCrosshair(true);
             } 
         }
-        if(handSpecialPaper.activeSelf)
+        if(handSpecialPaper.activeSelf||handSkull.activeSelf||handCross.activeSelf||handCandle.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.Tab))
+            if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.Tab)){
                 handSpecialPaper.SetActive(false);
+                handSkull.SetActive(false);
+                handCross.SetActive(false);
+                handCandle.SetActive(false);
+            }
             
         }
     }
@@ -84,15 +95,34 @@ public class Inventory : MonoBehaviour
         inventoryUI.SetActive(false);
         isInventoryOpen = false;
     }
-    public void EquipSpecialPaper()
+    public void EquipItem(int i)
     {
         foreach (GameObject btn in buttons)
         {
             btn.SetActive(false);
         }
-        handSpecialPaper.SetActive(true);
+        switch(i){
+            case 0:
+                handSpecialPaper.SetActive(true);
+                break;
+            case 1:
+                handSkull.SetActive(true);
+                break;
+            case 2:
+                handCross.SetActive(true);
+                break;
+            case 3:
+                handCandle.SetActive(true);
+                break;
+            case 4:
+                handLighter.SetActive(true);
+                break;
+        }
+        
         bool a = isInventoryOpen;
         InventoryBackButton();
         isInventoryOpen = a;
     }
+
+
 }

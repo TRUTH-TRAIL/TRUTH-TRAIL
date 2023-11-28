@@ -24,6 +24,7 @@ public class CluePlacement : MonoBehaviour
 
     private List<Memo> readMemos;
     // Start is called before the first frame update
+    private List<int> selectedPositions = new List<int>();
     void Start()
     {
         readMemos = MemoReader.ReadMemos();
@@ -50,7 +51,6 @@ public class CluePlacement : MonoBehaviour
 
     private void PlaceClues()
     {
-        List<int> selectedPositions = new List<int>();
 
         while (selectedPositions.Count < totalClues)
         {
@@ -65,6 +65,26 @@ public class CluePlacement : MonoBehaviour
         }
         ClueType();
     }
+    public void RelocationClue(GameObject clue){
+        int leftClue = totalLocations - selectedPositions.Count;
+        int randomIndex = Random.Range(0,leftClue);
+        int cnt = -1;
+        int locClue;
+        // 선정되지 않은 위치 중 randomIndex번째 위치 추출
+        for(locClue=0; locClue<totalLocations; locClue++){
+            if(!selectedPositions.Contains(locClue)){
+                cnt++;
+            }
+            if(cnt==randomIndex)
+                break;
+        }
+        selectedPositions.Add(locClue);
+
+        clue.transform.position = cluePositions[locClue];
+        AttachClueToNearbyObject(clue);
+    }
+
+ 
 
     private void ClueType()
     {

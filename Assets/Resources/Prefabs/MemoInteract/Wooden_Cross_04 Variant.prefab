@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &6643505493076476586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395518617883555572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f50d456bcbd4764994284973edf6838, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectType: 11
+--- !u!65 &7194686560028599930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395518617883555572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30051917, y: 0.018057343, z: 0.13754702}
+  m_Center: {x: 0.05060944, y: 0.009028668, z: -0.0013511181}
 --- !u!1001 &2277846264566090661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53,7 +79,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2c2d9328b5178ec459925c24dfa5b373, type: 3}
       propertyPath: m_Name
-      value: Wooden_Cross_04
+      value: Wooden_Cross_04 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2c2d9328b5178ec459925c24dfa5b373, type: 3}
+      propertyPath: m_TagString
+      value: Item
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c2d9328b5178ec459925c24dfa5b373, type: 3}
+--- !u!1 &1395518617883555572 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2c2d9328b5178ec459925c24dfa5b373, type: 3}
+  m_PrefabInstance: {fileID: 2277846264566090661}
+  m_PrefabAsset: {fileID: 0}
