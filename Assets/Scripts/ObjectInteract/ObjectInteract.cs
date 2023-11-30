@@ -58,7 +58,15 @@ public class ObjectInteract : MonoBehaviour
 
     [SerializeField]
     Transform itemGroup;
-    private int candleNum = 0;
+    private int candleNum = 3;//원래는 0이다.@@@@@@@@@@@@@@@@@@@@@@
+    private Inventory inventory;
+
+    //퇴마 오브젝트 생성
+    private GameObject fSkull;
+    private GameObject fPoster;
+    private GameObject fCross;
+    private List<GameObject> fCandle = new List<GameObject>();
+    private int ignite = 0;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -69,6 +77,7 @@ public class ObjectInteract : MonoBehaviour
         memoInteract = gameObject.GetComponent<MemoInteract>();
         cluePlacement = gameObject.GetComponent<CluePlacement>();
         Player = GameObject.FindWithTag("Player");
+        inventory = gameObject.GetComponent<Inventory>();
     }
 
     private void OnHit(Transform target)
@@ -428,7 +437,7 @@ public class ObjectInteract : MonoBehaviour
     }
     private void HandleCandle(Transform target)
     {
-        if(clueTextIndex>=10){
+        if(clueTextIndex>=10&&fCandle==null){
             Destroy(target.gameObject);
             itemGroup.GetChild(2+candleNum).gameObject.SetActive(true);
             candleNum++;
@@ -441,15 +450,30 @@ public class ObjectInteract : MonoBehaviour
                 }
             }
         }
+
+        if(fCandle!=null){
+            if(inventory.handLighter.activeSelf){
+                target.parent.GetChild(0).gameObject.SetActive(true);
+                ignite++;
+            }
+            if(ignite>=3){
+                inventory.handLighter.SetActive(false);
+                itemGroup.GetChild(5).gameObject.SetActive(false);
+            }
+        }
     }
 
     private void HandleSkull(Transform target){
-        Destroy(target.parent.gameObject);
-        itemGroup.GetChild(0).gameObject.SetActive(true);
+        if(fSkull==null){
+            Destroy(target.parent.gameObject);
+            itemGroup.GetChild(0).gameObject.SetActive(true);
+        }
     }
     private void HandleCross(Transform target){
-        Destroy(target.gameObject);
-        itemGroup.GetChild(1).gameObject.SetActive(true);
+        if(fCross==null){
+            Destroy(target.gameObject);
+            itemGroup.GetChild(1).gameObject.SetActive(true);
+        }
     }
     private void HandleLighter(Transform target){
         Destroy(target.parent.gameObject);
@@ -457,7 +481,33 @@ public class ObjectInteract : MonoBehaviour
     }
 
     private void HandleDecal(Transform target){
-
+        if(inventory.handSkull.activeSelf){
+            fSkull = Instantiate(inventory.handSkull, new Vector3(274.414398f,6.00546074f,260.990967f),Quaternion.identity);
+            inventory.handSkull.SetActive(false);
+            itemGroup.GetChild(0).gameObject.SetActive(false);
+            fSkull.transform.localScale = new Vector3(2f, 2f, 2f);
+        }
+        if(inventory.handCross.activeSelf){
+            fCross = Instantiate(inventory.handCross, new Vector3(274.987f,6.08400011f,260.990967f),Quaternion.identity);
+            inventory.handCross.SetActive(false);
+            itemGroup.GetChild(1).gameObject.SetActive(false);
+            fCross.transform.localScale = new Vector3(2f, 2f, 2f);
+        }
+        if(inventory.handCandle.activeSelf){
+            if(candleNum==3){
+                fCandle.Add(Instantiate(inventory.handCandle, new Vector3(273.636993f,6.09499979f,260.990967f),Quaternion.identity));
+            }else if(candleNum==2){
+                fCandle.Add(Instantiate(inventory.handCandle, new Vector3(274.951996f,6.09299994f,260.239014f),Quaternion.identity));
+            }else{
+                fCandle.Add(Instantiate(inventory.handCandle, new Vector3(274.951996f,6.09299994f,261.751007f),Quaternion.identity));
+            }
+            
+            inventory.handCandle.SetActive(false);
+            itemGroup.GetChild(1+candleNum).gameObject.SetActive(false);
+            candleNum--;
+            Debug.Log(candleNum);
+            fCandle[2-candleNum].transform.localScale = new Vector3(2f, 2f, 2f);
+        }
     }
 
 }

@@ -15,14 +15,10 @@ public class Inventory : MonoBehaviour
     private GameObject specialPaper;
     [SerializeField]
     private GameObject handSpecialPaper;
-    [SerializeField]
-    private GameObject handSkull;
-    [SerializeField]
-    private GameObject handCross;
-    [SerializeField]
-    private GameObject handCandle;
-    [SerializeField]
-    private GameObject handLighter;
+    public GameObject handSkull;
+    public GameObject handCross;
+    public GameObject handCandle;
+    public GameObject handLighter;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Tab)&&!specialPaper.activeSelf){
@@ -52,13 +48,14 @@ public class Inventory : MonoBehaviour
                 crosshair.ToggleCrosshair(true);
             } 
         }
-        if(handSpecialPaper.activeSelf||handSkull.activeSelf||handCross.activeSelf||handCandle.activeSelf)
+        if(handSpecialPaper.activeSelf||handSkull.activeSelf||handCross.activeSelf||handCandle.activeSelf||handLighter.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.Escape)|| Input.GetKeyDown(KeyCode.Tab)){
                 handSpecialPaper.SetActive(false);
                 handSkull.SetActive(false);
                 handCross.SetActive(false);
                 handCandle.SetActive(false);
+                handLighter.SetActive(false);
             }
             
         }
