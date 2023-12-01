@@ -12,6 +12,7 @@ public class TypingEffect : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_text[2] = m_text[2].Replace("\\n", "\n");
         j = 0;
         StartCoroutine("_typing", j);
     }

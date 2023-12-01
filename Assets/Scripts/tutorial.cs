@@ -13,17 +13,22 @@ public class tutorial : MonoBehaviour
     public GameObject Key_Text;
     private RaycastHit hitData;
     public GameObject Key;
+    public GameObject[] spinfo;
 
     // Start is called before the first frame update
     void Start()
     {
         play = false;
         audioSource = GameObject.Find("old_telephone_lod01").GetComponent<AudioSource>();
+       //spinfo = new GameObject[2];
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(!spinfo[0].activeSelf){
+            spinfo[1].SetActive(false);
+        }
         Vector3 rayOrigin = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.5f));
         Vector3 rayDir = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.forward;
         Debug.DrawRay(rayOrigin, rayDir, Color.red, 0.5f);
