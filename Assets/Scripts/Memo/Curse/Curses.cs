@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Curses : MonoBehaviour
 {
     public bool activeCurse = false;
@@ -20,11 +20,13 @@ public class Curses : MonoBehaviour
     [SerializeField] GameObject player;
     [SerializeField] Text curseText;
     private PlayerCrash playerCrash;
-
+    private ChangeCamera changeCamera;
+    private bool ending = false;
 
     private void Start()
     {
         playerCrash = player.GetComponent<PlayerCrash>();
+        changeCamera = player.transform.GetChild(1).GetComponent<ChangeCamera>();
     }
     public string ActiveCurse()
     {
@@ -72,6 +74,11 @@ public class Curses : MonoBehaviour
             else if(curseKey==18)
                 TimeCurse(180.0f);
         }
+        if(!ending&&die){
+            Debug.Log("사망@@@@@");//추후 사망처리 함수 호출
+            changeCamera.SwitchToVirtualCamera();
+            ending=true;
+        }
     }
 
     //die변수를 추가해서 각 저주마다 함수를 만드는 것이 아니라 기본, 타임 등으로만 나누어 함수 만드는 것이 좋겠다.
@@ -85,6 +92,8 @@ public class Curses : MonoBehaviour
         if (die)
         {
             Debug.Log("사망@@@@@");//추후 사망처리 함수 호출
+            changeCamera.SwitchToVirtualCamera();
+            ending=true;
             ClaerCurse();
         }
     }
@@ -98,7 +107,10 @@ public class Curses : MonoBehaviour
         if (die)
         {
             Debug.Log("사망@@@@@");//추후 사망처리 함수 호출
+            ending=true;
+            changeCamera.SwitchToVirtualCamera();
             ClearTimer();
+            LoadingScene.Instance.LoadScene("GameOver");
         }
     }
 
@@ -114,6 +126,8 @@ public class Curses : MonoBehaviour
             yield return null;
         }
         Debug.Log("사망@@@@@");//시간 지나면 사망 추후 사망처리 함수 호출
+        ending=true;
+        changeCamera.SwitchToVirtualCamera();
     }
     private void ClearTimer()
     {

@@ -11,6 +11,7 @@ public class AlleyNav : MonoBehaviour
     public Transform target;
     public NavMeshAgent agent;
     public Animator anim;
+    private Curses curses;
     enum State
     {
         Idle,
@@ -25,6 +26,7 @@ public class AlleyNav : MonoBehaviour
     int p;
     float timeSpan;
     bool curseOn;
+    bool ending = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,7 @@ public class AlleyNav : MonoBehaviour
         state = State.Idle;
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        curses = GameObject.Find("CurseManager").GetComponent<Curses>();
     }
     // Update is called once per frame
     void Update()
@@ -67,6 +70,7 @@ public class AlleyNav : MonoBehaviour
         agent.destination = target.position;
         if(Vector3.Distance(transform.position, target.position) < 2.0f){
             anim.SetTrigger("Attack");
+            curses.die = true;
             Debug.Log("게임 종료");
         }
         timeSpan += Time.deltaTime;
