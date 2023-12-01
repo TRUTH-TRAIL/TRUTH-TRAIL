@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class WalkingSound : MonoBehaviour
+/*public class WalkingSound : MonoBehaviour
 {
     private AudioSource audioSource;
     public float playDelayTime = 2f;
@@ -19,7 +18,7 @@ public class WalkingSound : MonoBehaviour
         delta += Time.deltaTime;
         if(delta >= playDelayTime)
         {
-            //Play();
+            Play();
         }
     }
 
@@ -31,4 +30,4 @@ public class WalkingSound : MonoBehaviour
         }
     }
 }
-
+*/

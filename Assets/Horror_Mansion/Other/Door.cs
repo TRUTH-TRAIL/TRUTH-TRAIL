@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     public Transform player;
     private Curses curse;
     public GameObject Key;
+
     void Start()
     {
         defaultRot = transform.rotation;
@@ -22,6 +23,8 @@ public class Door : MonoBehaviour
         //txt = GameObject.FindObjectOfType<Text>();
 //        txt = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        
+        sound = GameObject.Find("Sound"); //우정추가
     }
 
     void Update()
