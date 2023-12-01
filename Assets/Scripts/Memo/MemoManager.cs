@@ -44,7 +44,7 @@ public class Serialization<T>
 public class MemoManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         var memos = new List<Memo>();
         memos.Add(new Memo(0, "새벽 4시가 되기 전에 무조건 봉인을 마쳐야 한다."));

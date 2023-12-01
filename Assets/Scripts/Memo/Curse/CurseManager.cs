@@ -34,7 +34,7 @@ public class Curse
 public class CurseManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         var curse = new List<Curse>();
         curse.Add(new Curse(0, "계단을 오르내리면 넌 죽어"));
