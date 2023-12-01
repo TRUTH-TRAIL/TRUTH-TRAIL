@@ -40,7 +40,7 @@ public class AlleyNav : MonoBehaviour
     void Update()
     {
         //Debug.Log(state);
-        //ë§Œì•½ stateê°? idle?´?¼ë©?
+        //ë§Œì•½ stateï¿½? idle?ï¿½ï¿½?ï¿½ï¿½ï¿½?
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -241,7 +241,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10ì´ˆê°„ ê°?ë§Œíˆx
+                    // 10ì´ˆê°„ ï¿½?ë§Œíˆx
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;
