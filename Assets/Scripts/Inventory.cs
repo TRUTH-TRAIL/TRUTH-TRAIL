@@ -59,6 +59,17 @@ public class Inventory : MonoBehaviour
             }
             
         }
+        if(Input.GetKeyDown(KeyCode.R)){
+            if(specialPaper.activeSelf){
+                specialPaper.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                crosshair.ToggleCrosshair(true);
+            }else{
+                crosshair.ToggleCrosshair(false);
+                OpenSpecialPaper();
+            }
+        }
     }
     public void InventoryBackButton()
     {

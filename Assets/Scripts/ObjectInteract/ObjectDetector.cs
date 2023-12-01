@@ -59,6 +59,8 @@ public class ObjectDetector : MonoBehaviour
             }else if(ot == ObjectType.Clue){
                 hitText.text = "줍기";
                 hitText.gameObject.SetActive(true);
+            }else{
+                hitText.gameObject.SetActive(false);
             }
             
             /*
