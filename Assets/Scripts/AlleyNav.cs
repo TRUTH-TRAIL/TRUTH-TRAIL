@@ -66,6 +66,7 @@ public class AlleyNav : MonoBehaviour
         }
         agent.destination = target.position;
         if(Vector3.Distance(transform.position, target.position) < 2.0f){
+            anim.SetTrigger("Attack");
             Debug.Log("게임 종료");
         }
         timeSpan += Time.deltaTime;

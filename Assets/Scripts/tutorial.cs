@@ -57,7 +57,7 @@ public class tutorial : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if(time >= 1 && !play){
+        if(time >= 30 && !play){
             audioSource.Play();
             play = true;
         }
