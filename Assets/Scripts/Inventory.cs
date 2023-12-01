@@ -90,8 +90,8 @@ public class Inventory : MonoBehaviour
             btn.SetActive(false);
         }
         buttons[i].SetActive(true);
-        if(i==5)
-            buttons[6].SetActive(true);
+        if(i==0)
+            buttons[1].SetActive(true);
     }
     public void OpenSpecialPaper()
     {
