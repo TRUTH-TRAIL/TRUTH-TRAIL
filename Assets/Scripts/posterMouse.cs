@@ -20,4 +20,7 @@ public class posterMouse : MonoBehaviour
     private void OnMouseEnter() {
         text.transform.gameObject.SetActive(true);
     }
+    private void OnMouseExit() {
+        text.transform.gameObject.SetActive(false);
+    }
 }

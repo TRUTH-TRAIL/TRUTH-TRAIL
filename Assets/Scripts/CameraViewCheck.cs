@@ -69,9 +69,9 @@ public class CameraViewCheck : MonoBehaviour
     }
 
     IEnumerator FadeOut(){
-        while(fadeCount < 1.0f && player.transform.rotation.z <= 90.0f){
+        while(fadeCount < 1.0f){ //&& player.transform.rotation.z <= 90.0f){
             fadeCount += 0.01f;
-            player.transform.Rotate(new Vector3(0, 0, -0.9f));
+            //player.transform.Rotate(new Vector3(0, 0, -0.9f));
             yield return new WaitForSeconds(0.01f);
             Fade_Panel.color = new Color(0, 0, 0, fadeCount);
         }
@@ -86,9 +86,9 @@ public class CameraViewCheck : MonoBehaviour
         postProcessing.SetActive(true);
         yield return new WaitForSeconds(1.0f);
         Debug.Log("fadein");
-        while(fadeCount > 0 && player.transform.rotation.z >= 0){
+        while(fadeCount > 0){ // && player.transform.rotation.z >= 0){
             fadeCount -= 0.01f;
-            player.transform.Rotate(new Vector3(0, 0, 0.9f));
+            //player.transform.Rotate(new Vector3(0, 0, 0.9f));
             yield return new WaitForSeconds(0.01f);
             Fade_Panel.color = new Color(0, 0, 0, fadeCount);
         }
