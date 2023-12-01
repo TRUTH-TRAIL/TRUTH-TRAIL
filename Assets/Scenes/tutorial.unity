@@ -2741,6 +2741,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2410198077364302029, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: curseText
+      value: 
+      objectReference: {fileID: 744514825}
+    - target: {fileID: 2410198077364302029, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: itemGroup
+      value: 
+      objectReference: {fileID: 1569092614}
+    - target: {fileID: 2410198077364302029, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: Blood_Decals_05
+      value: 
+      objectReference: {fileID: 1750688027}
     - target: {fileID: 2410198077364302031, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -2785,6 +2797,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2410198077364302034, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: hitText
+      value: 
+      objectReference: {fileID: 744514825}
+    - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: handCross
+      value: 
+      objectReference: {fileID: 1750688027}
+    - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: handSkull
+      value: 
+      objectReference: {fileID: 1750688027}
+    - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: handCandle
+      value: 
+      objectReference: {fileID: 1750688027}
+    - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: handLighter
+      value: 
+      objectReference: {fileID: 1750688027}
     - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
       propertyPath: inventoryUI
       value: 
@@ -2793,6 +2825,10 @@ PrefabInstance:
       propertyPath: specialPaper
       value: 
       objectReference: {fileID: 1424614572}
+    - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: handSpecialPaper
+      value: 
+      objectReference: {fileID: 1750688027}
     - target: {fileID: 2410198077364302035, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
       propertyPath: buttons.Array.size
       value: 5
@@ -52018,6 +52054,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6139497804277657844, guid: 730ad49cb45eff64a86cc0c46e2a277c, type: 3}
   m_PrefabInstance: {fileID: 6053185}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &1569092614 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8953452355719757659, guid: d43aba60190e64753a995fcd4c536a07, type: 3}
+  m_PrefabInstance: {fileID: 1049662137}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1570102729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57879,6 +57920,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1b6c4297fa44644bc35073f126b567, type: 3}
+--- !u!1 &1750688027
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1750688028}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1750688028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750688027}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1751887538
 PrefabInstance:
   m_ObjectHideFlags: 0
