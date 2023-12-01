@@ -24,9 +24,11 @@ public class AlleyNav : MonoBehaviour
     bool Attack_state;
     int p;
     float timeSpan;
+    bool curseOn;
     // Start is called before the first frame update
     void Start()
     {
+        curseOn = false;
         timeSpan = 0;
         Attack_state = true;
         p = 0;
@@ -49,7 +51,7 @@ public class AlleyNav : MonoBehaviour
         {
             UpdateWalk();
         }
-        else if (state == State.Attack && Attack_state == true)
+        else if (state == State.Attack && Attack_state)
         {
             UpdateAttack();
         }
@@ -58,6 +60,10 @@ public class AlleyNav : MonoBehaviour
     private void UpdateAttack()
     {
       //  Debug.Log(Attack_state);
+        if(!GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse && curseOn){
+            state = State.Idle;
+            curseOn = false;
+        }
         agent.destination = target.position;
         if(Vector3.Distance(transform.position, target.position) < 2.0f){
             Debug.Log("게임 종료");
@@ -79,6 +85,12 @@ public class AlleyNav : MonoBehaviour
         SMove(str);
         if(Vector3.Distance(transform.position, target.position) < 10.0f){
             state = State.Attack;
+        }
+        if(GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse){
+            curseOn = true;
+            state = State.Attack;
+            Attack_state = true;
+            agent.speed = 3.5f * 3.0f;
         }
     }
 

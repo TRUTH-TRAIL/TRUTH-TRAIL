@@ -40,9 +40,9 @@ public class Door : MonoBehaviour
             {
                 
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
-                if(GameObject.Find("Player").transform.GetChild(1).GetChild(0).transform.gameObject.activeSelf){
+               /* if(GameObject.Find("Player").transform.GetChild(1).GetChild(0).transform.gameObject.activeSelf){
                     GameObject.Find("Player").transform.GetChild(1).GetChild(0).transform.gameObject.SetActive(false);
-                }
+                }*/
             }
             else
             {
