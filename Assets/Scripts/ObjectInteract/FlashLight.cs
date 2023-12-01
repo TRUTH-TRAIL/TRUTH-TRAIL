@@ -13,15 +13,16 @@ public class FlashLight : MonoBehaviour
     [SerializeField]
     GameObject flashLight;
     private Light lightComponent;
+    /*
     //배터리 잔량 표시 UI
     [SerializeField]
     private Slider batGaugeSlider;
     [SerializeField]
     private Text batText;
-
+*/
     //인벤토리 배터리 표시
-    [SerializeField]
-    Transform batteryGroup;
+/*    [SerializeField]
+    Transform batteryGroup;*/
 
     //손전등 배터리
     private float batGauge;
@@ -48,8 +49,8 @@ public class FlashLight : MonoBehaviour
     {
         TurnOnFlash();
         //BatGauge UI를 위한 임시 동작
-        batGaugeSlider.value = batGauge;
-        batText.text = batGauge.ToString("F1");
+        //batGaugeSlider.value = batGauge;
+        //batText.text = batGauge.ToString("F1");
     }
     private void TurnOnFlash()
     {
@@ -64,7 +65,7 @@ public class FlashLight : MonoBehaviour
                 flashLight.SetActive(false);
             else
             {
-                batGaugeSlider.gameObject.SetActive(true);
+                //batGaugeSlider.gameObject.SetActive(true);
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
                     ToggleFlashLight(Color.white);
@@ -85,10 +86,10 @@ public class FlashLight : MonoBehaviour
                     }
                 }
 
-                if (lightComponent.color == Color.white && flashLight.activeSelf)
-                    UpdateBatGauge(1);
-                else if (lightComponent.color == Color.red && flashLight.activeSelf)
-                    UpdateBatGauge(3);
+                //if (lightComponent.color == Color.white && flashLight.activeSelf)
+                    //UpdateBatGauge(1);
+                //else if (lightComponent.color == Color.red && flashLight.activeSelf)
+                    //UpdateBatGauge(3);
             }
             
         }
@@ -176,6 +177,7 @@ public class FlashLight : MonoBehaviour
             if(numBattery<maxBattery)
                 numBattery += 1;
         }
+        /*
         for (int i = 0; i < maxBattery; i++)
         {
             batteryGroup.GetChild(i).gameObject.SetActive(false);
@@ -184,6 +186,6 @@ public class FlashLight : MonoBehaviour
         {
             batteryGroup.GetChild(i).gameObject.SetActive(true);
         }
-
+    */
     }
 }
