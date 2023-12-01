@@ -28,6 +28,7 @@ public class tutorial : MonoBehaviour
         Vector3 rayDir = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.forward;
         Debug.DrawRay(rayOrigin, rayDir, Color.red, 0.5f);
         if(Physics.Raycast(rayOrigin, rayDir, out hitData, 0.5f)){
+            Debug.Log(hitData.collider.name);
             //Debug.Log(hitData.collider.name);
             if(hitData.collider.name == "old_telephone_lod01" && Input.GetMouseButtonDown(0)){
                 audioSource.Stop();
@@ -37,11 +38,15 @@ public class tutorial : MonoBehaviour
                     Phone_Text.SetActive(true);
                 // 딥 보이스 적용 오류
             }
-            if(hitData.collider.name == "Key(Clone) (1)" && Input.GetMouseButtonDown(0) && play){
+            if(hitData.collider.name == "Key(Clone)" && Input.GetMouseButtonDown(0) && play){
                 hitData.transform.gameObject.SetActive(false);
                 Key.SetActive(true);
                 audioSource.Play();
             }
+           /* if(hitData.collider.name == "Work_Desk_Box_01_LOD0" && Input.GetMouseButtonDown(0) && play){
+                Debug.Log(hitData.collider.name);
+                hitData.transform.position += new Vector3(1.5f, 0, 0);
+            }*/
         }
         if(Panel.activeSelf || Phone_Text.activeSelf || Key_Text.activeSelf){
             Cursor.lockState = CursorLockMode.None;
