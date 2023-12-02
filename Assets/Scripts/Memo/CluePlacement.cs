@@ -44,7 +44,14 @@ public class CluePlacement : MonoBehaviour
         cluePositions.Add(new Vector3(276.5f, 7.75400019f, 257.723999f));
         cluePositions.Add(new Vector3(268.214752f, 6.8670001f, 266.479004f));
         cluePositions.Add(new Vector3(274.506989f, 6.61000013f, 267.640991f));
-        
+        cluePositions.Add(new Vector3(270.282318f,7.08282232f,275.717285f));
+
+        cluePositions.Add(new Vector3(276.060089f,11.2821751f,265.143555f));
+        cluePositions.Add(new Vector3(277.403625f,10.5632601f,251.702194f));
+        cluePositions.Add(new Vector3(279.341095f,10.8466787f,246.56105f));
+        cluePositions.Add(new Vector3(270.18399f,10.9901247f,245.886002f));
+        cluePositions.Add(new Vector3(257.691986f,10.9280005f,247.705002f));
+        cluePositions.Add(new Vector3(252.616592f,10.8380003f,266.587006f));
         PlaceClues();
 
     }
