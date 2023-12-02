@@ -511,7 +511,7 @@ public class ObjectInteract : MonoBehaviour
         if(inventory.handSpecialPaper.activeSelf){
             int fcnt = 0;
             for(int i=0; i<itemGroup.childCount;i++){
-                if(itemGroup.GetChild(i).activeSelf){
+                if(itemGroup.GetChild(i).gameObject.activeSelf){
                     fcnt++;
                 }
             }
