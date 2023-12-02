@@ -26,7 +26,7 @@ public class AlleyNav : MonoBehaviour
     int p;
     float timeSpan;
     bool curseOn;
-    bool ending = false;
+    //bool ending = false;
     // Start is called before the first frame update
     void Start()
     {

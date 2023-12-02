@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class StartAction : MonoBehaviour
 {
@@ -22,18 +23,44 @@ public class StartAction : MonoBehaviour
     }
     public void StartB()
     {
-        Start.SetActive(true);
-        title.SetActive(false);
+        Start.transform.GetChild(0).GetComponent<Text>().enabled = true;
+        Start.transform.GetChild(1).GetComponent<Text>().enabled = true;
+        Start.transform.GetChild(2).GetComponent<Text>().enabled = true;
+        //Start.SetActive(true);
+        title.transform.GetChild(0).GetComponent<Text>().enabled = false;
+        title.transform.GetChild(1).GetComponent<Text>().enabled = false;
+        title.transform.GetChild(2).GetComponent<Text>().enabled = false;
     }
     public void OptionB()
     {
-        Option.SetActive(true);
-        title.SetActive(false);
+        Option.transform.GetChild(1).GetComponent<Text>().enabled = true;
+        Option.transform.GetChild(2).GetComponent<Text>().enabled = true;
+        Option.transform.GetChild(3).GetComponent<Text>().enabled = true;
+        Option.transform.GetChild(4).GetComponent<Text>().enabled = true;
+        Option.transform.GetChild(5).GetComponent<Text>().enabled = true;
+       // Option.SetActive(true);
+        title.transform.GetChild(0).GetComponent<Text>().enabled = false;
+        title.transform.GetChild(1).GetComponent<Text>().enabled = false;
+        title.transform.GetChild(2).GetComponent<Text>().enabled = false;
     }
     public void Back()
     {
-        EventSystem.current.currentSelectedGameObject.transform.parent.gameObject.SetActive(false);
-        title.SetActive(true);
+        if(EventSystem.current.currentSelectedGameObject.transform.name == "S_Back"){
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(0).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(1).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(2).GetComponent<Text>().enabled = false;
+        }
+        else{
+            //EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(0).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(1).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(2).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(3).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(4).GetComponent<Text>().enabled = false;
+            EventSystem.current.currentSelectedGameObject.transform.parent.GetChild(5).GetComponent<Text>().enabled = false;
+        }
+        title.transform.GetChild(0).GetComponent<Text>().enabled = true;
+        title.transform.GetChild(1).GetComponent<Text>().enabled = true;
+        title.transform.GetChild(2).GetComponent<Text>().enabled = true;
     }
     public void Exit()
     {
