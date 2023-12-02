@@ -74826,6 +74826,10 @@ PrefabInstance:
       propertyPath: paperPanel
       value: 
       objectReference: {fileID: 1424614572}
+    - target: {fileID: 8530751271542069955, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
 --- !u!1 &4496563947758643882 stripped

@@ -26,12 +26,12 @@ public class PlayUI : MonoBehaviour
             //Cursor.visible = false;
             //Cursor.lockState = CursorLockMode.Locked;
         }
-        if(Input.GetKey(KeyCode.Escape) && !escB.activeSelf){
+        if(Input.GetKeyDown(KeyCode.Escape) && !escB.activeSelf){
             escB.SetActive(true);
             Cursor.visible = true;
         }
         else{
-            if(Input.GetKey(KeyCode.Escape)){
+            if(Input.GetKeyDown(KeyCode.Escape)){
                 escB.SetActive(false);
                 Cursor.visible = false;
             }
