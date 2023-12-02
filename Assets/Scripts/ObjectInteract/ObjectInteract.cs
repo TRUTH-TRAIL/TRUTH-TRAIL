@@ -408,7 +408,7 @@ public class ObjectInteract : MonoBehaviour
     private void HandlePoster(Transform target)
     {
         
-        if(target.gameObject.name=="poster_A"){
+        /*if(target.gameObject.name=="poster_A"){
             cnt++;
             Debug.Log("Alley Poster");
             //inventory ������ �κ� ������Ʈ
@@ -416,25 +416,26 @@ public class ObjectInteract : MonoBehaviour
         }else if(target.gameObject.name=="poster_L"){
             Debug.Log("Light Poster");
             cnt++;
-        }else if(target.gameObject.name=="poster_S"){
-            Debug.Log("Special paper Poster");
-            cnt++;
+        }else*/
+        if(target.gameObject.name=="poster_S"){
+            //Debug.Log("Special paper Poster");
+            //cnt++;
         }
-        Destroy(target.gameObject);
+        target.gameObject.SetActive(false);
 
-        if(cnt==3){
+       /* if(cnt==3){
             StartCoroutine(GoCellarText());
-        }
+        }*/
     
     }
 
-    IEnumerator GoCellarText()
+   /* IEnumerator GoCellarText()
     {
         GameObject Text = GameObject.Find("Canvas").transform.Find("tuText").gameObject;
         Text.SetActive(true);
         yield return new WaitForSeconds(5.0f);
         Text.SetActive(false);
-    }
+    }*/
     private void HandleCandle(Transform target)
     {
         if(clueTextIndex>=10&&fCandle==null){

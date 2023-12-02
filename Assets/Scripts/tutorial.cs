@@ -53,14 +53,14 @@ public class tutorial : MonoBehaviour
                 hitData.transform.position += new Vector3(1.5f, 0, 0);
             }*/
         }
-        if(Panel.activeSelf || Phone_Text.activeSelf || Key_Text.activeSelf){
+        /*if(Panel.activeSelf || Phone_Text.activeSelf || Key_Text.activeSelf){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else if(!Panel.activeSelf && !Phone_Text.activeSelf && !Key_Text.activeSelf){
+        else*/ if(!Panel.activeSelf && !Phone_Text.activeSelf && !Key_Text.activeSelf){
             time += Time.deltaTime;
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            //Cursor.visible = false;
+            //Cursor.lockState = CursorLockMode.Locked;
         }
         if(time >= 1 && !play){
             audioSource.Play();
