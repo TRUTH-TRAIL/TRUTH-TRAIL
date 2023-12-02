@@ -35,7 +35,7 @@ public class AlleyNav : MonoBehaviour
         Attack_state = true;
         p = 0;
         i = 0;
-        spotn = Random.Range(0, 7);
+        spotn = Random.Range(4, 8);
         state = State.Idle;
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -93,7 +93,7 @@ public class AlleyNav : MonoBehaviour
         anim.SetTrigger("Walk");
         agent.speed = 3.5f;
         SMove(str);
-        if(Vector3.Distance(transform.position, target.position) < 10.0f){
+        if(Vector3.Distance(transform.position, target.position) < 10.0f && i != 0){
             state = State.Attack;
         }
         if(GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse){
