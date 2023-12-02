@@ -21,6 +21,7 @@ public class Sound : MonoBehaviour
 
     void Update()
     {
+        /*
         timer += Time.deltaTime;
         if(timer > waitingTIme)
         {
@@ -30,6 +31,7 @@ public class Sound : MonoBehaviour
             }
             timer = 0;
         }
+        */
     }
 
 
