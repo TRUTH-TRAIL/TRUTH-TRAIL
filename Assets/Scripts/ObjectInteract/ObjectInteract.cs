@@ -508,6 +508,18 @@ public class ObjectInteract : MonoBehaviour
             Debug.Log(candleNum);
             fCandle[2-candleNum].transform.localScale = new Vector3(2f, 2f, 2f);
         }
+        if(inventory.handSpecialPaper.activeSelf){
+            int fcnt = 0;
+            for(int i=0; i<itemGroup.childCount;i++){
+                if(itemGroup.GetChild(i).gameObject.activeSelf){
+                    fcnt++;
+                }
+            }
+            if(fcnt==0&&ignite>=3){
+                LoadingScene.Instance.LoadScene("success");
+            }
+        }
     }
+    
 
 }

@@ -95,6 +95,7 @@ public class Curses : MonoBehaviour
             changeCamera.SwitchToVirtualCamera();
             ending=true;
             ClaerCurse();
+            StartCoroutine(Death());
         }
     }
     private void TimeCurse(float timer)
@@ -110,7 +111,8 @@ public class Curses : MonoBehaviour
             ending=true;
             changeCamera.SwitchToVirtualCamera();
             ClearTimer();
-            LoadingScene.Instance.LoadScene("GameOver");
+            StartCoroutine(Death());
+
         }
     }
 
@@ -128,6 +130,7 @@ public class Curses : MonoBehaviour
         Debug.Log("사망@@@@@");//시간 지나면 사망 추후 사망처리 함수 호출
         ending=true;
         changeCamera.SwitchToVirtualCamera();
+        StartCoroutine(Death());
     }
     private void ClearTimer()
     {
@@ -138,5 +141,9 @@ public class Curses : MonoBehaviour
             activeTimer = false;
         }
     }
-
+    IEnumerator Death(){
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 0;
+        LoadingScene.Instance.LoadScene("Death");
+    }
 }

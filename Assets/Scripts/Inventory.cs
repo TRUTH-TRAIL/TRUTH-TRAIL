@@ -14,7 +14,7 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     private GameObject specialPaper;
     [SerializeField]
-    private GameObject handSpecialPaper;
+    public GameObject handSpecialPaper;
     public GameObject handSkull;
     public GameObject handCross;
     public GameObject handCandle;
