@@ -24,7 +24,7 @@ public class Door : MonoBehaviour
 //        txt = GameObject.FindGameObjectWithTag("Text").GetComponent<Text>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         
-        sound = GameObject.Find("Sound"); //우정추가
+        //sound = GameObject.Find("Sound"); //우정추가
     }
 
     void Update()
