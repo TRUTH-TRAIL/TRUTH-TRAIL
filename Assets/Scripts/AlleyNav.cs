@@ -114,8 +114,8 @@ public class AlleyNav : MonoBehaviour
             anim.SetTrigger("Idle");
         }
         else if(i == 0){
-            //SpotNum(spotn);
-            SpotNum(0);
+            SpotNum(spotn);
+            //SpotNum(0);
         }
     }
     public void SpotNum(int s)
