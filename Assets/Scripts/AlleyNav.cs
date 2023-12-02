@@ -45,7 +45,7 @@ public class AlleyNav : MonoBehaviour
     void Update()
     {
         //Debug.Log(state);
-        //만약 state�? idle?��?���?
+        //만약 state�?? idle?��?���??
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -71,7 +71,7 @@ public class AlleyNav : MonoBehaviour
         if(Vector3.Distance(transform.position, target.position) < 2.0f){
             anim.SetTrigger("Attack");
             curses.die = true;
-            Debug.Log("게임 종료");
+            StartCoroutine(Death());
         }
         timeSpan += Time.deltaTime;
         if(timeSpan >= 10.0f){
@@ -81,6 +81,11 @@ public class AlleyNav : MonoBehaviour
             Attack_state = false;
             StartCoroutine(AttackChange());
         }
+    }
+    IEnumerator Death(){
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 0;
+        LoadingScene.Instance.LoadScene("Death");
     }
 
     private void UpdateWalk()
@@ -109,7 +114,8 @@ public class AlleyNav : MonoBehaviour
             anim.SetTrigger("Idle");
         }
         else if(i == 0){
-            SpotNum(spotn);
+            //SpotNum(spotn);
+            SpotNum(0);
         }
     }
     public void SpotNum(int s)
@@ -258,7 +264,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 �?만히x
+                    // 10초간 �??만히x
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;

@@ -41,7 +41,7 @@ public class tutorial : MonoBehaviour
                     Key_Text.SetActive(true);
                 else
                     Phone_Text.SetActive(true);
-                // ë”¥ ë³´ì´ìŠ¤ ì ìš© ì˜¤ë¥˜
+                // ?”¥ ë³´ì´?Š¤ ? ?š© ?˜¤ë¥?
             }
             if(hitData.collider.name == "Key(Clone)" && Input.GetMouseButtonDown(0) && play){
                 hitData.transform.gameObject.SetActive(false);
@@ -62,7 +62,7 @@ public class tutorial : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if(time >= 30 && !play){
+        if(time >= 1 && !play){
             audioSource.Play();
             play = true;
         }
