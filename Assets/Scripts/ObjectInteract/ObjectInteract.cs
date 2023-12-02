@@ -67,6 +67,7 @@ public class ObjectInteract : MonoBehaviour
     private GameObject fCross;
     private List<GameObject> fCandle = new List<GameObject>();
     private int ignite = 0;
+    private AudioSource audioSource;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -78,6 +79,7 @@ public class ObjectInteract : MonoBehaviour
         cluePlacement = gameObject.GetComponent<CluePlacement>();
         Player = GameObject.FindWithTag("Player");
         inventory = gameObject.GetComponent<Inventory>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void OnHit(Transform target)
@@ -448,6 +450,7 @@ public class ObjectInteract : MonoBehaviour
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
                     curse.ClaerCurse();
+                    audioSource.Play();
                 }
             }
         }
