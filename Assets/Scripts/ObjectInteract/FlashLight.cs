@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class FlashLight : MonoBehaviour
 {
@@ -54,6 +55,8 @@ public class FlashLight : MonoBehaviour
     }
     private void TurnOnFlash()
     {
+        if(SceneManager.GetActiveScene().name == "GameScene_woo")
+            getFlash = true;
         if (getFlash)
         {
             if (curse.activeCurse && curse.curseKey == 10)
