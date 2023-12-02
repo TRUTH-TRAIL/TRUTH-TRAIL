@@ -30,7 +30,8 @@ public class ObjectDetector : MonoBehaviour
     [SerializeField]
     private Text hitText;
     private GameObject handSpecialPaper;
-
+    [SerializeField]
+    private GameObject decal;
     private void Awake(){
         mainCamera = Camera.main;
     }
@@ -51,8 +52,8 @@ public class ObjectDetector : MonoBehaviour
             ObjectType ot = hit.transform.GetComponent<ObjectTypeController>().objectType;
             if(ot== ObjectType.Candle)
             {
-                if(handSpecialPaper.activeSelf){
-                    hitText.text = "?��?��?���?";
+                if(handSpecialPaper.activeSelf&&!decal.activeSelf){
+                    hitText.text = "해독하기";
                     hitText.gameObject.SetActive(true);
                     //decipherText.SetActive(true);
                 }
