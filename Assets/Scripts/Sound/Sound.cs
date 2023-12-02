@@ -9,19 +9,32 @@ public class Sound : MonoBehaviour
     private AudioSource audioSource;
 
     float timer;
+    float timer2;
     float waitingTIme;
+    float waitingTimeAlley;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
         timer = 0.0f;
+        timer2 = 0.0f;
         waitingTIme = 0.5f;
+        waitingTimeAlley = 50f;
+        bleaknessSound();
     }
 
     void Update()
     {
-        /*
+        //澜魂茄家府
+        timer2 += Time.deltaTime;
+        if (timer > waitingTimeAlley)
+        {
+            bleaknessSound();
+            timer2 = 0;
+        }
+        
+        //惯家府
         timer += Time.deltaTime;
         if(timer > waitingTIme)
         {
@@ -31,7 +44,7 @@ public class Sound : MonoBehaviour
             }
             timer = 0;
         }
-        */
+        
     }
 
 
