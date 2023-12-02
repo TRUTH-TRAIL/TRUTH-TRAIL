@@ -47,12 +47,12 @@ public class ObjectDetector : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit, 5) && (hit.transform.CompareTag("Item") || hit.transform.CompareTag("Door")))
         {
-            crosshair.ChangeColor(Color.blue);
+            crosshair.ChangeColor(Color.white);
             ObjectType ot = hit.transform.GetComponent<ObjectTypeController>().objectType;
             if(ot== ObjectType.Candle)
             {
                 if(handSpecialPaper.activeSelf){
-                    hitText.text = "해독하기";
+                    hitText.text = "?��?��?���?";
                     hitText.gameObject.SetActive(true);
                     //decipherText.SetActive(true);
                 }
