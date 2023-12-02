@@ -6,7 +6,7 @@ public class CrossHair : MonoBehaviour
 {
     [SerializeField]
     Texture2D crosshairTexture;
-    public Color crosshairColor = Color.white;
+    public Color crosshairColor = new Color(0.085f,0.085f,0.085f,1f);
     public bool showCrosshair = true;
     void Start()
     {
@@ -22,7 +22,7 @@ public class CrossHair : MonoBehaviour
             float y = Screen.height / 2;
             GUI.color = crosshairColor;
             GUI.DrawTexture(new Rect(x - 2, y - 2, 4, 4), crosshairTexture);
-            GUI.color = Color.white;
+            GUI.color = new Color(0.085f,0.085f,0.085f,1f);
         }
         
 

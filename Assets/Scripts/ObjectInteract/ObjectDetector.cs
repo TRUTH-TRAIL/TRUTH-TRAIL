@@ -83,7 +83,7 @@ public class ObjectDetector : MonoBehaviour
         }
         else
         {
-            crosshair.ChangeColor(Color.white);
+            crosshair.ChangeColor(new Color(0.085f,0.085f,0.085f,1f));
             hitText.gameObject.SetActive(false);
             //decipherText.SetActive(false);
             //RestoreMaterials();
