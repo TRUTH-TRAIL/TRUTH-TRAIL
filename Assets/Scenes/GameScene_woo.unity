@@ -73101,6 +73101,18 @@ PrefabInstance:
       propertyPath: buttons.Array.data[12]
       value: 
       objectReference: {fileID: 1496659315}
+    - target: {fileID: 2546834177833198243, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: crosshairColor.b
+      value: 0.30017802
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546834177833198243, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: crosshairColor.g
+      value: 0.30017802
+      objectReference: {fileID: 0}
+    - target: {fileID: 2546834177833198243, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
+      propertyPath: crosshairColor.r
+      value: 0.3018868
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c5916e09aa5c26d42b408d070a315e9e, type: 3}
 --- !u!1 &2653259711227888630 stripped
