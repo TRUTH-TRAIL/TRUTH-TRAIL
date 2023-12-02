@@ -516,7 +516,7 @@ public class ObjectInteract : MonoBehaviour
                 }
             }
             if(fcnt==0&&ignite>=3){
-                //ending
+                LoadingScene.Instance.LoadScene("success");
             }
         }
     }
