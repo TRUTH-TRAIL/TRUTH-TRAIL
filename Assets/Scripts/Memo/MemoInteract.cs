@@ -15,14 +15,13 @@ public class MemoInteract : MonoBehaviour
             case 0:
                 break;
             case 1:
-                Instantiate(lighterPrefab, new Vector3(274.373566f,6.76346731f,252.518921f), Quaternion.identity);
-                
+                Instantiate(lighterPrefab, new Vector3(272.6704f, 10.986f,263.4312f), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(skullBonePrefab, new Vector3(274.356293f, 6.7685895f, 253.368256f), Quaternion.identity);
+                Instantiate(skullBonePrefab, new Vector3(-128.798f, -342.6276f, 267.591f), Quaternion.identity);
                 break;
             case 3:
-                Instantiate(crossPrefab, new Vector3(274.253479f, 6.76313066f, 253.621323f), Quaternion.identity);
+                Instantiate(crossPrefab, new Vector3(249f, 10f, 263f), Quaternion.identity);
                 break;
         }
     }
