@@ -91,7 +91,7 @@ public class AlleyNav : MonoBehaviour
     private void UpdateWalk()
     {
         anim.SetTrigger("Walk");
-        agent.speed = 3.5f;
+        agent.speed = 1f;
         SMove(str);
         if(Vector3.Distance(transform.position, target.position) < 10.0f && i != 0){
             state = State.Attack;
