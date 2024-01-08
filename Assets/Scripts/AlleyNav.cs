@@ -35,7 +35,7 @@ public class AlleyNav : MonoBehaviour
         Attack_state = true;
         p = 0;
         i = 0;
-        spotn = Random.Range(4, 8);
+        spotn = Random.Range(0, 7);
         state = State.Idle;
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -83,7 +83,7 @@ public class AlleyNav : MonoBehaviour
         }
     }
     IEnumerator Death(){
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.0f);
         Time.timeScale = 0;
         LoadingScene.Instance.LoadScene("Death");
     }
@@ -93,7 +93,7 @@ public class AlleyNav : MonoBehaviour
         anim.SetTrigger("Walk");
         agent.speed = 3.5f;
         SMove(str);
-        if(Vector3.Distance(transform.position, target.position) < 10.0f && i != 0){
+        if(Vector3.Distance(transform.position, target.position) < 10.0f ){
             state = State.Attack;
         }
         if(GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse){
