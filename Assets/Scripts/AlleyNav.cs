@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -27,8 +26,6 @@ public class AlleyNav : MonoBehaviour
     int p;
     float timeSpan;
     bool curseOn;
-    public SkinnedMeshRenderer meshRenderer;
-    public GameObject D_Alley;
     //bool ending = false;
     // Start is called before the first frame update
     void Start()
@@ -47,8 +44,8 @@ public class AlleyNav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       // meshRenderer.SetBlendShapeWeight(0, 0); // GetBlendShapeWeight(0)
         //Debug.Log(state);
+        //만약 state�?? idle?��?���??
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -63,8 +60,6 @@ public class AlleyNav : MonoBehaviour
         }
     }
 
-    float3 pos;
-
     private void UpdateAttack()
     {
       //  Debug.Log(Attack_state);
@@ -73,13 +68,9 @@ public class AlleyNav : MonoBehaviour
             curseOn = false;
         }
         agent.destination = target.position;
-        if(Vector3.Distance(transform.position, target.position) < 4.0f){
+        if(Vector3.Distance(transform.position, target.position) < 2.0f){
             anim.SetTrigger("Attack");
             curses.die = true;
-            // 파티클 추가
-            gameObject.GetComponent<MeshRenderer>().enabled = false;
-            pos = gameObject.transform.position;
-            GameObject.Find("BGM").SetActive(false);
             StartCoroutine(Death());
         }
         timeSpan += Time.deltaTime;
@@ -92,13 +83,9 @@ public class AlleyNav : MonoBehaviour
         }
     }
     IEnumerator Death(){
-        yield return new WaitForSeconds(2.0f);
-        GameObject.Find("BGM").SetActive(true);
-        D_Alley.SetActive(true);
-        D_Alley.transform.position = pos;
-        // 가상 카메라 전환
-       // Time.timeScale = 0;
-        //LoadingScene.Instance.LoadScene("Death");
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 0;
+        LoadingScene.Instance.LoadScene("Death");
     }
 
     private void UpdateWalk()
@@ -133,7 +120,7 @@ public class AlleyNav : MonoBehaviour
     }
     public void SpotNum(int s)
     {
-     //   Debug.Log(s);
+        Debug.Log(s);
         switch(s){
             case 0:
                 p = Random.Range(0, 2);
@@ -277,7 +264,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 �??만히x
+                    // 10초간 �??만히x
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;

@@ -100,14 +100,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -1517095848755648784, guid: 48efdcb804250d446846a37858fc284e, type: 3}
-      propertyPath: m_BlendShapeWeights.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: -1517095848755648784, guid: 48efdcb804250d446846a37858fc284e, type: 3}
-      propertyPath: m_BlendShapeWeights.Array.data[0]
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 48efdcb804250d446846a37858fc284e, type: 3}
       propertyPath: m_Name
       value: Alley
