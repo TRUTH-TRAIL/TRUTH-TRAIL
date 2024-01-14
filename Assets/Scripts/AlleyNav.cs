@@ -26,6 +26,8 @@ public class AlleyNav : MonoBehaviour
     int p;
     float timeSpan;
     bool curseOn;
+    public GameObject pt;
+    public GameObject BGM;
     //bool ending = false;
     // Start is called before the first frame update
     void Start()
@@ -45,7 +47,7 @@ public class AlleyNav : MonoBehaviour
     void Update()
     {
         //Debug.Log(state);
-        //만약 state�?? idle?��?���??
+        //만약 state�?? idle?��?���??
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -68,10 +70,16 @@ public class AlleyNav : MonoBehaviour
             curseOn = false;
         }
         agent.destination = target.position;
-        if(Vector3.Distance(transform.position, target.position) < 2.0f){
+        if(Vector3.Distance(transform.position, target.position) < 4.0f){
             anim.SetTrigger("Attack");
+            pt.transform.position = transform.position;
+            pt.SetActive(true);
+            BGM.SetActive(false);
             curses.die = true;
-            StartCoroutine(Death());
+            pt.GetComponent<NewAlley>().pos = transform.position;
+            //StartCoroutine(
+            pt.GetComponent<NewAlley>().Death();
+            transform.gameObject.SetActive(false);
         }
         timeSpan += Time.deltaTime;
         if(timeSpan >= 10.0f){
@@ -82,18 +90,13 @@ public class AlleyNav : MonoBehaviour
             StartCoroutine(AttackChange());
         }
     }
-    IEnumerator Death(){
-        yield return new WaitForSeconds(1.5f);
-        Time.timeScale = 0;
-        LoadingScene.Instance.LoadScene("Death");
-    }
 
     private void UpdateWalk()
     {
         anim.SetTrigger("Walk");
         agent.speed = 1f;
         SMove(str);
-        if(Vector3.Distance(transform.position, target.position) < 10.0f && i != 0){
+        if(Vector3.Distance(transform.position, target.position) < 10.0f){ //&& i != 0){
             state = State.Attack;
         }
         if(GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse){
@@ -114,8 +117,8 @@ public class AlleyNav : MonoBehaviour
             anim.SetTrigger("Idle");
         }
         else if(i == 0){
-            SpotNum(spotn);
-            //SpotNum(0);
+            //SpotNum(spotn);
+            SpotNum(0);
         }
     }
     public void SpotNum(int s)
@@ -264,7 +267,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 �??만히x
+                    // 10초간 �??만히x
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;
