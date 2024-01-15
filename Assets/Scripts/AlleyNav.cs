@@ -83,7 +83,7 @@ public class AlleyNav : MonoBehaviour
         }
     }
     IEnumerator Death(){
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2.0f);
         Time.timeScale = 0;
         LoadingScene.Instance.LoadScene("Death");
     }

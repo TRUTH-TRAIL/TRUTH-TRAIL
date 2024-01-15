@@ -1,0 +1,582 @@
+fileFormatVersion: 2
+guid: 7a2af293af450472681526b4f93bc8c8
+ModelImporter:
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      74: 8705704195026426533
+    second: Crueldoll|Crueldoll.001|Crueldoll|agony
+  - first:
+      74: 1386791380957353506
+    second: Crueldoll|Crueldoll.001|Crueldoll|attack
+  - first:
+      74: 2513697484004127680
+    second: Crueldoll|Crueldoll.001|Crueldoll|crawl_run
+  - first:
+      74: -7448970432796618647
+    second: Crueldoll|Crueldoll.001|Crueldoll|cutscene
+  - first:
+      74: 6335607883853609759
+    second: Crueldoll|Crueldoll.001|Crueldoll|idle
+  - first:
+      74: 3211025843166332707
+    second: Crueldoll|Crueldoll.001|Crueldoll|run
+  - first:
+      74: 4009787944422871173
+    second: Crueldoll|Crueldoll.001|Crueldoll|run_weapon
+  - first:
+      74: 2352174220241612965
+    second: Crueldoll|Crueldoll.001|Crueldoll|scream
+  - first:
+      74: -8799089670306134862
+    second: Crueldoll|Crueldoll.001|Crueldoll|walk
+  - first:
+      74: -6123316850775563449
+    second: Crueldoll|Crueldoll.001|Crueldoll|zombiewalk
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Crueldoll|Crueldoll.001|Crueldoll|cutscene'
+      has import animation warnings that might lower retargeting quality:\nNote:
+      Activate translation DOF on avatar to improve retargeting quality.\n\t'CruelDoll:Head'
+      has translation animation that will be discarded.\n\t'CruelDoll:LeftHandIndex3'
+      has translation animation that will be discarded.\n\t'CruelDoll:LeftHandMiddle3'
+      has translation animation that will be discarded.\n\t'CruelDoll:LeftHandPinky1'
+      has translation animation that will be discarded.\n\t'CruelDoll:LeftHandPinky3'
+      has translation animation that will be discarded.\n\t'CruelDoll:RightHandIndex3'
+      has translation animation that will be discarded.\n\t'CruelDoll:RightHandMiddle3'
+      has translation animation that will be discarded.\n\t'CruelDoll:RightHandPinky3'
+      has translation animation that will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: crueldoll_ani_240113(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Crueldoll
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:Hips
+      parentName: Crueldoll
+      position: {x: -1.117587e-10, y: 0.034014475, z: -0.00096232956}
+      rotation: {x: 0.000000023283064, y: -0.000000005820767, z: 0.0000000014551916, w: 1}
+      scale: {x: 1, y: 1, z: 0.9999998}
+    - name: CruelDoll:Spine
+      parentName: CruelDoll:Hips
+      position: {x: -0, y: 0.0031297887, z: -0.00020477729}
+      rotation: {x: -0.032661874, y: 0.00000002352017, z: -0.000000006875212, w: 0.9994665}
+      scale: {x: 0.9999997, y: 0.99999994, z: 0.99999994}
+    - name: CruelDoll:Spine1
+      parentName: CruelDoll:Spine
+      position: {x: 1.6763806e-10, y: 0.0036592132, z: -1.9092113e-10}
+      rotation: {x: 0.000000011175871, y: -0.000000029668747, z: 0.000000007683051, w: 1}
+      scale: {x: 0.99999964, y: 0.99999845, z: 0.9999993}
+    - name: CruelDoll:Spine2
+      parentName: CruelDoll:Spine1
+      position: {x: 3.4924597e-10, y: 0.004181955, z: -6.0535965e-11}
+      rotation: {x: -0.000000026077032, y: 0.000000057689135, z: 0.000000009827037, w: 1}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.9999989}
+    - name: CruelDoll:Neck
+      parentName: CruelDoll:Spine2
+      position: {x: 0.0000000010430813, y: 0.0047047082, z: -7.8231094e-10}
+      rotation: {x: 0.032661878, y: -0.00000008142347, z: -0.0000000033888463, w: 0.9994665}
+      scale: {x: 0.9999991, y: 1.0000002, z: 1.0000001}
+    - name: CruelDoll:Head
+      parentName: CruelDoll:Neck
+      position: {x: -0.0000000028312206, y: 0.002407026, z: 0.000794452}
+      rotation: {x: -0, y: 0.00000005820766, z: -0.00000000873115, w: 1}
+      scale: {x: 1.0000005, y: 0.9999998, z: 1.0000001}
+    - name: CruelDoll:HeadTop_End
+      parentName: CruelDoll:Head
+      position: {x: -4.4703483e-10, y: 0.008445288, z: 0.0027874052}
+      rotation: {x: -0.00000002235174, y: -0, z: -0.000000034924593, w: 1}
+      scale: {x: 1, y: 0.9999999, z: 0.99999976}
+    - name: CruelDoll:HeadTop_End_end
+      parentName: CruelDoll:HeadTop_End
+      position: {x: -0, y: 0.0088933995, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:LeftShoulder
+      parentName: CruelDoll:Spine2
+      position: {x: -0.001521268, y: 0.0040065115, z: -0.000036865324}
+      rotation: {x: 0.5693351, y: -0.4144736, z: 0.5804319, w: 0.40886188}
+      scale: {x: 1.0000015, y: 1.000002, z: 1.0000023}
+    - name: CruelDoll:LeftArm
+      parentName: CruelDoll:LeftShoulder
+      position: {x: 1.4901161e-10, y: 0.0033586626, z: -0.0000000029709188}
+      rotation: {x: -0.17786083, y: -0.0035046483, z: 0.019387005, w: 0.98385847}
+      scale: {x: 1.0000014, y: 1, z: 0.99999994}
+    - name: CruelDoll:LeftForeArm
+      parentName: CruelDoll:LeftArm
+      position: {x: -8.9406965e-10, y: 0.009320183, z: -1.4901161e-10}
+      rotation: {x: -0.009233443, y: 0.000436728, z: -0.04725084, w: 0.9988403}
+      scale: {x: 1.0000026, y: 1.0000019, z: 1.0000024}
+    - name: CruelDoll:LeftHand
+      parentName: CruelDoll:LeftForeArm
+      position: {x: 7.45058e-10, y: 0.0085344585, z: -4.2840836e-10}
+      rotation: {x: -0.066574715, y: 0.035082255, z: 0.012967172, w: 0.99708027}
+      scale: {x: 1.0000021, y: 1.0000019, z: 1.000002}
+    - name: CruelDoll:LeftHandThumb1
+      parentName: CruelDoll:LeftHand
+      position: {x: 0.0009257804, y: 0.00065312063, z: 0.0007049569}
+      rotation: {x: 0.11964821, y: -0.03015447, z: -0.3891196, w: 0.912886}
+      scale: {x: 1.0000011, y: 0.99999785, z: 0.9999993}
+    - name: CruelDoll:LeftHandThumb2
+      parentName: CruelDoll:LeftHandThumb1
+      position: {x: 0.00013096898, y: 0.001059451, z: 0.0000000019744038}
+      rotation: {x: 0.018397208, y: 0.00088746636, z: -0.06511139, w: 0.9977081}
+      scale: {x: 0.9999998, y: 1.0000026, z: 1.0000012}
+    - name: CruelDoll:LeftHandThumb3
+      parentName: CruelDoll:LeftHandThumb2
+      position: {x: -0.000082837345, y: 0.0011194566, z: 0.00000000692904}
+      rotation: {x: -0.038000893, y: 0.004565789, z: 0.008980987, w: 0.999227}
+      scale: {x: 1.0000005, y: 1.0000039, z: 1.0000037}
+    - name: CruelDoll:LeftHandThumb4
+      parentName: CruelDoll:LeftHandThumb3
+      position: {x: -0.000048134774, y: 0.0010247217, z: -0.0000000017136335}
+      rotation: {x: 0.000000059604616, y: 0.000000052173423, z: 0.0000000012065579, w: 1}
+      scale: {x: 1.0000002, y: 1.0000021, z: 1.0000031}
+    - name: CruelDoll:LeftHandThumb4_end
+      parentName: CruelDoll:LeftHandThumb4
+      position: {x: -0, y: 0.0010258545, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:LeftHandIndex1
+      parentName: CruelDoll:LeftHand
+      position: {x: 0.0013299435, y: 0.0027012543, z: 0.00008180536}
+      rotation: {x: -0.0066431155, y: 0.00056308875, z: -0.08445667, w: 0.9964049}
+      scale: {x: 0.999999, y: 0.9999982, z: 0.9999982}
+    - name: CruelDoll:LeftHandIndex2
+      parentName: CruelDoll:LeftHandIndex1
+      position: {x: 0.00000006653368, y: 0.0010520137, z: -0.000000015932601}
+      rotation: {x: 0.040823698, y: 0.00000045093458, z: -0.0000076232163, w: 0.99916637}
+      scale: {x: 1.0000015, y: 1.0000014, z: 1.0000019}
+    - name: CruelDoll:LeftHandIndex3
+      parentName: CruelDoll:LeftHandIndex2
+      position: {x: 0.000000006854534, y: 0.00097123784, z: -0.000000008195639}
+      rotation: {x: -0.041149873, y: 0.00000062578204, z: -0.000008855019, w: 0.999153}
+      scale: {x: 1.0000032, y: 1.0000042, z: 1.0000026}
+    - name: CruelDoll:LeftHandIndex4
+      parentName: CruelDoll:LeftHandIndex3
+      position: {x: -0.00000008016825, y: 0.0008716166, z: 0.000000032484532}
+      rotation: {x: 0.00000007823107, y: -0.00000010939736, z: 0.000000044594053, w: 1}
+      scale: {x: 0.99999857, y: 0.999998, z: 0.99999774}
+    - name: CruelDoll:LeftHandIndex4_end
+      parentName: CruelDoll:LeftHandIndex4
+      position: {x: -0, y: 0.0008716212, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:LeftHandMiddle1
+      parentName: CruelDoll:LeftHand
+      position: {x: 0.00039943014, y: 0.0027076728, z: 0.000029483474}
+      rotation: {x: -0.067260705, y: -0.0005672498, z: -0.036349487, w: 0.9970729}
+      scale: {x: 0.99999875, y: 0.99999964, z: 0.999998}
+    - name: CruelDoll:LeftHandMiddle2
+      parentName: CruelDoll:LeftHandMiddle1
+      position: {x: 0.000000064335765, y: 0.0011905921, z: -0.000000006491318}
+      rotation: {x: 0.03552748, y: 0.000000174914, z: -0.00004020902, w: 0.99936867}
+      scale: {x: 1.0000013, y: 0.99999994, z: 1.000002}
+    - name: CruelDoll:LeftHandMiddle3
+      parentName: CruelDoll:LeftHandMiddle2
+      position: {x: -0.00000005505979, y: 0.00111331, z: -0.0000000046007336}
+      rotation: {x: -0.036889106, y: 0.00000004577647, z: 0.00000006023047, w: 0.9993194}
+      scale: {x: 1.0000008, y: 1.0000002, z: 1.0000013}
+    - name: CruelDoll:LeftHandMiddle4
+      parentName: CruelDoll:LeftHandMiddle3
+      position: {x: -0.0000000067055224, y: 0.00096347573, z: -0.000000005792826}
+      rotation: {x: -0.00000007078048, y: 0.00000010173945, z: -0.00000006201016, w: 1}
+      scale: {x: 1.0000014, y: 1.0000012, z: 1.0000017}
+    - name: CruelDoll:LeftHandMiddle4_end
+      parentName: CruelDoll:LeftHandMiddle4
+      position: {x: -0, y: 0.00096347457, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:LeftHandRing1
+      parentName: CruelDoll:LeftHand
+      position: {x: -0.0004917022, y: 0.0027718262, z: -0.00003883507}
+      rotation: {x: -0.019797789, y: -0.0012611222, z: 0.0047750697, w: 0.99979186}
+      scale: {x: 0.9999995, y: 1.0000004, z: 0.9999987}
+    - name: CruelDoll:LeftHandRing2
+      parentName: CruelDoll:LeftHandRing1
+      position: {x: 0.000000072866676, y: 0.0010040047, z: -0.000000001864173}
+      rotation: {x: 0.040543735, y: 0.0000003931344, z: -0.000015381887, w: 0.9991778}
+      scale: {x: 1.0000049, y: 1.0000036, z: 1.0000042}
+    - name: CruelDoll:LeftHandRing3
+      parentName: CruelDoll:LeftHandRing2
+      position: {x: -0.000000017350539, y: 0.00093678053, z: 0.000000004835019}
+      rotation: {x: -0.0076845856, y: -0.00000010679923, z: 0.000000051831275, w: 0.99997056}
+      scale: {x: 1.0000026, y: 1.0000029, z: 1.0000014}
+    - name: CruelDoll:LeftHandRing4
+      parentName: CruelDoll:LeftHandRing3
+      position: {x: -0.000000053304248, y: 0.000840482, z: -0.000000019746366}
+      rotation: {x: -0.00000003632156, y: 0.00000003835357, z: 0.0000000064231283, w: 1}
+      scale: {x: 0.99999964, y: 0.9999999, z: 1.0000005}
+    - name: CruelDoll:LeftHandRing4_end
+      parentName: CruelDoll:LeftHandRing4
+      position: {x: -0, y: 0.00084049336, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:LeftHandPinky1
+      parentName: CruelDoll:LeftHand
+      position: {x: -0.0012376745, y: 0.0024745485, z: 0.000062147104}
+      rotation: {x: 0.021120084, y: 0.001685015, z: 0.0064939666, w: 0.9997545}
+      scale: {x: 0.9999984, y: 0.999999, z: 0.9999993}
+    - name: CruelDoll:LeftHandPinky2
+      parentName: CruelDoll:LeftHandPinky1
+      position: {x: -0.0000007141288, y: 0.0009379009, z: 0.000000003755558}
+      rotation: {x: 0.04018113, y: -0.000009558392, z: 0.00017773247, w: 0.99919236}
+      scale: {x: 1.0000008, y: 1.0000004, z: 1.0000006}
+    - name: CruelDoll:LeftHandPinky3
+      parentName: CruelDoll:LeftHandPinky2
+      position: {x: 0.00000006798655, y: 0.00073849794, z: 0.0000000075344}
+      rotation: {x: -0.03781748, y: -0.000043707674, z: 0.00031448153, w: 0.99928457}
+      scale: {x: 0.99999887, y: 0.9999993, z: 0.9999985}
+    - name: CruelDoll:LeftHandPinky4
+      parentName: CruelDoll:LeftHandPinky3
+      position: {x: 0.0000006465614, y: 0.0006309057, z: -0.0000000044581245}
+      rotation: {x: 0.00000008195636, y: -0.000000021885842, z: -5.174375e-10, w: 1}
+      scale: {x: 1.0000026, y: 1.0000046, z: 1.0000018}
+    - name: CruelDoll:LeftHandPinky4_end
+      parentName: CruelDoll:LeftHandPinky4
+      position: {x: -0, y: 0.0006308995, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:RightShoulder
+      parentName: CruelDoll:Spine2
+      position: {x: 0.0015212705, y: 0.0040076557, z: -0.000054424905}
+      rotation: {x: -0.56582695, y: -0.41704595, z: 0.58354574, w: -0.40667802}
+      scale: {x: 1.0000006, y: 0.99999976, z: 1.0000002}
+    - name: CruelDoll:RightArm
+      parentName: CruelDoll:RightShoulder
+      position: {x: 0.000000001695007, y: 0.003358656, z: 8.440111e-10}
+      rotation: {x: -0.17741942, y: 0.0018486378, z: -0.010253518, w: 0.9840802}
+      scale: {x: 1.0000033, y: 1.0000024, z: 1.0000039}
+    - name: CruelDoll:RightForeArm
+      parentName: CruelDoll:RightArm
+      position: {x: 0.0000000016018747, y: 0.009317229, z: 0.000000002235174}
+      rotation: {x: 0.00907193, y: 0.00040254073, z: -0.04431388, w: -0.9989764}
+      scale: {x: 1.0000004, y: 1.000001, z: 1.0000006}
+    - name: CruelDoll:RightHand
+      parentName: CruelDoll:RightForeArm
+      position: {x: -0.0000000025331974, y: 0.008534436, z: -0.0000000021979212}
+      rotation: {x: -0.061980333, y: -0.041945297, z: -0.014089249, w: 0.99709606}
+      scale: {x: 1.0000007, y: 0.99999917, z: 1.0000005}
+    - name: CruelDoll:RightHandThumb1
+      parentName: CruelDoll:RightHand
+      position: {x: -0.00089040026, y: 0.00063215813, z: 0.00067648035}
+      rotation: {x: 0.114566214, y: 0.030045938, z: 0.38935187, w: 0.91344243}
+      scale: {x: 1.0000024, y: 1.0000025, z: 1.0000023}
+    - name: CruelDoll:RightHandThumb2
+      parentName: CruelDoll:RightHandThumb1
+      position: {x: -0.00011878509, y: 0.0010207422, z: -0.0000000048987565}
+      rotation: {x: 0.023952669, y: -0.0012129261, z: 0.06387533, w: 0.9976697}
+      scale: {x: 0.99999976, y: 0.9999994, z: 1.0000015}
+    - name: CruelDoll:RightHandThumb3
+      parentName: CruelDoll:RightHandThumb2
+      position: {x: 0.00008169681, y: 0.0011647224, z: 0.0000000044517217}
+      rotation: {x: -0.036642194, y: -0.005438587, z: -0.012926703, w: 0.9992301}
+      scale: {x: 1.0000005, y: 1.0000001, z: 0.9999985}
+    - name: CruelDoll:RightHandThumb4
+      parentName: CruelDoll:RightHandThumb3
+      position: {x: 0.00003708627, y: 0.0010567182, z: 0.00000001527369}
+      rotation: {x: -0.0000022798774, y: 0.00000012298355, z: 0.0000001812946, w: 1}
+      scale: {x: 1.0000013, y: 1.0000014, z: 1.0000008}
+    - name: CruelDoll:RightHandThumb4_end
+      parentName: CruelDoll:RightHandThumb4
+      position: {x: -0, y: 0.0010573767, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:RightHandIndex1
+      parentName: CruelDoll:RightHand
+      position: {x: -0.001321589, y: 0.0027195422, z: 0.000101689766}
+      rotation: {x: -0.0017106454, y: -0.00015039739, z: 0.08750826, w: 0.9961623}
+      scale: {x: 1.0000021, y: 1.0000014, z: 1.0000015}
+    - name: CruelDoll:RightHandIndex2
+      parentName: CruelDoll:RightHandIndex1
+      position: {x: -0.0000015028565, y: 0.0010610395, z: 0.0000000027380882}
+      rotation: {x: 0.040778, y: 0.0000030787924, z: 0.0004504225, w: 0.9991682}
+      scale: {x: 1.0000017, y: 1.0000019, z: 1.0000005}
+    - name: CruelDoll:RightHandIndex3
+      parentName: CruelDoll:RightHandIndex2
+      position: {x: 0.0000017188862, y: 0.00096102775, z: -0.000000006370246}
+      rotation: {x: -0.041332185, y: -0.0000033281174, z: -0.000100739744, w: 0.99914545}
+      scale: {x: 1.0000008, y: 1, z: 1.0000018}
+    - name: CruelDoll:RightHandIndex4
+      parentName: CruelDoll:RightHandIndex3
+      position: {x: -0.00000022128224, y: 0.0008343874, z: 0.000000014454126}
+      rotation: {x: -0.00000007078049, y: 0.00000002509808, z: 0.00000007426862, w: 1}
+      scale: {x: 1.0000008, y: 1.0000015, z: 1.0000002}
+    - name: CruelDoll:RightHandIndex4_end
+      parentName: CruelDoll:RightHandIndex4
+      position: {x: -0, y: 0.0008343945, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:RightHandMiddle1
+      parentName: CruelDoll:RightHand
+      position: {x: -0.0003880343, y: 0.0027514582, z: -0.000070941074}
+      rotation: {x: -0.055144556, y: -0.0016119776, z: 0.029173039, w: 0.9980508}
+      scale: {x: 1.0000023, y: 1.0000006, z: 1.0000019}
+    - name: CruelDoll:RightHandMiddle2
+      parentName: CruelDoll:RightHandMiddle1
+      position: {x: -0.0000026395544, y: 0.0011594839, z: 0.0000000055134297}
+      rotation: {x: 0.037926957, y: 0.000004708417, z: 0.0015590135, w: 0.99927926}
+      scale: {x: 1.0000001, y: 1.0000021, z: 1.0000001}
+    - name: CruelDoll:RightHandMiddle3
+      parentName: CruelDoll:RightHandMiddle2
+      position: {x: 0.0000026100129, y: 0.0010874475, z: 4.4703483e-10}
+      rotation: {x: -0.040926322, y: -0.000015576714, z: -0.00028459914, w: 0.99916214}
+      scale: {x: 0.9999998, y: 0.99999887, z: 0.9999989}
+    - name: CruelDoll:RightHandMiddle4
+      parentName: CruelDoll:RightHandMiddle3
+      position: {x: 0.000000023669562, y: 0.0009685312, z: 0.000000010281801}
+      rotation: {x: 0.000000029802319, y: 0.000000024893136, z: -0.000000061622615, w: 1}
+      scale: {x: 1.0000027, y: 1.0000018, z: 1.0000023}
+    - name: CruelDoll:RightHandMiddle4_end
+      parentName: CruelDoll:RightHandMiddle4
+      position: {x: -0, y: 0.000968534, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:RightHandRing1
+      parentName: CruelDoll:RightHand
+      position: {x: 0.0004891732, y: 0.0027208512, z: 0.00005775176}
+      rotation: {x: -0.07001404, y: 0.0029203144, z: 0.0096929185, w: 0.9974947}
+      scale: {x: 1.0000024, y: 1.0000012, z: 1.0000035}
+    - name: CruelDoll:RightHandRing2
+      parentName: CruelDoll:RightHandRing1
+      position: {x: -0.0000032885373, y: 0.0010360561, z: -0.0000000058114527}
+      rotation: {x: 0.036876895, y: -0.00006162187, z: 0.0018464425, w: 0.9993182}
+      scale: {x: 1.0000024, y: 1.000002, z: 0.99999917}
+    - name: CruelDoll:RightHandRing3
+      parentName: CruelDoll:RightHandRing2
+      position: {x: 0.0000018252432, y: 0.00095360726, z: -0.0000000017136335}
+      rotation: {x: -0.0030427563, y: 0.00000005497853, z: 0.00000021387099, w: 0.99999535}
+      scale: {x: 0.9999995, y: 1.0000004, z: 0.99999917}
+    - name: CruelDoll:RightHandRing4
+      parentName: CruelDoll:RightHandRing3
+      position: {x: 0.0000014610681, y: 0.0008481803, z: -5.9604643e-10}
+      rotation: {x: 0.000000059604623, y: 0.0000000095204165, z: -0.00000006410387, w: 1}
+      scale: {x: 1.0000004, y: 1.0000012, z: 1.0000011}
+    - name: CruelDoll:RightHandRing4_end
+      parentName: CruelDoll:RightHandRing4
+      position: {x: -0, y: 0.0008481895, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:RightHandPinky1
+      parentName: CruelDoll:RightHand
+      position: {x: 0.0012204557, y: 0.0024887053, z: 0.00006233453}
+      rotation: {x: 0.004318571, y: -0.00059722713, z: -0.009462131, w: 0.9999458}
+      scale: {x: 1.0000011, y: 1.0000017, z: 1.0000014}
+    - name: CruelDoll:RightHandPinky2
+      parentName: CruelDoll:RightHandPinky1
+      position: {x: 0.00000022478402, y: 0.0009050564, z: 0.0000000016391277}
+      rotation: {x: -0.0397559, y: -0.000044614062, z: -0.000458256, w: -0.99920934}
+      scale: {x: 1.0000013, y: 1.0000013, z: 1.0000001}
+    - name: CruelDoll:RightHandPinky3
+      parentName: CruelDoll:RightHandPinky2
+      position: {x: 0.0000016072393, y: 0.00075422553, z: -0.0000000040233132}
+      rotation: {x: 0.037753917, y: -0.000029063845, z: 0.0016922819, w: -0.9992857}
+      scale: {x: 0.9999992, y: 1.0000008, z: 1.0000004}
+    - name: CruelDoll:RightHandPinky4
+      parentName: CruelDoll:RightHandPinky3
+      position: {x: -0.0000018331408, y: 0.000641469, z: 0.00000000834465}
+      rotation: {x: 0.000000052154046, y: 0.000000032320475, z: 0.0000000046601825, w: 1}
+      scale: {x: 1.0000013, y: 1.0000006, z: 1.0000012}
+    - name: CruelDoll:RightHandPinky4_end
+      parentName: CruelDoll:RightHandPinky4
+      position: {x: -0, y: 0.00064146926, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:LeftUpLeg
+      parentName: CruelDoll:Hips
+      position: {x: -0.0028396451, y: -0.0017380231, z: -0.00013441713}
+      rotation: {x: 0.0000064852447, y: -0.020507682, z: 0.99978966, w: 0.00031763094}
+      scale: {x: 1.0000011, y: 1.0000008, z: 1.0000006}
+    - name: CruelDoll:LeftLeg
+      parentName: CruelDoll:LeftUpLeg
+      position: {x: 0.0000000013411044, y: 0.0147087425, z: -2.9802322e-10}
+      rotation: {x: 0.017098079, y: 0.00014880658, z: 0.008738419, w: 0.99981564}
+      scale: {x: 1.0000011, y: 1.0000025, z: 1.0000006}
+    - name: CruelDoll:LeftFoot
+      parentName: CruelDoll:LeftLeg
+      position: {x: -5.0407833e-10, y: 0.013393604, z: -3.0267983e-10}
+      rotation: {x: 0.45556822, y: 0.025181098, z: -0.0128932, w: 0.8897512}
+      scale: {x: 1.0000017, y: 0.99999917, z: 0.99999934}
+    - name: CruelDoll:LeftToeBase
+      parentName: CruelDoll:LeftFoot
+      position: {x: 5.305628e-10, y: 0.0054986808, z: 2.6077032e-10}
+      rotation: {x: 0.30939192, y: 0.013065683, z: -0.0042515406, w: 0.9508354}
+      scale: {x: 1.0000002, y: 1.0000052, z: 0.9999955}
+    - name: CruelDoll:LeftToe_End
+      parentName: CruelDoll:LeftToeBase
+      position: {x: -8.0151946e-10, y: 0.0021006267, z: 4.6566126e-11}
+      rotation: {x: -0, y: -0.0000002849847, z: 0.00000028917566, w: 1}
+      scale: {x: 1.0000038, y: 1.0000026, z: 1.0000031}
+    - name: CruelDoll:LeftToe_End_end
+      parentName: CruelDoll:LeftToe_End
+      position: {x: -0, y: 0.0021006288, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:RightUpLeg
+      parentName: CruelDoll:Hips
+      position: {x: 0.0028396451, y: -0.0017380288, z: -0.00016883328}
+      rotation: {x: -0.000005780571, y: -0.018433198, z: 0.99983007, w: -0.00031769348}
+      scale: {x: 1.000001, y: 1.0000001, z: 1.0000005}
+    - name: CruelDoll:RightLeg
+      parentName: CruelDoll:RightUpLeg
+      position: {x: -7.4505804e-11, y: 0.014706362, z: 0.0000000013411044}
+      rotation: {x: 0.016383851, y: -0.00014248634, z: -0.008738293, w: 0.9998276}
+      scale: {x: 0.99999934, y: 1.000001, z: 1.0000002}
+    - name: CruelDoll:RightFoot
+      parentName: CruelDoll:RightLeg
+      position: {x: -7.45058e-10, y: 0.0133934105, z: 4.0978193e-10}
+      rotation: {x: 0.44696185, y: -0.026286472, z: 0.013141043, w: 0.8940702}
+      scale: {x: 1.0000039, y: 1.0000021, z: 1.0000002}
+    - name: CruelDoll:RightToeBase
+      parentName: CruelDoll:RightFoot
+      position: {x: 5.862239e-10, y: 0.0053776586, z: 5.122274e-10}
+      rotation: {x: 0.31723392, y: -0.011263342, z: 0.0037680017, w: 0.94827294}
+      scale: {x: 1.0000061, y: 1.0000027, z: 1.0000008}
+    - name: CruelDoll:RightToe_End
+      parentName: CruelDoll:RightToeBase
+      position: {x: 6.1874744e-10, y: 0.0020934993, z: 1.8626451e-11}
+      rotation: {x: -0.000000029802319, y: -9.3132246e-10, z: -0.0000000051222737, w: 1}
+      scale: {x: 1.0000007, y: 1.0000012, z: 1.0000011}
+    - name: CruelDoll:RightToe_End_end
+      parentName: CruelDoll:RightToe_End
+      position: {x: -0, y: 0.0020934993, z: 0}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: CruelDoll:ribbon_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:shirt_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:shorts_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:shoes_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:socks_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:body_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:hair_Mesh.002
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    - name: CruelDoll:headset_Mesh.001
+      parentName: crueldoll_ani_240113(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: 0.000000081460335, y: -1.1102229e-16, z: 1.1102233e-16, w: 1}
+      scale: {x: 100, y: 100, z: 100}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
