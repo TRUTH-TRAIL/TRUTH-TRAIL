@@ -17706,7 +17706,15 @@ PrefabInstance:
     - target: {fileID: -1517095848755648784, guid: a66c8b75eb35695429ac5cb672d30cc5, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 53495c083adba4f48901370a68a41c1d, type: 2}
+      objectReference: {fileID: 2100000, guid: 22c96c95087c3294a892e1076aa9cb42, type: 2}
+    - target: {fileID: -1517095848755648784, guid: a66c8b75eb35695429ac5cb672d30cc5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1517095848755648784, guid: a66c8b75eb35695429ac5cb672d30cc5, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a66c8b75eb35695429ac5cb672d30cc5, type: 3}
       propertyPath: m_Name
       value: Alley_opne
@@ -22222,15 +22230,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22246,19 +22254,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.035693772
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0.00025063264
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.999339
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: 0.0068934397
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22266,11 +22274,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -176.964
       objectReference: {fileID: 0}
     - target: {fileID: 4394553583878900, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198448308153419044, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198448308153419044, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 198448308153419044, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.009
       objectReference: {fileID: 0}
     - target: {fileID: 199900680680933538, guid: 0408eb392f6850340809db1a980a2d30, type: 3}
       propertyPath: m_Materials.Array.size
@@ -53553,7 +53573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   agent: {fileID: 0}
-  anim: {fileID: 1647776328}
+  anim: {fileID: 1423922620}
   pt: {fileID: 478734358}
   BGM: {fileID: 1542826153}
 --- !u!195 &1423922619
