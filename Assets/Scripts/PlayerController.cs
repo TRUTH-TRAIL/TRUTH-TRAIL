@@ -6,9 +6,9 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
-    // ½ºÇÇµå Á¶Á¤ º¯¼ö
+    // ï¿½ï¿½ï¿½Çµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     [SerializeField]
-    private float walkSpeed;
+    public float walkSpeed;
     [SerializeField]
     private float runSpeed;
     [SerializeField]
@@ -24,35 +24,35 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject inventoryUI;
 
-    // »óÅÂ º¯¼ö
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool isRun = false;
     private bool isCrouch = false;
     private bool isGround = true;
     private bool isSlow = false;
 
 
-    // ¾É¾ÒÀ» ¶§ ¾ó¸¶³ª ¾ÉÀ»Áö °áÁ¤ÇÏ´Â º¯¼ö.
+    // ï¿½É¾ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ó¸¶³ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½.
     [SerializeField]
     private float crouchPosY;
     private float originPosY;
     private float applyCrouchPosY;
 
-    // ¶¥ ÂøÁö ¿©ºÎ
+    // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private CapsuleCollider capsuleCollider;
 
 
-    // ¹Î°¨µµ
+    // ï¿½Î°ï¿½ï¿½ï¿½
     [SerializeField]
     private float lookSensitivity;
 
 
-    // Ä«¸Þ¶ó ÇÑ°è
+    // Ä«ï¿½Þ¶ï¿½ ï¿½Ñ°ï¿½
     [SerializeField]
     private float cameraRotationLimit;
     private float currentCameraRotationX = 0;
 
 
-    //ÇÊ¿äÇÑ ÄÄÆ÷³ÍÆ®
+    //ï¿½Ê¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     [SerializeField]
     private CinemachineVirtualCamera virtualCamera_Player;
     private Rigidbody myRigid;
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         myRigid = GetComponent<Rigidbody>();
         applySpeed = walkSpeed;
 
-        // ÃÊ±âÈ­.
+        // ï¿½Ê±ï¿½È­.
         originPosY = virtualCamera_Player.transform.localPosition.y;
         applyCrouchPosY = originPosY;
         curse = GameObject.Find("CurseManager").GetComponent<Curses>();
@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // ¾É±â ½Ãµµ
+    // ï¿½É±ï¿½ ï¿½Ãµï¿½
     private void TryCrouch()
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // ¾É±â µ¿ÀÛ
+    // ï¿½É±ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void Crouch()
     {
         isCrouch = !isCrouch;
@@ -132,7 +132,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    // ºÎµå·¯¿î µ¿ÀÛ ½ÇÇà.
+    // ï¿½Îµå·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
     IEnumerator CrouchCoroutine()
     {
 
@@ -153,14 +153,14 @@ public class PlayerController : MonoBehaviour
 
    
 
-    // Áö¸é Ã¼Å©.
+    // ï¿½ï¿½ï¿½ï¿½ Ã¼Å©.
     private void IsGround()
     {
         isGround = Physics.Raycast(transform.position, Vector3.down, capsuleCollider.bounds.extents.y + 0.1f);
     }
 
 
-    // Á¡ÇÁ ½Ãµµ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
     private void TryJump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround)
@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // Á¡ÇÁ
+    // ï¿½ï¿½ï¿½ï¿½
     private void Jump()
     {
 
@@ -178,7 +178,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // ´Þ¸®±â ½Ãµµ
+    // ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½Ãµï¿½
     private void TryRun()
     {
         if (Input.GetKey(KeyCode.LeftShift))
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // ´Þ¸®±â ½ÇÇà
+    // ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void Running()
     {
 
@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // ´Þ¸®±â Ãë¼Ò
+    // ï¿½Þ¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     private void RunningCancel()
     {
         isRun = false;
@@ -237,7 +237,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // ¿òÁ÷ÀÓ ½ÇÇà
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private void Move()
     {
         
@@ -267,7 +267,7 @@ public class PlayerController : MonoBehaviour
         myRigid.MovePosition(transform.position + _velocity * Time.deltaTime);
     }
 
-    // ÁÂ¿ì Ä³¸¯ÅÍ È¸Àü
+    // ï¿½Â¿ï¿½ Ä³ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½
     private void CharacterRotation()
     {
 
@@ -279,7 +279,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-    // »óÇÏ Ä«¸Þ¶ó È¸Àü
+    // ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ È¸ï¿½ï¿½
     private void CameraRotation()
     {
         float _xRotation = Input.GetAxisRaw("Mouse Y");

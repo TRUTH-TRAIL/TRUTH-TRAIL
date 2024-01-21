@@ -28,6 +28,12 @@ public class AlleyNav : MonoBehaviour
     bool curseOn;
     public GameObject pt;
     public GameObject BGM;
+    [SerializeField] bool DebugMode = false;
+    [SerializeField] bool PlayerView = false;
+    [Range(0f, 360f)] [SerializeField] float ViewAngle = 0f;
+    [SerializeField] float ViewRadius = 1f;
+    [SerializeField] LayerMask TargetMask;
+    [SerializeField] LayerMask ObstacleMask;
     //bool ending = false;
     // Start is called before the first frame update
     void Start()
@@ -61,6 +67,39 @@ public class AlleyNav : MonoBehaviour
             UpdateAttack();
         }
     }
+    void OnDrawGizmos() {
+        if (!DebugMode) return;
+        Vector3 myPos = transform.position + Vector3.up * 0.5f;
+        Gizmos.DrawWireSphere(myPos, ViewRadius);
+        float lookingAngle = transform.eulerAngles.y;  //캐릭터가 바라보는 방향의 각도
+        Vector3 rightDir = AngleToDir(transform.eulerAngles.y + ViewAngle * 0.5f);
+        Vector3 leftDir = AngleToDir(transform.eulerAngles.y - ViewAngle * 0.5f);
+        Vector3 lookDir = AngleToDir(lookingAngle);
+
+        Debug.DrawRay(myPos, rightDir * ViewRadius, Color.blue);
+        Debug.DrawRay(myPos, leftDir * ViewRadius, Color.blue);
+        Debug.DrawRay(myPos, lookDir * ViewRadius, Color.cyan);
+
+        Collider[] Targets = Physics.OverlapSphere(myPos, ViewRadius, TargetMask);
+
+        if (Targets.Length == 0) return;
+        foreach(Collider EnemyColli in Targets)
+        {
+            Vector3 targetPos = EnemyColli.transform.position;
+            Vector3 targetDir = (targetPos - myPos).normalized;
+            float targetAngle = Mathf.Acos(Vector3.Dot(lookDir, targetDir)) * Mathf.Rad2Deg;
+            if(targetAngle <= ViewAngle * 0.5f && !Physics.Raycast(myPos, targetDir, ViewRadius, ObstacleMask))
+            {
+                if (DebugMode) Debug.DrawLine(myPos, targetPos, Color.red);
+            }
+        }
+    }
+
+    Vector3 AngleToDir(float angle)
+    {
+        float radian = angle * Mathf.Deg2Rad;
+        return new Vector3(Mathf.Sin(radian), 0f, Mathf.Cos(radian));
+    }
 
     private void UpdateAttack()
     {
@@ -70,6 +109,7 @@ public class AlleyNav : MonoBehaviour
             curseOn = false;
         }
         agent.destination = target.position;
+        agent.speed = target.GetComponent<PlayerController>().walkSpeed + 1;
         if(Vector3.Distance(transform.position, target.position) < 4.0f){
             anim.SetTrigger("Attack");
             pt.transform.position = transform.position;
@@ -81,14 +121,18 @@ public class AlleyNav : MonoBehaviour
             pt.GetComponent<NewAlley>().Death();
             transform.gameObject.SetActive(false);
         }
-        timeSpan += Time.deltaTime;
+        if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && 저주 발생 모드가 아닐 때
+            //StartCoroutine(AttackChange());
+            Attack_state = true;
+        }
+       /* timeSpan += Time.deltaTime;
         if(timeSpan >= 10.0f){
             timeSpan = 0;
             i = 0;
             state = State.Idle;
             Attack_state = false;
             StartCoroutine(AttackChange());
-        }
+        }*/
     }
 
     private void UpdateWalk()
@@ -96,7 +140,8 @@ public class AlleyNav : MonoBehaviour
         anim.SetTrigger("Walk");
         agent.speed = 1f;
         SMove(str);
-        if(Vector3.Distance(transform.position, target.position) < 10.0f){ //&& i != 0){
+        if((Vector3.Distance(transform.position, target.position) <= 12.0f) ||
+            ((Vector3.Distance(transform.position, target.position) <= 24.0f) && PlayerView == true)){ // 저주 발동{ //&& i != 0){
             state = State.Attack;
         }
         if(GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse){
