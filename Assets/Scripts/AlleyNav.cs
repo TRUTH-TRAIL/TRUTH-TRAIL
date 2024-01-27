@@ -53,7 +53,7 @@ public class AlleyNav : MonoBehaviour
     void Update()
     {
         //Debug.Log(state);
-        //만약 state�??? idle?��?���???
+        //만약 state�??? idle?��?���???
         if (state == State.Idle)
         {
             UpdateIdle();
@@ -71,7 +71,7 @@ public class AlleyNav : MonoBehaviour
         if (!DebugMode) return;
         Vector3 myPos = transform.position + Vector3.up * 0.5f;
         Gizmos.DrawWireSphere(myPos, ViewRadius);
-        float lookingAngle = transform.eulerAngles.y;  //캐릭?���? 바라보는 방향?�� 각도
+        float lookingAngle = transform.eulerAngles.y;  //캐릭?���? 바라보는 방향?�� 각도
         Vector3 rightDir = AngleToDir(transform.eulerAngles.y + ViewAngle * 0.5f);
         Vector3 leftDir = AngleToDir(transform.eulerAngles.y - ViewAngle * 0.5f);
         Vector3 lookDir = AngleToDir(lookingAngle);
@@ -90,6 +90,7 @@ public class AlleyNav : MonoBehaviour
             float targetAngle = Mathf.Acos(Vector3.Dot(lookDir, targetDir)) * Mathf.Rad2Deg;
             if(targetAngle <= ViewAngle * 0.5f && !Physics.Raycast(myPos, targetDir, ViewRadius, ObstacleMask))
             {
+                PlayerView = true;
                 if (DebugMode) Debug.DrawLine(myPos, targetPos, Color.red);
             }
         }
@@ -125,9 +126,9 @@ public class AlleyNav : MonoBehaviour
             }
 
         }
-        if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && ???�? 발생 모드�? ?��?�� ?��
+        if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && ???�? 발생 모드�? ?��?�� ?��
             //StartCoroutine(AttackChange());
-            Attack_state = true;
+            Attack_state = false;
         }
        /* timeSpan += Time.deltaTime;
         if(timeSpan >= 10.0f){
@@ -145,8 +146,9 @@ public class AlleyNav : MonoBehaviour
         agent.speed = 1f;
         SMove(str);
         if((Vector3.Distance(transform.position, target.position) <= 12.0f) ||
-            ((Vector3.Distance(transform.position, target.position) <= 24.0f) && PlayerView == true)){ // ???�? 발동{ //&& i != 0){
+            ((Vector3.Distance(transform.position, target.position) <= 24.0f) && PlayerView == true)){ // ???�? 발동{ //&& i != 0){
             state = State.Attack;
+            Attack_state = true;
         }
         if(GameObject.Find("CurseManager").GetComponent<Curses>().activeCurse){
             curseOn = true;
@@ -316,7 +318,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 �???만히x
+                    // 10초간 �???만히x
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;
