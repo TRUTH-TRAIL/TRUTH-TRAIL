@@ -35513,11 +35513,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7326181046807324531, guid: 20905c1589f1714449edd18052d1b079, type: 3}
   m_PrefabInstance: {fileID: 928774030}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &930968367 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7604885590945743520, guid: cb39f6a9e50a9604db0d5c2fc6051f45, type: 3}
-  m_PrefabInstance: {fileID: 1040589978}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &932915264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53637,6 +53632,11 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!4 &1423922621 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a66c8b75eb35695429ac5cb672d30cc5, type: 3}
+  m_PrefabInstance: {fileID: 439215078}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424614572 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4453478444511207542, guid: 1f41ff2a7cbef4339a233582a5760a86, type: 3}
@@ -54053,7 +54053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1437209202
 Transform:
   m_ObjectHideFlags: 0
@@ -54061,14 +54061,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1437209201}
-  m_LocalRotation: {x: -0, y: 1, z: -2.055458e-10, w: 0}
-  m_LocalPosition: {x: -0.064997464, y: 4.175, z: 4.0799828}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalRotation: {x: 0, y: 0.99539626, z: 0.095845714, w: 0}
+  m_LocalPosition: {x: 0, y: 3.5, z: 4}
+  m_LocalScale: {x: 2.5, y: 2.5000002, z: 2.4999998}
   m_Children:
   - {fileID: 1117547252}
-  m_Father: {fileID: 930968367}
+  m_Father: {fileID: 1423922621}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: -11, y: 180, z: 0}
 --- !u!114 &1437209203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54090,7 +54090,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
-    FieldOfView: 60
+    FieldOfView: 50
     OrthographicSize: 5
     NearClipPlane: 0.3
     FarClipPlane: 1000
@@ -54098,7 +54098,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -80963,6 +80963,34 @@ PrefabInstance:
     - target: {fileID: 2739504596406044443, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2739504596406044446, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3331749041644964758, guid: 252f3013f2ddd4bec90224cf37fd6b9a, type: 3}
       propertyPath: m_Layer
