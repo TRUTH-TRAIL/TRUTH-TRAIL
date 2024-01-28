@@ -8,26 +8,25 @@ using Random = UnityEngine.Random;
 
 public class AlleyNav : MonoBehaviour
 {
-    public Transform target;
-    public NavMeshAgent agent;
-    public Animator anim;
+    [SerializeField] Transform target;
+    [SerializeField] NavMeshAgent agent;
+    [SerializeField] Animator anim;
     private Curses curses;
-    enum State
+    private enum State
     {
         Idle,
         Walk,
         Attack
     }
-    State state;
-    string[] str;
-    int i;
-    int spotn;
-    bool Attack_state;
-    int p;
-    float timeSpan;
+    private State state;
+    private string[] str;
+    private int i;
+    private int p;
+    private int spotn;
+    private bool Attack_state;
+    //float timeSpan;
     bool curseOn;
-    public GameObject pt;
-    public GameObject BGM;
+    [SerializeField] GameObject BGM;
     [SerializeField] bool DebugMode = false;
     [SerializeField] bool PlayerView = false;
     [Range(0f, 360f)] [SerializeField] float ViewAngle = 0f;
@@ -39,7 +38,7 @@ public class AlleyNav : MonoBehaviour
     void Start()
     {
         curseOn = false;
-        timeSpan = 0;
+       // timeSpan = 0;
         Attack_state = true;
         p = 0;
         i = 0;
@@ -52,26 +51,32 @@ public class AlleyNav : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.name == "Alley_open"){
+            state = State.Attack;
+            anim.SetTrigger("Attack");
+        }
+        else{
+            if (state == State.Idle)
+            {
+                UpdateIdle();
+            }
+            else if (state == State.Walk)
+            {
+                UpdateWalk();
+            }
+            else if (state == State.Attack && Attack_state)
+            {
+                UpdateAttack();
+            }
+        }
         //Debug.Log(state);
-        //만약 state�??? idle?��?���???
-        if (state == State.Idle)
-        {
-            UpdateIdle();
-        }
-        else if (state == State.Walk)
-        {
-            UpdateWalk();
-        }
-        else if (state == State.Attack && Attack_state)
-        {
-            UpdateAttack();
-        }
+        //만약 state�????? idle?��?���?????
     }
     void OnDrawGizmos() {
         if (!DebugMode) return;
         Vector3 myPos = transform.position + Vector3.up * 0.5f;
         Gizmos.DrawWireSphere(myPos, ViewRadius);
-        float lookingAngle = transform.eulerAngles.y;  //캐릭?���? 바라보는 방향?�� 각도
+        float lookingAngle = transform.eulerAngles.y;  //캐릭?���??? 바라보는 방향?�� 각도
         Vector3 rightDir = AngleToDir(transform.eulerAngles.y + ViewAngle * 0.5f);
         Vector3 leftDir = AngleToDir(transform.eulerAngles.y - ViewAngle * 0.5f);
         Vector3 lookDir = AngleToDir(lookingAngle);
@@ -111,23 +116,18 @@ public class AlleyNav : MonoBehaviour
         }
         agent.destination = target.position;
         agent.speed = target.GetComponent<PlayerController>().walkSpeed + 1;
-        if(Vector3.Distance(transform.position, target.position) < 4.0f){
-            anim.SetTrigger("Attack");
-            pt.transform.position = transform.position;
-            pt.SetActive(true);
+        if(Vector3.Distance(transform.position, target.position) < 3.0f){
+            Attack_state = false;
+            target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().C_Blink();
+            target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().Alley_pos = this.transform.position;
+            this.transform.GetComponent<NavMeshAgent>().enabled = false;
+            anim.SetTrigger("Idle");
             BGM.SetActive(false);
-
-            pt.GetComponent<NewAlley>().pos = transform.position;
-            //StartCoroutine(
             if(curses.die==false){
-                pt.GetComponent<NewAlley>().Death();
-                transform.gameObject.SetActive(false);
                 curses.die = true;
             }
-
         }
-        if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && ???�? 발생 모드�? ?��?�� ?��
-            //StartCoroutine(AttackChange());
+        if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && ???�??? 발생 모드�??? ?��?�� ?��
             Attack_state = false;
         }
        /* timeSpan += Time.deltaTime;
@@ -146,7 +146,7 @@ public class AlleyNav : MonoBehaviour
         agent.speed = 1f;
         SMove(str);
         if((Vector3.Distance(transform.position, target.position) <= 12.0f) ||
-            ((Vector3.Distance(transform.position, target.position) <= 24.0f) && PlayerView == true)){ // ???�? 발동{ //&& i != 0){
+            ((Vector3.Distance(transform.position, target.position) <= 24.0f) && PlayerView == true)){ // ???�??? 발동{ //&& i != 0){
             state = State.Attack;
             Attack_state = true;
         }
@@ -157,7 +157,6 @@ public class AlleyNav : MonoBehaviour
             agent.speed = 3.5f * 3.0f;
         }
     }
-
     private void UpdateIdle()
     {
         if(i != 0 && agent.speed != 0){
@@ -318,7 +317,7 @@ public class AlleyNav : MonoBehaviour
                         spotNumber = 6;
                         break;
                     case 1:
-                    // 10초간 �???만히x
+                    // 10초간 �?????만히x
                         str = new string[3]{"7_spot_1", "5_spot_3", "6_spot"};
                         spotNumber = 6;
                         break;
@@ -380,9 +379,5 @@ public class AlleyNav : MonoBehaviour
         state = State.Idle;
         yield return new WaitForSeconds(7.0f);
         state = State.Walk;
-    }
-    IEnumerator AttackChange(){
-        yield return new WaitForSeconds(10.0f);
-        Attack_state = true;
     }
 }
