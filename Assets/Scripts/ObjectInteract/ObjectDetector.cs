@@ -32,6 +32,8 @@ public class ObjectDetector : MonoBehaviour
     private GameObject handSpecialPaper;
     [SerializeField]
     private GameObject decal;
+    private Curses curse;
+
     private void Awake(){
         mainCamera = Camera.main;
     }
@@ -40,6 +42,7 @@ public class ObjectDetector : MonoBehaviour
         outline = new Material(Shader.Find("Draw/OutlineShader"));
         //decipherText = GameObject.Find("Canvas").transform.GetChild(5).gameObject;
         handSpecialPaper = GameObject.FindWithTag("Player").transform.GetChild(3).gameObject;
+        curse = GameObject.Find("CurseManager").GetComponent<Curses>();
     }
 
     private void Update() {
@@ -50,15 +53,23 @@ public class ObjectDetector : MonoBehaviour
         {
             crosshair.ChangeColor(Color.white);
             ObjectType ot = hit.transform.GetComponent<ObjectTypeController>().objectType;
+            if(curse.activeCurse){
+                if(curse.curseKey==5){
+                    if(hit.distance < 2.0f && ot == ObjectType.Window){
+                        curse.die = true;
+                    }
+                }
+            }
+            
             if(ot== ObjectType.Candle)
             {
                 if(handSpecialPaper.activeSelf&&!decal.activeSelf){
-                    hitText.text = "í•´ë…í•˜ê¸°";
+                    hitText.text = "ÇØµ¶ÇÏ±â";
                     hitText.gameObject.SetActive(true);
                     //decipherText.SetActive(true);
                 }
             }else if(ot == ObjectType.Clue){
-                hitText.text = "ì¤ê¸°";
+                hitText.text = "ÁÝ±â";
                 hitText.gameObject.SetActive(true);
             }else{
                 hitText.gameObject.SetActive(false);

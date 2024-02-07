@@ -37,10 +37,16 @@ public class CurseManager : MonoBehaviour
     void Awake()
     {
         var curse = new List<Curse>();
-        curse.Add(new Curse(0, "계단을 오르내리면 넌 죽어"));
-        curse.Add(new Curse(1, "한번에 뒤를 돌아보면 넌 죽어"));
-        curse.Add(new Curse(2, "옆으로 움직이면 넌 죽어"));
-        curse.Add(new Curse(3, "방 문을 두번 열면 넌 죽어"));
+        curse.Add(new Curse(0, "계단으로 와볼래?"));
+        curse.Add(new Curse(1, "뒤돌아봐"));
+        curse.Add(new Curse(2, "옆으로 움직여 볼래?"));
+        curse.Add(new Curse(3, "방 문을 두번 열어봐"));
+        curse.Add(new Curse(4, "지하실 문을 열어봐")); //미구현
+        curse.Add(new Curse(5, "창문 밖을 봐"));
+        curse.Add(new Curse(6, "서랍을 열어봐"));
+        curse.Add(new Curse(7, "책장의 책을 치워봐"));
+        curse.Add(new Curse(8, "너 앞으로 되게 잘 걷는다. 계속 앞으로 걸어봐"));
+        curse.Add(new Curse(9, "화장실에 뭔가 있어. 확인해볼래?"));
 
         curse.Add(new Curse(10, "손전등 켜봐 2:00"));
         curse.Add(new Curse(11, "발소리를 내봐 3:30"));

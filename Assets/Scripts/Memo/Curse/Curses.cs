@@ -36,7 +36,7 @@ public class Curses : MonoBehaviour
         readCurse = MemoReader.ReadCurse();
         CurseCount = readCurse.Count;
         RandomCurse = Random.Range(0, CurseCount);
-        //RandomCurse = 8; //Test용 json파일에 들어간 순서다.
+        RandomCurse = 19; //Test용 json파일에 들어간 순서다.
         retString = readCurse[RandomCurse].GetCurseData();
         curseKey = readCurse[RandomCurse].GetKey();
         readCurse.RemoveAt(RandomCurse);
@@ -73,6 +73,8 @@ public class Curses : MonoBehaviour
                 TimeCurse(180.0f);
             else if(curseKey==18)
                 TimeCurse(180.0f);
+            else if(curseKey==19)
+                TimeCurse(120.0f);
         }
         if(!ending&&die){
             Debug.Log("사망@@@@@");//추후 사망처리 함수 호출

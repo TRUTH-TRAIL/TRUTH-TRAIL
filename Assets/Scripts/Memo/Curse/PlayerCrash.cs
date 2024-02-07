@@ -18,6 +18,12 @@ public class PlayerCrash : MonoBehaviour
                     curse.die = true;
                 }
             }
+            if(curse.curseKey == 9){
+                if( collision.gameObject.name == "Floor_2x4_01 (5)"){
+                    Debug.Log("OnCollisionEnter " + collision.gameObject.name);
+                    curse.die = true;
+                }
+            }
             
         }
         

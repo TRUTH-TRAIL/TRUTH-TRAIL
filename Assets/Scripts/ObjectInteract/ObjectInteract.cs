@@ -25,6 +25,7 @@ public class ObjectInteract : MonoBehaviour
         Decal,
         Lighter,
         Basic,
+        Window,
     }
     private bool isBookMoving = false;
     private bool isDrawerMoving = false;
@@ -188,7 +189,7 @@ public class ObjectInteract : MonoBehaviour
     private void ClueUpdate(GameObject clue)
     {
         int RandomInt = Random.Range(0, 5);
-        //RandomInt = 0;//임시 저주만 발생
+        RandomInt = 0;//임시 저주만 발생
         Debug.Log(RandomInt);
         
         if (RandomInt!=0 || curse.activeCurse)
@@ -229,7 +230,7 @@ public class ObjectInteract : MonoBehaviour
 
     private void HandleBook(Transform target)
     {
-        if (curse.activeCurse && curse.curseKey == 18)
+        if (curse.activeCurse && (curse.curseKey == 18||curse.curseKey == 7))
         {
             curse.die = true;
         }
@@ -281,12 +282,13 @@ public class ObjectInteract : MonoBehaviour
 
     private void HandleDrawer(Transform target)
     {
-        if (curse.activeCurse && curse.curseKey == 17)
+        if (curse.activeCurse && (curse.curseKey == 17 || curse.curseKey == 6))
         {
             curse.die = true;
         }
         if (!isDrawerMoving)
             StartCoroutine(MoveDrawer(target));
+        
     }
 
     private IEnumerator MoveDrawer(Transform target)
@@ -450,7 +452,7 @@ public class ObjectInteract : MonoBehaviour
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
                     curse.ClaerCurse();
-                    audioSource.Play();
+                    //audioSource.Play();
                 }
             }
         }
