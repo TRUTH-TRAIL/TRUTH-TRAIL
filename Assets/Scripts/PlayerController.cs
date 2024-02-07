@@ -200,7 +200,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    // �޸��� ���
+    // �޸��� ���?
     private void RunningCancel()
     {
         isRun = false;
@@ -257,6 +257,9 @@ public class PlayerController : MonoBehaviour
             {
                 curse.die = true;
             }
+            if(curse.curseKey == 8 && _moveDirZ == 1.0f){
+                curse.die = true;
+            }
             
         }
         Vector3 _moveHorizontal = transform.right * _moveDirX;
@@ -287,7 +290,11 @@ public class PlayerController : MonoBehaviour
         float _cameraRotationX = _xRotation * lookSensitivity;
         currentCameraRotationX -= _cameraRotationX;
         currentCameraRotationX = Mathf.Clamp(currentCameraRotationX, -cameraRotationLimit, cameraRotationLimit);
-
+        if(curse.activeCurse && curse.curseKey==19){
+            if(currentCameraRotationX<=-60.0f){
+                curse.die = true;
+            }
+        }
         virtualCamera_Player.transform.localEulerAngles = new Vector3(currentCameraRotationX, 0f, 0f);
     }
 

@@ -39,7 +39,6 @@ public class MemoReader : MonoBehaviour
             {
                 string json = File.ReadAllText(filePath);
                 List<Curse> retCurse = JsonUtility.FromJson<Serialization<Curse>>(json).ToList();
-                Debug.Log(retCurse.Count);
                 return retCurse;
             }
             catch (System.Exception e)
