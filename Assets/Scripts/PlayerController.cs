@@ -6,6 +6,7 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool blink;
     // ���ǵ� ���� ����
     [SerializeField]
     public float walkSpeed;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        blink = true;
         capsuleCollider = GetComponent<CapsuleCollider>();
         myRigid = GetComponent<Rigidbody>();
         applySpeed = walkSpeed;
@@ -90,7 +92,8 @@ public class PlayerController : MonoBehaviour
         //TryCrouch();
         if(Time.timeScale != 0)
         {
-            Move();
+            if(blink)
+                Move();
             if(!inventoryUI.activeSelf)
             {
                 CharacterRotation();
@@ -194,7 +197,6 @@ public class PlayerController : MonoBehaviour
     // �޸��� ����
     private void Running()
     {
-
         isRun = true;
         applySpeed = runSpeed;
     }

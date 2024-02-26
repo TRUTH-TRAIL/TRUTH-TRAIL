@@ -6,18 +6,17 @@ using UnityEngine.AI;
 public class AlleySpot : MonoBehaviour
 {
     public AlleyNav alleyNav;
-    [SerializeField] NavMeshAgent agent;
+    //[SerializeField] NavMeshAgent agent;
     public string[] str;
     public int i;
     public int p;
-    private int spotn;
+    public int spotn;
     private void Start() {
         alleyNav = GameObject.Find("Alley_close").GetComponent<AlleyNav>();
-        agent = GameObject.Find("Alley_close").GetComponent<NavMeshAgent>();
+       // agent = GameObject.Find("Alley_close").GetComponent<NavMeshAgent>();
     }
     public void SpotNum(int s)
     {
-        Debug.Log(s);
         switch(s){
             case 0:
                 p = Random.Range(0, 2);
@@ -190,11 +189,11 @@ public class AlleySpot : MonoBehaviour
         return spotNumber;
     }
     public void SMove(string[] s){
-        if(s.Length == i){
+        if(i == s.Length){
             i = 0;
             SpotNum(spotn);
         }
-        agent.SetDestination(GameObject.Find(s[i]).transform.position);
+        alleyNav.agent.SetDestination(GameObject.Find(s[i]).transform.position);
         /*if(!agent.pathPending){
             if(agent.remainingDistance <= agent.stoppingDistance){
                 if(!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
@@ -219,7 +218,7 @@ public class AlleySpot : MonoBehaviour
         }*/
     }
     public IEnumerator Standstill(){
-        agent.speed = 0;
+        alleyNav.agent.speed = 0;
         alleyNav.state = AlleyNav.State.Idle;
         yield return new WaitForSeconds(7.0f);
         alleyNav.state = AlleyNav.State.Walk;

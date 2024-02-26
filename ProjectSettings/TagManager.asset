@@ -10,6 +10,7 @@ TagManager:
   - AILocation
   - Item
   - spot
+  - AI
   layers:
   - Default
   - TransparentFX

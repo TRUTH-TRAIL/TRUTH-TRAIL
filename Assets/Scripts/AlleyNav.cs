@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 public class AlleyNav : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] NavMeshAgent agent;
+    public NavMeshAgent agent;
     [SerializeField] Animator anim;
     private Curses curses;
     public enum State
@@ -19,11 +19,12 @@ public class AlleyNav : MonoBehaviour
         Attack
     }
     public State state;
-    private int p;
     private int spotn;
-    private bool Attack_state;
+    public bool Attack_state;
     //float timeSpan;
     bool curseOn;
+    bool check_;
+    [SerializeField] GameObject flashlight;
     [SerializeField] GameObject BGM;
     [SerializeField] bool DebugMode = false;
     [SerializeField] bool PlayerView = false;
@@ -72,12 +73,12 @@ public class AlleyNav : MonoBehaviour
         curseOn = false;
        // timeSpan = 0;
         Attack_state = true;
-        p = 0;
         spotn = Random.Range(4, 8);
         state = State.Idle;
         agent = GetComponent<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player").transform;
         curses = GameObject.Find("CurseManager").GetComponent<Curses>();
+        check_ = true;
     }
     // Update is called once per frame
     void Update()
@@ -112,7 +113,11 @@ public class AlleyNav : MonoBehaviour
     {
         anim.SetTrigger("Walk");
         agent.speed = 5f;
-        alleySpot.SMove(alleySpot.str);
+        if(check_){
+            agent.SetDestination(GameObject.Find(alleySpot.str[0]).transform.position);
+            check_ = false;
+        }
+       // alleySpot.SMove(alleySpot.str);
         if((Vector3.Distance(transform.position, target.position) <= 12.0f) ||
             ((Vector3.Distance(transform.position, target.position) <= 24.0f) && PlayerView == true)){ // ???�??? 발동{ //&& i != 0){
             state = State.Attack;
@@ -134,26 +139,33 @@ public class AlleyNav : MonoBehaviour
         agent.destination = target.position;
         agent.speed = target.GetComponent<PlayerController>().walkSpeed + 1;
         if(Vector3.Distance(transform.position, target.position) < 3.0f){
-            Attack_state = false;
-            target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().C_Blink();
-            target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().Alley_pos = this.transform.position;
-            this.transform.GetComponent<NavMeshAgent>().enabled = false;
-            anim.SetTrigger("Idle");
-            BGM.SetActive(false);
-            if(curses.die==false){
-                curses.die = true;
-            }
+            DeadAttack();
         }
         if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && ???�??? 발생 모드�??? ?��?�� ?��
             Attack_state = false;
         }
-        /* timeSpan += Time.deltaTime;
-        if(timeSpan >= 10.0f){
-            timeSpan = 0;
-            i = 0;
-            state = State.Idle;
-            Attack_state = false;
-            StartCoroutine(AttackChange());
-        }*/
+    }
+
+    public void DeadAttack(){
+        GameObject.Find("Player").GetComponent<PlayerController>().blink = false;
+        Attack_state = false;
+        agent.speed = 0;
+        state = State.Idle;
+        if(!flashlight.activeSelf){
+            flashlight.SetActive(true);
+        }
+        target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().C_Blink();
+        target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().Alley_pos = this.transform.position;
+        this.transform.GetComponent<NavMeshAgent>().enabled = false;
+        anim.SetTrigger("Idle");
+        BGM.SetActive(false);
+        if(curses.die==false){
+            curses.die = true;
+        }
+    }
+
+    public void DeadCurse(){
+        agent.speed = 10.0f;
+        agent.SetDestination(target.position);
     }
 }

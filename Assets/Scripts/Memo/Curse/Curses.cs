@@ -76,11 +76,10 @@ public class Curses : MonoBehaviour
             else if(curseKey==19)
                 TimeCurse(120.0f);
         }
-        if(!ending&&die){
-            Debug.Log("사망@@@@@");//추후 사망처리 함수 호출
+        /*if(!ending&&die){
             changeCamera.SwitchToVirtualCamera();
             ending=true;
-        }
+        }*/
     }
 
     //die변수를 추가해서 각 저주마다 함수를 만드는 것이 아니라 기본, 타임 등으로만 나누어 함수 만드는 것이 좋겠다.
@@ -93,11 +92,12 @@ public class Curses : MonoBehaviour
     {
         if (die)
         {
-            Debug.Log("사망@@@@@");//추후 사망처리 함수 호출
+            Debug.Log("사망2");
+            GameObject.Find("Alley_close").GetComponent<AlleyNav>().DeadCurse();
             changeCamera.SwitchToVirtualCamera();
             ending=true;
             ClaerCurse();
-            StartCoroutine(Death());
+            //StartCoroutine(Death());
         }
     }
     private void TimeCurse(float timer)
@@ -109,11 +109,12 @@ public class Curses : MonoBehaviour
 
         if (die)
         {
-            Debug.Log("사망@@@@@");//추후 사망처리 함수 호출
+            Debug.Log("사망3");
+            GameObject.Find("Alley_close").GetComponent<AlleyNav>().DeadCurse();
             ending=true;
             changeCamera.SwitchToVirtualCamera();
             ClearTimer();
-            StartCoroutine(Death());
+          //  StartCoroutine(Death());
 
         }
     }
@@ -129,10 +130,11 @@ public class Curses : MonoBehaviour
             curTime -= Time.deltaTime;
             yield return null;
         }
-        Debug.Log("사망@@@@@");//시간 지나면 사망 추후 사망처리 함수 호출
+        Debug.Log("사망4");
+        GameObject.Find("Alley_close").GetComponent<AlleyNav>().DeadCurse();
         ending=true;
         changeCamera.SwitchToVirtualCamera();
-        StartCoroutine(Death());
+        //StartCoroutine(Death());
     }
     private void ClearTimer()
     {
@@ -143,9 +145,9 @@ public class Curses : MonoBehaviour
             activeTimer = false;
         }
     }
-    IEnumerator Death(){
+    /*IEnumerator Death(){
         yield return new WaitForSeconds(1.5f);
         Time.timeScale = 0;
         LoadingScene.Instance.LoadScene("Death");
-    }
+    }*/
 }
