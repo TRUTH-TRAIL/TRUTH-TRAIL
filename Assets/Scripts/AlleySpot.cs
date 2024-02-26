@@ -17,6 +17,7 @@ public class AlleySpot : MonoBehaviour
     }
     public void SpotNum(int s)
     {
+        Debug.Log(s);
         switch(s){
             case 0:
                 p = Random.Range(0, 2);
@@ -25,22 +26,22 @@ public class AlleySpot : MonoBehaviour
                 p = Random.Range(0, 3);
                 break;
             case 2:
-                p = Random.Range(0, 1);
+                p = Random.Range(0, 2);
                 break;
             case 3:
                 p = Random.Range(0, 4);
                 break;
             case 4:
-                p = Random.Range(0, 1);
+                p = Random.Range(0, 2);
                 break;
             case 5:
-                p = Random.Range(0, 1);
+                p = Random.Range(0, 2);
                 break;
             case 6:
-                p = 0;
+                p = Random.Range(0, 3);
                 break;
             case 7:
-                p = Random.Range(0, 1);
+                p = Random.Range(0, 2);
                 break;
             case 8:
                 p = Random.Range(0, 2);
