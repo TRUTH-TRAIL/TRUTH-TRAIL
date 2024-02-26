@@ -69,6 +69,7 @@ public class ObjectInteract : MonoBehaviour
     private List<GameObject> fCandle = new List<GameObject>();
     private int ignite = 0;
     private AudioSource audioSource;
+    private string retText;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -81,6 +82,11 @@ public class ObjectInteract : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         inventory = gameObject.GetComponent<Inventory>();
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update(){
+        if(curse.activeTimer)
+            curseText.text = retText + (curse.countTimer/60).ToString() + ":"+(curse.countTimer%60).ToString();
     }
 
     private void OnHit(Transform target)
@@ -208,7 +214,7 @@ public class ObjectInteract : MonoBehaviour
         else
         {
             curseText.gameObject.SetActive(true);
-            curseText.text = curse.ActiveCurse();
+            retText = curse.ActiveCurse();
             cluePlacement.RelocationClue(clue);
         }
         
@@ -451,7 +457,7 @@ public class ObjectInteract : MonoBehaviour
             {
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
-                    curse.ClaerCurse();
+                    curse.ClearCurse();
                     //audioSource.Play();
                 }
             }

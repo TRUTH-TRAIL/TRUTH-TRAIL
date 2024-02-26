@@ -48,16 +48,16 @@ public class CurseManager : MonoBehaviour
         curse.Add(new Curse(8, "너 앞으로 되게 잘 걷는다. 계속 앞으로 걸어봐"));
         curse.Add(new Curse(9, "화장실에 뭔가 있어. 확인해볼래?"));
 
-        curse.Add(new Curse(10, "손전등 켜봐 2:00"));
-        curse.Add(new Curse(11, "발소리를 내봐 3:30"));
-        curse.Add(new Curse(12, "천천히 걸어봐 1:00"));
-        curse.Add(new Curse(13, "다른 손전등 불빛을 비춰봐 5:00"));
-        curse.Add(new Curse(14, "문을 열어봐 1:00"));
-        curse.Add(new Curse(15, "계단으로 가봐 2:30"));
-        curse.Add(new Curse(16, "액자를 만져봐 3:00"));
-        curse.Add(new Curse(17, "서랍을 열어봐 3:00"));
-        curse.Add(new Curse(18, "책을 만져봐 2:00"));
-        curse.Add(new Curse(19, "천장을 바라봐 2:00"));
+        curse.Add(new Curse(10, "손전등 켜봐 "));//2:00
+        curse.Add(new Curse(11, "발소리를 내봐 "));//3:30
+        curse.Add(new Curse(12, "천천히 걸어봐 "));//1:00
+        curse.Add(new Curse(13, "다른 손전등 불빛을 비춰봐 "));//5:00
+        curse.Add(new Curse(14, "문을 열어봐 "));//1:00
+        curse.Add(new Curse(15, "계단으로 가봐 "));//2:30
+        curse.Add(new Curse(16, "액자를 만져봐 "));//3:00
+        curse.Add(new Curse(17, "서랍을 열어봐 "));//3:00
+        curse.Add(new Curse(18, "책을 만져봐 "));//2:00
+        curse.Add(new Curse(19, "천장을 바라봐 "));//2:00
 
         string curseStr = JsonUtility.ToJson(new Serialization<Curse>(curse));
         Debug.Log(curseStr);

@@ -5,11 +5,12 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+
 public class Curses : MonoBehaviour
 {
     public bool activeCurse = false;
     public int curseKey = 0;
-    private bool activeTimer = false;
+    public bool activeTimer = false;
     private Coroutine curseTimerCoroutine;
     public bool die = false;
     //단서 습득 시 저주일 때
@@ -22,6 +23,7 @@ public class Curses : MonoBehaviour
     private PlayerCrash playerCrash;
     private ChangeCamera changeCamera;
     private bool ending = false;
+    public int countTimer;
 
     private void Start()
     {
@@ -43,11 +45,15 @@ public class Curses : MonoBehaviour
         return retString;
     }
 
-    public void ClaerCurse()
+    public void ClearCurse()
     {
         activeCurse = false;
         curseKey = -1;
         curseText.gameObject.SetActive(false);
+        if(activeTimer){
+            StopCoroutine(curseTimerCoroutine);
+            activeTimer = false;
+        }
     }
     void Update()
     {
@@ -72,7 +78,7 @@ public class Curses : MonoBehaviour
             else if(curseKey==17)
                 TimeCurse(180.0f);
             else if(curseKey==18)
-                TimeCurse(180.0f);
+                TimeCurse(120.0f);
             else if(curseKey==19)
                 TimeCurse(120.0f);
         }
@@ -96,7 +102,7 @@ public class Curses : MonoBehaviour
             GameObject.Find("Alley_close").GetComponent<AlleyNav>().DeadCurse();
             changeCamera.SwitchToVirtualCamera();
             ending=true;
-            ClaerCurse();
+            ClearCurse();
             //StartCoroutine(Death());
         }
     }
@@ -127,8 +133,9 @@ public class Curses : MonoBehaviour
         float curTime = curseTime;
         while (curTime > 0)
         {
-            curTime -= Time.deltaTime;
-            yield return null;
+            curTime -= 1;
+            countTimer = (int)curTime;
+            yield return new WaitForSeconds(1f);
         }
         Debug.Log("사망4");
         GameObject.Find("Alley_close").GetComponent<AlleyNav>().DeadCurse();
@@ -141,7 +148,7 @@ public class Curses : MonoBehaviour
         if (activeTimer)
         {
             StopCoroutine(curseTimerCoroutine);
-            ClaerCurse();
+            ClearCurse();
             activeTimer = false;
         }
     }
