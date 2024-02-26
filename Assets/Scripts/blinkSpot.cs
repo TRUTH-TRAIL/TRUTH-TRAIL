@@ -25,6 +25,7 @@ public class blinkSpot : MonoBehaviour
             if(i == 3){
                 N_Alley.SetActive(true);
                 N_Alley.transform.position = Alley_pos;
+                N_Alley.transform.LookAt(GameObject.Find("Player").transform);
             }
         }
     }

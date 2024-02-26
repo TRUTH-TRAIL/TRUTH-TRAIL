@@ -141,8 +141,9 @@ public class AlleyNav : MonoBehaviour
         if(Vector3.Distance(transform.position, target.position) < 3.0f){
             DeadAttack();
         }
-        if((Vector3.Distance(transform.position, target.position) > 12.0f)){ // && ???�??? 발생 모드�??? ?��?�� ?��
+        if(Vector3.Distance(transform.position, target.position) > 12.0f){ // && ???�??? 발생 모드�??? ?��?�� ?��
             Attack_state = false;
+            state = State.Idle;
         }
     }
 
