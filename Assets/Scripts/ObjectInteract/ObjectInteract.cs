@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -85,8 +86,10 @@ public class ObjectInteract : MonoBehaviour
     }
 
     private void Update(){
-        if(curse.activeTimer)
-            curseText.text = retText + (curse.countTimer/60).ToString() + ":"+(curse.countTimer%60).ToString();
+        if(SceneManager.GetActiveScene().name == "GameScene_woo"){
+            if(curse.activeTimer)
+                curseText.text = retText + (curse.countTimer/60).ToString() + ":"+(curse.countTimer%60).ToString();   
+        }
     }
 
     private void OnHit(Transform target)

@@ -24,14 +24,15 @@ public class TypingEffect : MonoBehaviour
 //        Debug.Log(j);
         if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space)){
             StopCoroutine("_typing");
-            if(j == m_text.Length-1){
+            if(j == m_text.Length-1 && text.text == m_text[j])
                 StartCoroutine(SkipFadeIN());
-            }
-            else{
+            else if(text.text == m_text[j]){
                 j++;
                 text.text = "";
                 StartCoroutine("_typing", j);
             }
+            else
+                text.text = m_text[j];
         }
     }
 

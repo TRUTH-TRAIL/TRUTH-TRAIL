@@ -9,7 +9,7 @@ public class DoorCheck : MonoBehaviour
     public GameObject Key;
    // public GameObject tuText;
     private void Start() {
-        door = GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).gameObject.transform;
+        //door = GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).gameObject.transform;
         cameraViewCheck = GameObject.Find("AICube").GetComponent<CameraViewCheck>();
        // tuText = GameObject.Find("Canvas").transform.GetChild(4).gameObject;
     }
@@ -20,12 +20,12 @@ public class DoorCheck : MonoBehaviour
        // }
         if(other.CompareTag("Player")){
             if(Key.activeSelf){
-                GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).GetComponent<Door>().enabled = true;
+               // GameObject.Find("Interior_Door_01 (3)").transform.GetChild(0).GetComponent<Door>().enabled = true;
             }
             if(cameraViewCheck.inCamera == true)
             {
                 LoadingScene.Instance.LoadScene("GameScene_woo");
-                door.GetComponent<Door>().OpenDoor(other.transform);
+               // door.GetComponent<Door>().OpenDoor(other.transform);
             }
         }
     }

@@ -19,7 +19,7 @@ public class StartAction : MonoBehaviour
     // Start is called before the first frame update
     public void GameStart()
     {
-        LoadingScene.Instance.LoadScene("tutorial");
+        LoadingScene.Instance.LoadScene("tutorial_new");
     }
     public void StartB()
     {
