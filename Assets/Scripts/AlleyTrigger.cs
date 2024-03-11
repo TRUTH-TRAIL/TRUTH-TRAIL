@@ -6,9 +6,9 @@ using UnityEngine.AI;
 public class AlleyTrigger : MonoBehaviour
 {
     AlleySpot alleySpot;
-    bool start_check;
+   // bool start_check;
     private void Start() {
-        start_check = false;
+       // start_check = false;
         alleySpot = GameObject.Find("spot").transform.GetComponent<AlleySpot>();
     }
     private void OnTriggerEnter(Collider other) {
