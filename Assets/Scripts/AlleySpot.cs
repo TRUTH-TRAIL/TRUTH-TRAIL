@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -45,6 +46,9 @@ public class AlleySpot : MonoBehaviour
                 break;
             case 8:
                 p = Random.Range(0, 2);
+                break;
+            case 9:
+                p = Random.Range(0, 3);
                 break;
             default:
                 break;
@@ -180,6 +184,22 @@ public class AlleySpot : MonoBehaviour
                     case 2:
                         str = new string[1]{"2_spot"};
                         spotNumber = 2;
+                        break;
+                }
+                break;
+            case 9:
+                switch(p){
+                    case 0:
+                        str = new string[4]{"9_spot", "9_spot_1", "9_spot_2", "9_spot_3"};
+                        spotNumber = 9;
+                        break;
+                    case 1:
+                        str = new string[3]{"9_spot", "1_spot", "5_spot"};
+                        spotNumber = 5;
+                        break;
+                    case 2:
+                        str = new string[3]{"9_spot", "8_spot", "4_spot"};
+                        spotNumber = 4;
                         break;
                 }
                 break;
