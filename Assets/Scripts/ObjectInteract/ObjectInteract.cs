@@ -460,6 +460,8 @@ public class ObjectInteract : MonoBehaviour
             {
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
+                    RawImage rawImage = Player.transform.GetChild(3).GetChild(0).GetComponent<RawImage>();
+                    StartCoroutine(AlphaColor(rawImage));
                     curse.ClearCurse();
                     //audioSource.Play();
                 }
@@ -477,6 +479,41 @@ public class ObjectInteract : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator AlphaColor(RawImage rawImage)
+    {
+        float duration = 1.0f; // 투명도 변경에 걸리는 총 시간
+        float halfDuration = duration / 2.0f; // 0에서 1, 그리고 1에서 0으로 변경하는 데 각각 걸리는 시간
+        float timer = 0.0f;
+
+        // 0에서 1로 알파값 증가
+        while (timer < halfDuration)
+        {
+            float alpha = Mathf.Lerp(0f, 1f, timer / halfDuration);
+            rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, alpha);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // 잠시 1로 유지
+        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 1f);
+        
+        // 1에서 0으로 알파값 감소 시작
+        timer = 0.0f; // 타이머 재설정
+        while (timer < halfDuration)
+        {
+            float alpha = Mathf.Lerp(1f, 0f, timer / halfDuration);
+            rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, alpha);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // 마지막으로 알파값을 0으로 설정
+        rawImage.color = new Color(rawImage.color.r, rawImage.color.g, rawImage.color.b, 0f);
+    }
+
+
+
 
     private void HandleSkull(Transform target){
         if(fSkull==null){
