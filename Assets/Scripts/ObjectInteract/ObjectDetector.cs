@@ -41,7 +41,7 @@ public class ObjectDetector : MonoBehaviour
     {
         outline = new Material(Shader.Find("Draw/OutlineShader"));
         //decipherText = GameObject.Find("Canvas").transform.GetChild(5).gameObject;
-        handSpecialPaper = GameObject.FindWithTag("Player").transform.GetChild(3).gameObject;
+        handSpecialPaper = GameObject.FindWithTag("Player").transform.GetChild(1).GetChild(5).gameObject;
         curse = GameObject.Find("CurseManager").GetComponent<Curses>();
     }
 

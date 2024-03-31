@@ -480,7 +480,7 @@ public class ObjectInteract : MonoBehaviour
             itemGroup.GetChild(2+candleNum).gameObject.SetActive(true);
             candleNum++;
         }else{
-            if(Player.transform.GetChild(3).gameObject.activeSelf)
+            if(Player.transform.GetChild(1).GetChild(5).gameObject.activeSelf)
             {
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
@@ -552,7 +552,7 @@ public class ObjectInteract : MonoBehaviour
         }
     }
     private void HandleLighter(Transform target){
-        Destroy(target.parent.gameObject);
+        Destroy(target.gameObject);
         itemGroup.GetChild(5).gameObject.SetActive(true);
     }
 
