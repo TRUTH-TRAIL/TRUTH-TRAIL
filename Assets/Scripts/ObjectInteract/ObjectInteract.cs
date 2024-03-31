@@ -26,6 +26,9 @@ public class ObjectInteract : MonoBehaviour
         Lighter,
         Basic,
         Window,
+        bathroom,
+        coffin,
+        cellarbook,
     }
     private bool isBookMoving = false;
     private bool isDrawerMoving = false;
@@ -59,7 +62,7 @@ public class ObjectInteract : MonoBehaviour
 
     [SerializeField]
     Transform itemGroup;
-    private int candleNum = 3;//원래는 0이다.@@@@@@@@@@@@@@@@@@@@@@
+    private int candleNum = 0;//원래는 0이다.@@@@@@@@@@@@@@@@@@@@@@
     private Inventory inventory;
 
     //퇴마 오브젝트 생성
@@ -70,6 +73,9 @@ public class ObjectInteract : MonoBehaviour
     private int ignite = 0;
     private AudioSource audioSource;
     private string retText;
+    private bool isbath = false;
+    private bool iscoffin = false;
+    private bool iscellar = false;
     private void Awake()
     {
         objectDetector.raycastEvent.AddListener(OnHit);
@@ -82,6 +88,9 @@ public class ObjectInteract : MonoBehaviour
         Player = GameObject.FindWithTag("Player");
         inventory = gameObject.GetComponent<Inventory>();
         audioSource = GetComponent<AudioSource>();
+        isbath = false;
+        iscoffin = false;
+        iscellar = false;
     }
 
     private void Update(){
@@ -143,6 +152,15 @@ public class ObjectInteract : MonoBehaviour
                 break;
             case ObjectType.Basic:
                 break;
+            case ObjectType.bathroom:
+                HandleBathroom(target);
+                break;
+            case ObjectType.coffin:
+                HandleCoffin(target);
+                break;
+            case ObjectType.cellarbook:
+                HandleCellarbook(target);
+                break;
         }
     }
 
@@ -185,6 +203,7 @@ public class ObjectInteract : MonoBehaviour
             yield return null;
         }
         isRotating = false;
+        iscoffin=false;
     }
 
 
@@ -195,7 +214,7 @@ public class ObjectInteract : MonoBehaviour
     private void ClueUpdate(GameObject clue)
     {
         int RandomInt = Random.Range(0, 5);
-        RandomInt = 0;//임시 저주만 발생
+        RandomInt = 1;//임시 저주만 발생
         Debug.Log(RandomInt);
         
         if (RandomInt!=0 || curse.activeCurse)
@@ -207,6 +226,12 @@ public class ObjectInteract : MonoBehaviour
             clueTextIndex++;
             Debug.Log(memoscript.key + "AAA");
             memoInteract.ObjectAppear(memoscript.key);
+            if(memoscript.key==0)
+                iscellar=true;
+            if(memoscript.key==2)
+                iscoffin=true;
+            if(memoscript.key==3) 
+                isbath=true;
             Destroy(clue);
             if(clueTextIndex>=10)
                 Blood_Decals_05.SetActive(true);
@@ -448,8 +473,10 @@ public class ObjectInteract : MonoBehaviour
     }*/
     private void HandleCandle(Transform target)
     {
-        if(clueTextIndex>=10&&fCandle==null){
-            Destroy(target.gameObject);
+        Debug.Log(clueTextIndex);
+        Debug.Log(fCandle);
+        if(clueTextIndex>=10&&candleNum<3){
+            Destroy(target.parent.gameObject);
             itemGroup.GetChild(2+candleNum).gameObject.SetActive(true);
             candleNum++;
         }else{
@@ -570,5 +597,118 @@ public class ObjectInteract : MonoBehaviour
         }
     }
     
+    private void HandleBathroom(Transform target)
+    {
+        if (isbath)
+        {
+            StartCoroutine(Delwater(target));
+            isbath=false;
+            target.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
 
+
+    private IEnumerator Delwater(Transform target)
+    {
+        Transform water = target.parent.GetChild(3);
+        Vector3 startPosition = water.position;
+        Vector3 startScale = water.localScale;
+        
+        Vector3 endPosition = startPosition - new Vector3(0, 0.11f, 0);
+        Vector3 endScale = startScale - new Vector3(0.1f, 0, 0.1f);
+
+        float timer = 0.0f;
+
+        while (timer <= 1.0f)
+        {
+            timer += Time.deltaTime;
+
+            water.position = Vector3.Lerp(startPosition, endPosition, timer);
+            water.localScale = Vector3.Lerp(startScale, endScale, timer);
+
+            yield return null;
+        }
+
+        Destroy(water.gameObject);
+    }
+
+
+    private void HandleCoffin(Transform target)
+    {
+        if (iscoffin)
+        {
+            StartCoroutine(rotateCoffin(target));
+            iscoffin=false;
+            target.parent.parent.GetChild(0).gameObject.GetComponent<BoxCollider>().enabled = false;
+            target.gameObject.GetComponent<BoxCollider>().enabled = false;
+        }
+    }
+
+
+    private IEnumerator rotateCoffin(Transform target)
+    {
+
+
+        Transform coffin = target.parent;
+        Quaternion startRotation = Quaternion.identity; 
+        Quaternion endRotation = Quaternion.Euler(-60, 0, 0);
+
+        float timer = 0.0f;
+
+        while (timer <= 1.0f)
+        {
+            timer += Time.deltaTime;
+            coffin.localRotation = Quaternion.Lerp(startRotation, endRotation, timer / 1.0f);
+            
+            yield return null;
+        }
+        timer = 0.0f;
+        startRotation = endRotation;
+        endRotation = Quaternion.Euler(-60, -9, 0);
+        while (timer <= 0.5f)
+        {
+            timer += Time.deltaTime;
+            coffin.localRotation = Quaternion.Lerp(startRotation, endRotation, timer / 0.5f);
+            
+            yield return null;
+        }
+    }
+
+    private void HandleCellarbook(Transform target)
+    {
+        if (iscellar)
+        {
+            StartCoroutine(OpenCellar(target));
+            iscellar=false;
+        }
+    }
+
+    private IEnumerator OpenCellar(Transform target)
+    {
+        Transform book = target.parent;
+        Transform bookcase = book.parent;
+        Vector3 bookStartPosition = book.localPosition; 
+        Vector3 bookEndPosition = bookStartPosition + new Vector3(0.2f, 0, 0);
+
+        Vector3 bookcaseStartPosition = bookcase.localPosition; 
+        Vector3 bookcaseEndPosition = bookcaseStartPosition + new Vector3(0, 0, 1.9f);
+
+        float timer = 0.0f;
+
+        while (timer <= 1.0f)
+        {
+            timer += Time.deltaTime;
+            book.localPosition = Vector3.Lerp(bookStartPosition, bookEndPosition, timer / 1.0f);
+            yield return null;
+        }
+        Destroy(book.gameObject);
+        timer = 0.0f;
+        while (timer <= 2.0f)
+        {
+            timer += Time.deltaTime;
+            bookcase.localPosition = Vector3.Lerp(bookcaseStartPosition, bookcaseEndPosition, timer / 2.0f);
+            yield return null;
+        }
+        
+    }
 }
