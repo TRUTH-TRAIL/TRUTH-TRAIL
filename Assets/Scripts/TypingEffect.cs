@@ -61,6 +61,22 @@ public class TypingEffect : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         //if(gameObject.name == "Panel")
+        if(gameObject.name == "A_Panel"){
+            StartCoroutine(FadeIn());
+        }
+        else{
             gameObject.SetActive(false);
+        }
+    }
+    float fadeCount = 1.0f;
+    IEnumerator FadeIn(){
+        
+        while(fadeCount > 0){ // && player.transform.rotation.z >= 0){
+            Debug.Log(fadeCount);
+            fadeCount -= 0.01f;
+            //player.transform.Rotate(new Vector3(0, 0, 0.9f));
+            yield return new WaitForSeconds(0.01f);
+            gameObject.GetComponent<Image>().color = new Color(0, 0, 0, fadeCount);
+        }
     }
 }

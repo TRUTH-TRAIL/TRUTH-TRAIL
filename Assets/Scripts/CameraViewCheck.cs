@@ -87,7 +87,7 @@ public class CameraViewCheck : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Debug.Log("fadein");
         while(fadeCount > 0){ // && player.transform.rotation.z >= 0){
-            fadeCount -= 0.01f;
+            fadeCount -= 0.005f;
             //player.transform.Rotate(new Vector3(0, 0, 0.9f));
             yield return new WaitForSeconds(0.01f);
             Fade_Panel.color = new Color(0, 0, 0, fadeCount);

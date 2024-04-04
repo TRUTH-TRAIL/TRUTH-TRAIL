@@ -82,7 +82,7 @@ public class Door : MonoBehaviour
             }
             else
             {
-                txt.text = "문 열기(클릭)";
+//                txt.text = "문 열기(클릭)";
             }
         }
     }
@@ -106,11 +106,11 @@ public class Door : MonoBehaviour
         {
             if (!open)
             {
-                txt.text = "문 닫기(클릭)";
+//                txt.text = "문 닫기(클릭)";
             }
             else
             {
-                txt.text = "문 열기(클릭)";
+      //          txt.text = "문 열기(클릭)";
             }
             trig = true;
         }
@@ -120,7 +120,7 @@ public class Door : MonoBehaviour
     {
         if (coll.CompareTag("Player"))
         {
-            txt.text = " ";
+          //  txt.text = " ";
             trig = false;
         }
     }

@@ -226,9 +226,10 @@ public class ObjectInteract : MonoBehaviour
     private void HandleFlash(Transform target)
     {
         GameObject.FindWithTag("Player").GetComponent<FlashLight>().getFlash = true;
+        GameObject.FindWithTag("Player").transform.GetChild(1).transform.GetChild(1).gameObject.SetActive(true);
+        if(GameObject.Find("Flash_info").activeSelf)
+            GameObject.Find("Flash_info").SetActive(false);
         Destroy(target.parent.gameObject);
-
-
     }
 
     private void HandleBattery(Transform target)

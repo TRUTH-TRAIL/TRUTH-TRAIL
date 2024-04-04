@@ -1,42 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
+using Microsoft.Unity.VisualStudio.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class tutorial : MonoBehaviour
 {
     public GameObject Panel;
-    private float time;
-    public AudioSource audioSource;
-    private bool play;
-    public GameObject Phone_Text;
-    public GameObject Key_Text;
     private RaycastHit hitData;
-    public GameObject Key;
-    public GameObject[] spinfo;
+    public CinemachineVirtualCamera mainCamera;
+    public float zoomDuration = 3f; // 줌인하는 데 걸리는 시간
+    public float targetFOV = 20f; // 목표 Field of View (FOV)
 
+    private float originalFOV; // 초기 FOV
+    private float zoomTimer = 0f; // 줌인에 사용되는 타이머
     // Start is called before the first frame update
     void Start()
     {
-        play = false;
-        audioSource = GameObject.Find("old_telephone_lod01").GetComponent<AudioSource>();
-       //spinfo = new GameObject[2];
+        originalFOV = mainCamera.m_Lens.FieldOfView;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!spinfo[0].activeSelf){
+        Vector3 rayOrigin = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.5f));
+        Vector3 rayDir = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.forward;
+        Debug.DrawRay(rayOrigin, rayDir, Color.red, 0.5f);
+        if(Physics.Raycast(rayOrigin, rayDir, out hitData, 0.5f)){
+            if(hitData.collider.name == "Alley_Tuto"){
+                StartCoroutine(Zoom());
+            }
+        }
+    }
+    // 줌인 시 키보드 입력 정지 구현x
+    IEnumerator Zoom(){
+        while (zoomTimer < zoomDuration)
+        {
+            zoomTimer += Time.deltaTime; // 타이머 업데이트
+
+            // 보간하여 FOV 조정
+            float t = zoomTimer / zoomDuration;
+            mainCamera.m_Lens.FieldOfView = Mathf.Lerp(originalFOV, targetFOV, t);
+            yield return new WaitForSeconds(0.1f);
+        }
+        Panel.SetActive(true);
+        mainCamera.m_Lens.FieldOfView = 60f;
+        GameObject.Find("Alley_Tuto").layer = LayerMask.NameToLayer("Ignore Raycast");
+        GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.Find("p_spot_4").transform.position;
+    }
+}
+       /* if(!spinfo[0].activeSelf){
             spinfo[1].SetActive(false);
         }
         Vector3 rayOrigin = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0.5f));
         Vector3 rayDir = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.forward;
         Debug.DrawRay(rayOrigin, rayDir, Color.red, 0.5f);
         if(Physics.Raycast(rayOrigin, rayDir, out hitData, 0.5f)){
-            Debug.Log(hitData.collider.name);
+//            Debug.Log(hitData.collider.name);
             //Debug.Log(hitData.collider.name);
             if(hitData.collider.name == "old_telephone_lod01" && Input.GetMouseButtonDown(0)){
-                audioSource.Stop();
+               // audioSource.Stop();
                 if(Key.activeSelf)
                     Key_Text.SetActive(true);
                 else
@@ -46,25 +71,23 @@ public class tutorial : MonoBehaviour
             if(hitData.collider.name == "Key(Clone)" && Input.GetMouseButtonDown(0) && play){
                 hitData.transform.gameObject.SetActive(false);
                 Key.SetActive(true);
-                audioSource.Play();
+               // audioSource.Play();
             }
            /* if(hitData.collider.name == "Work_Desk_Box_01_LOD0" && Input.GetMouseButtonDown(0) && play){
                 Debug.Log(hitData.collider.name);
                 hitData.transform.position += new Vector3(1.5f, 0, 0);
             }*/
-        }
         /*if(Panel.activeSelf || Phone_Text.activeSelf || Key_Text.activeSelf){
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
         }
-        else*/ if(!Panel.activeSelf && !Phone_Text.activeSelf && !Key_Text.activeSelf){
+        else if(!Panel.activeSelf && !Phone_Text.activeSelf && !Key_Text.activeSelf){
             time += Time.deltaTime;
             //Cursor.visible = false;
             //Cursor.lockState = CursorLockMode.Locked;
         }
         if(time >= 1 && !play){
-            audioSource.Play();
+           // audioSource.Play();
             play = true;
-        }
-    }
-}
+        }*/
+    //}
