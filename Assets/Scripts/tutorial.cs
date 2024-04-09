@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Cinemachine;
 using Microsoft.Unity.VisualStudio.Editor;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,6 +17,8 @@ public class tutorial : MonoBehaviour
 
     private float originalFOV; // 초기 FOV
     private float zoomTimer = 0f; // 줌인에 사용되는 타이머
+    public TutoText tutoText;
+    public TMP_Text text;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,8 +32,18 @@ public class tutorial : MonoBehaviour
         Vector3 rayDir = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.forward;
         Debug.DrawRay(rayOrigin, rayDir, Color.red, 0.5f);
         if(Physics.Raycast(rayOrigin, rayDir, out hitData, 0.5f)){
+            Debug.Log(hitData.collider.name);
             if(hitData.collider.name == "Alley_Tuto"){
                 StartCoroutine(Zoom());
+            }
+            if(hitData.collider.name == "foldednote"){
+                if(Input.GetMouseButtonDown(0)){
+                    hitData.collider.gameObject.SetActive(false);
+                    tutoText.text[tutoText.i] = "<s>□ 집 안에서 Alley를 봉인할 단서를 찾으세요</s>";
+                    text.text = tutoText.text[tutoText.i] + "\n";
+                    tutoText.i++;
+                    text.text += tutoText.text[tutoText.i];
+                }
             }
         }
     }

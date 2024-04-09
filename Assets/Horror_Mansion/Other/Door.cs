@@ -13,7 +13,6 @@ public class Door : MonoBehaviour
     public Text txt;
     public Transform player;
     private Curses curse;
-    public GameObject Key;
 
     void Start()
     {
@@ -45,9 +44,9 @@ public class Door : MonoBehaviour
                 
                 openRot = Quaternion.Euler(defaultRot.eulerAngles.x, defaultRot.eulerAngles.y + DoorOpenAngle, defaultRot.eulerAngles.z);
                 //Debug.Log(GameObject.FindGameObjectWithTag("Player").transform.Find("Key(Clone)").transform.gameObject.name);
-                if(Key.activeSelf){
-                    Key.SetActive(false);
-                }
+               // if(Key.activeSelf){
+                 //   Key.SetActive(false);
+               // }
                 /*if(GameObject.FindGameObjectWithTag("Player").transform.Find("Key(Clone)").transform.gameObject.activeSelf){
                     GameObject.FindGameObjectWithTag("Player").transform.Find("Key(Clone)").transform.gameObject.SetActive(false);
                 }*/

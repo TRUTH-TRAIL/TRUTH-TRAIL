@@ -8,7 +8,7 @@ public class TypingEffect : MonoBehaviour
     public Text text;
     public string[] m_text;
     private int j;
-    private IEnumerator enumerator;
+    ParticleTrigger particleTrigger;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +16,7 @@ public class TypingEffect : MonoBehaviour
             m_text[2] = m_text[2].Replace("\\n", "\n");
         j = 0;
         StartCoroutine("_typing", j);
+        particleTrigger = GameObject.Find("p_spot_4").GetComponent<ParticleTrigger>();
     }
 
     // Update is called once per frame
@@ -70,13 +71,14 @@ public class TypingEffect : MonoBehaviour
     }
     float fadeCount = 1.0f;
     IEnumerator FadeIn(){
-        
         while(fadeCount > 0){ // && player.transform.rotation.z >= 0){
-            Debug.Log(fadeCount);
+//            Debug.Log(fadeCount);
             fadeCount -= 0.01f;
             //player.transform.Rotate(new Vector3(0, 0, 0.9f));
             yield return new WaitForSeconds(0.01f);
             gameObject.GetComponent<Image>().color = new Color(0, 0, 0, fadeCount);
         }
+        particleTrigger.check = true;
+        gameObject.SetActive(false);
     }
 }
