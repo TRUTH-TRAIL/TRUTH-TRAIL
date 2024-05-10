@@ -457,6 +457,7 @@ public class ObjectInteract : MonoBehaviour
             cnt++;
         }else*/
         if(target.gameObject.name=="poster_S"){
+            
             //Debug.Log("Special paper Poster");
             //cnt++;
         }

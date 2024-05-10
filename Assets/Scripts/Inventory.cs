@@ -107,6 +107,8 @@ public class Inventory : MonoBehaviour
     {
         foreach (GameObject btn in buttons)
         {
+            Debug.Log(btn);
+            Debug.Log(buttons.Length);
             btn.SetActive(false);
         }
         switch(i){
