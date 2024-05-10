@@ -16,15 +16,15 @@ public class MemoInteract : MonoBehaviour
             case 0:
                 break;
             case 1:
-                Instantiate(lighterPrefab, new Vector3(272.6704f, 10.986f,263.4312f), Quaternion.identity);
+                Instantiate(lighterPrefab, new Vector3(266.218994f,6.02400017f,250.612f), Quaternion.identity);
                 break;
             case 2:
-                Instantiate(skullBonePrefab, new Vector3(284.69101f,3.87914777f,267.557007f), Quaternion.identity);
+                Instantiate(skullBonePrefab, new Vector3(260.589996f,0.344999999f,284.359985f), Quaternion.identity);
                 break;
             case 3:
-                cross = Instantiate(crossPrefab, new Vector3(250.888f,10.8710003f,261.863007f), Quaternion.identity);
-                cross.localScale = new Vector3(6.0f,6.0f,6.0f);
-                cross.eulerAngles = new Vector3(0f,270f,315f);
+                cross = Instantiate(crossPrefab, new Vector3(266.18399f,6.42500019f,264.684998f), Quaternion.identity);
+                cross.localScale = new Vector3(4.0f,4.0f,4.0f);
+                cross.eulerAngles = new Vector3(0f,270f,350f);
                 break;
         }
     }
