@@ -36,7 +36,7 @@ public class tutorial : MonoBehaviour
             if(hitData.collider.name == "Alley_Tuto"){
                 StartCoroutine(Zoom());
             }
-            if(hitData.collider.name == "foldednote"){
+            if(hitData.collider.name == "foldednote"){ // 인벤토리 마저 해야 됨
                 if(Input.GetMouseButtonDown(0)){
                     hitData.collider.gameObject.SetActive(false);
                     tutoText.text[tutoText.i] = "<s>□ 집 안에서 Alley를 봉인할 단서를 찾으세요</s>";

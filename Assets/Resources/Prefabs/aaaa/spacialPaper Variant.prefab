@@ -124,7 +124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5151915563385604976, guid: 3c57a63792572ba4983c92c100e38721, type: 3}
       propertyPath: m_Name
-      value: spacialPaper
+      value: spacialPaper Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5151915563385604976, guid: 3c57a63792572ba4983c92c100e38721, type: 3}
       propertyPath: m_IsActive

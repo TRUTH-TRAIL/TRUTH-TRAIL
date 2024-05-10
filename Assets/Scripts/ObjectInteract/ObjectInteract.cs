@@ -459,7 +459,7 @@ public class ObjectInteract : MonoBehaviour
             cnt++;
         }else*/
         if(target.gameObject.name=="poster_S"){
-            
+            gameObject.GetComponent<Inventory>().enabled = true;
             //Debug.Log("Special paper Poster");
             //cnt++;
         }
