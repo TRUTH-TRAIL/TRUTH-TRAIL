@@ -48,7 +48,7 @@ public class ObjectInteract : MonoBehaviour
     [SerializeField] Curses curse;
     [SerializeField] Text[] text;
     [SerializeField] Text curseText;
-
+    public bool newClue = false;
     //Ã¥ ï¿½ï¿½ï¿½ï¿½
     private float slideSpeed = 2f;
     //Poster ï¿½ï¿½ï¿½ï¿½
@@ -92,6 +92,7 @@ public class ObjectInteract : MonoBehaviour
         isbath = false;
         iscoffin = false;
         iscellar = false;
+        newClue = false;
     }
 
     private void Update(){
@@ -213,6 +214,7 @@ public class ObjectInteract : MonoBehaviour
     private void HandleClue(Transform target)
     {
         ClueUpdate(target.gameObject);
+        newClue = true;
     }
     private void ClueUpdate(GameObject clue)
     {
@@ -479,12 +481,13 @@ public class ObjectInteract : MonoBehaviour
     {
         Debug.Log(clueTextIndex);
         Debug.Log(fCandle);
+        //°¡Â¥ ´Ü¼­µµ Ãß°¡ÇÏ¸é ÀÌ Á¶°Çµµ Á» ¼öÁ¤ÇØ¾ß°Ú±º
         if(clueTextIndex>=10&&candleNum<3){
             Destroy(target.parent.gameObject);
             itemGroup.GetChild(2+candleNum).gameObject.SetActive(true);
             candleNum++;
         }else{
-            if(Player.transform.GetChild(1).GetChild(5).gameObject.activeSelf)
+            if(Player.transform.GetChild(1).GetChild(5).gameObject.activeSelf && newClue)
             {
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
@@ -493,6 +496,9 @@ public class ObjectInteract : MonoBehaviour
                     curse.ClearCurse();
                     //audioSource.Play();
                 }
+                //°¡Â¥´Ü¼­ clear if¹® ÇÊ¿ä
+                Player.transform.GetChild(1).GetChild(5).gameObject.SetActive(false);
+                newClue = false;
             }
         }
 

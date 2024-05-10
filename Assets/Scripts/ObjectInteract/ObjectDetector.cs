@@ -33,7 +33,7 @@ public class ObjectDetector : MonoBehaviour
     [SerializeField]
     private GameObject decal;
     private Curses curse;
-
+    private ObjectInteract OI;
     private void Awake(){
         mainCamera = Camera.main;
     }
@@ -43,6 +43,7 @@ public class ObjectDetector : MonoBehaviour
         //decipherText = GameObject.Find("Canvas").transform.GetChild(5).gameObject;
         handSpecialPaper = GameObject.FindWithTag("Player").transform.GetChild(1).GetChild(5).gameObject;
         curse = GameObject.Find("CurseManager").GetComponent<Curses>();
+        OI = GetComponent<ObjectInteract>();
     }
 
     private void Update() {
@@ -63,10 +64,12 @@ public class ObjectDetector : MonoBehaviour
             
             if(ot== ObjectType.Candle)
             {
-                if(handSpecialPaper.activeSelf&&!decal.activeSelf){
+                if(handSpecialPaper.activeSelf&&!decal.activeSelf&&OI.newClue){
                     hitText.text = "해독하기";
                     hitText.gameObject.SetActive(true);
                     //decipherText.SetActive(true);
+                }else{
+                    hitText.gameObject.SetActive(false);
                 }
             }else if(ot == ObjectType.Clue){
                 hitText.text = "줍기";
