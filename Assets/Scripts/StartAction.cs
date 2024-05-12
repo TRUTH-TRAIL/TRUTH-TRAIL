@@ -9,10 +9,10 @@ public class StartAction : MonoBehaviour
 {
     public GameObject title;
     public GameObject Start;
-    public GameObject Option;
-   // public GameObject Back;
+    //public GameObject Option;
+    //public GameObject Back;
     public GameObject BG;
-    public GameObject[] Option_list;
+    //public GameObject[] Option_list;
     //public GameObject VideoPanel;
     //public GameObject ControlPanel;
 
@@ -29,8 +29,9 @@ public class StartAction : MonoBehaviour
         //Start.SetActive(true);
         title.transform.GetChild(0).GetComponent<Text>().enabled = false;
         title.transform.GetChild(1).GetComponent<Text>().enabled = false;
-        title.transform.GetChild(2).GetComponent<Text>().enabled = false;
+        // title.transform.GetChild(2).GetComponent<Text>().enabled = false;    // 옵션버튼
     }
+    /*
     public void OptionB()
     {
         Option.transform.GetChild(1).GetComponent<Text>().enabled = true;
@@ -43,6 +44,7 @@ public class StartAction : MonoBehaviour
         title.transform.GetChild(1).GetComponent<Text>().enabled = false;
         title.transform.GetChild(2).GetComponent<Text>().enabled = false;
     }
+    */
     public void Back()
     {
         if(EventSystem.current.currentSelectedGameObject.transform.name == "S_Back"){
@@ -66,6 +68,7 @@ public class StartAction : MonoBehaviour
     {
         Application.Quit();
     }
+    /*
     public void Video()
     {
         Option_list[1].transform.GetChild(0).gameObject.SetActive(false);
@@ -127,4 +130,5 @@ public class StartAction : MonoBehaviour
             Option_list[3].transform.GetChild(0).gameObject.SetActive(true);
         }
     }
+    */
 }
