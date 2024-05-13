@@ -47,10 +47,10 @@ public class MemoManager : MonoBehaviour
     void Awake()
     {
         var memos = new List<Memo>();
-        memos.Add(new Memo(0, "새벽 4시가 되기 전에 무조건 봉인을 마쳐야 한다."));
-        memos.Add(new Memo(1, "라이터는 OO에 있다."));
-        memos.Add(new Memo(2, "해골은 OO에 있다."));
-        memos.Add(new Memo(3, "십자가는 OO에 있다."));
+        memos.Add(new Memo(0, "지하실 입구를 가로막고 있는 책장은 맨 아래칸의 오른쪽 책을 뺴면 열린다"));
+        memos.Add(new Memo(1, "라이터는 부엌 안쪽 창고의 쇼파 아래에 있다."));
+        memos.Add(new Memo(2, "지하실 관을 열어보면 앨리의 머리쪽 유골이 있을 것이다."));
+        memos.Add(new Memo(3, "욕조의 물을 내리면 십자가가 있을 것이다."));
         memos.Add(new Memo(4, "집 안의 양초 3개를 모두 모아라."));
         memos.Add(new Memo(5, "퇴마식을 진행할 마법진을 찾아라."));
         memos.Add(new Memo(6, "3개의 양초를 마법진 꼭짓점에 놓아라."));
