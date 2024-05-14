@@ -6,9 +6,11 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class tutorial : MonoBehaviour
 {
+    public GameObject gametext;
     public GameObject Panel;
     private RaycastHit hitData;
     public CinemachineVirtualCamera mainCamera;
@@ -19,10 +21,18 @@ public class tutorial : MonoBehaviour
     private float zoomTimer = 0f; // 줌인에 사용되는 타이머
     public TutoText tutoText;
     public TMP_Text text;
+    public bool check1;
+    public Button button;
+    public Text Contentstext;
+    public Text decodingText;
+    public GameObject paper;
+    public bool r_check;
     // Start is called before the first frame update
     void Start()
     {
         originalFOV = mainCamera.m_Lens.FieldOfView;
+        check1 = false;
+        r_check = false;
     }
 
     // Update is called once per frame
@@ -36,14 +46,46 @@ public class tutorial : MonoBehaviour
             if(hitData.collider.name == "Alley_Tuto"){
                 StartCoroutine(Zoom());
             }
-            if(hitData.collider.name == "foldednote"){ // 인벤토리 마저 해야 됨
+            if(hitData.collider.name == "foldednote"){
                 if(Input.GetMouseButtonDown(0)){
+                    check1 = true;
                     hitData.collider.gameObject.SetActive(false);
                     tutoText.text[tutoText.i] = "<s>□ 집 안에서 Alley를 봉인할 단서를 찾으세요</s>";
                     text.text = tutoText.text[tutoText.i] + "\n";
                     tutoText.i++;
                     text.text += tutoText.text[tutoText.i];
+                    button.enabled = true;
                 }
+            }
+            if(hitData.collider.name == "Candle_Holder_01_LOD0" && paper.activeSelf){
+                if(Input.GetMouseButtonDown(0)){
+                    Destroy(decodingText.transform.gameObject); // 해독하기 사라져서 오류 뜸
+                    tutoText.text[tutoText.i] = "<s>□ [Tab] 키를 눌러 인벤토리를 확인하고, 특수용지를 손에 장착하여 해독을 진행하세요</s>";
+                    Contentstext.text = "";
+                    text.text = tutoText.text[tutoText.i] + "\n";
+                    tutoText.i++;
+                    text.text += tutoText.text[tutoText.i];
+                    text.text = tutoText.text[tutoText.i] + "\n" + "\n";
+                    tutoText.i++;
+                    text.text += tutoText.text[tutoText.i];
+                    r_check = true;
+                }
+            }
+        }
+        if(r_check){
+            if(Input.GetKeyDown(KeyCode.R)){
+                StartCoroutine(gamestart());
+            }
+        }
+        if(check1){
+            if(Input.GetKeyDown(KeyCode.R)){
+                tutoText.text[tutoText.i] = "<s>□ [R]키를 눌러 습득한 내용을 확인하세요</s>";
+                text.text = tutoText.text[tutoText.i] + "\n";
+                tutoText.i++;
+                text.text += tutoText.text[tutoText.i];
+                check1 = false;
+                GameObject.Find("p_spot_6").GetComponent<ParticleTrigger>().particle.Play();
+                GameObject.Find("p_spot_6").GetComponent<ParticleTrigger>().agent.SetDestination(GameObject.Find("p_spot_3").transform.position);
             }
         }
     }
@@ -62,6 +104,12 @@ public class tutorial : MonoBehaviour
         mainCamera.m_Lens.FieldOfView = 60f;
         GameObject.Find("Alley_Tuto").layer = LayerMask.NameToLayer("Ignore Raycast");
         GameObject.FindGameObjectWithTag("Player").transform.position = GameObject.Find("p_spot_4").transform.position;
+    }
+    
+    IEnumerator gamestart(){
+        gametext.SetActive(true);
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene(2);
     }
 }
        /* if(!spinfo[0].activeSelf){

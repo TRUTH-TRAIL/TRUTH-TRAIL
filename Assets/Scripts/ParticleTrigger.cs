@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class ParticleTrigger : MonoBehaviour
 {
-    [SerializeField]
-    ParticleSystem particle;
-    [SerializeField]
-    NavMeshAgent agent;
+    public ParticleSystem particle;
+    public NavMeshAgent agent;
     Transform door;
     Vector3 target;
     Vector3 origin;
@@ -19,9 +18,13 @@ public class ParticleTrigger : MonoBehaviour
     GameObject[] Door;
     [SerializeField]
     GameObject TutoBox;
-    public TutoText tutoText;
-    public TMP_Text text;
+    [SerializeField]
+    TutoText tutoText;
+    [SerializeField]
+    TMP_Text text;
     private void Start() {
+        tutoText = GameObject.Find("Canvas").transform.Find("Tuto_TextBox").transform.Find("Text (TMP)").GetComponent<TutoText>();
+        text = GameObject.Find("Canvas").transform.Find("Tuto_TextBox").transform.Find("Text (TMP)").GetComponent<TMP_Text>();
         door = GameObject.Find("Bookcase_Door_LOD").transform;
         target = GameObject.Find("Door_target").transform.position;
         origin = GameObject.Find("Bookcase_Door_LOD").transform.position;
@@ -58,9 +61,11 @@ public class ParticleTrigger : MonoBehaviour
             agent.SetDestination(GameObject.Find("p_spot_3").transform.position);
         }
         else if(this.name == "p_spot_3"){
-            yield return new WaitForSeconds(3.0f);
-            particle.Play();
-            agent.SetDestination(GameObject.Find("p_spot_4").transform.position);
+            if(LayerMask.LayerToName(GameObject.Find("Alley_Tuto").layer) != "Ignore Raycast"){
+                yield return new WaitForSeconds(3.0f);
+                particle.Play();
+                agent.SetDestination(GameObject.Find("p_spot_4").transform.position);
+            }
         }
         else if(this.name == "p_spot_4"){
             if(LayerMask.LayerToName(GameObject.Find("Alley_Tuto").layer) != "Ignore Raycast"){
@@ -84,7 +89,7 @@ public class ParticleTrigger : MonoBehaviour
                 particle.Stop();
             }
            //yield return new WaitForSeconds(10.0f);
-           // 문 원상태 다시
+           // 지하실문이겟죠 문 원상태 다시
         }
         else if(this.name == "p_spot_6")
         {

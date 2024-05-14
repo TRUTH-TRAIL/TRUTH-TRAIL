@@ -458,13 +458,13 @@ public class ObjectInteract : MonoBehaviour
             Debug.Log("Light Poster");
             cnt++;
         }else*/
-        if(target.gameObject.name=="poster_S"){
+        if(target.gameObject.name == "poster_S"){
             gameObject.GetComponent<Inventory>().enabled = true;
             //Debug.Log("Special paper Poster");
             //cnt++;
         }
-        target.gameObject.SetActive(false);
-
+        Destroy(target.gameObject);
+        Destroy(GameObject.Find("SP_info"));
        /* if(cnt==3){
             StartCoroutine(GoCellarText());
         }*/
