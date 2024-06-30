@@ -12,6 +12,7 @@ public class ParticleTrigger : MonoBehaviour
     public NavMeshAgent agent;
     Transform door;
     Vector3 target;
+    [SerializeField]
     Vector3 origin;
     public bool check;
     [SerializeField]
@@ -27,7 +28,7 @@ public class ParticleTrigger : MonoBehaviour
         text = GameObject.Find("Canvas").transform.Find("Tuto_TextBox").transform.Find("Text (TMP)").GetComponent<TMP_Text>();
         door = GameObject.Find("Bookcase_Door_LOD").transform;
         target = GameObject.Find("Door_target").transform.position;
-        origin = GameObject.Find("Bookcase_Door_LOD").transform.position;
+        origin = GameObject.Find("Door_origin").transform.position;
         check = false;
     }
     private void OnTriggerEnter(Collider other) {
@@ -37,6 +38,7 @@ public class ParticleTrigger : MonoBehaviour
     }
     private void OnTriggerStay(Collider other) {
         if(check){
+            particle.gameObject.SetActive(false);
             TutoBox.SetActive(true);
             text.text = tutoText.text[tutoText.i];
             tutoText.i++;
@@ -47,7 +49,7 @@ public class ParticleTrigger : MonoBehaviour
             }
             particle.gameObject.transform.position = GameObject.Find("p_spot_4").transform.position;
             particle.Play();
-            agent.SetDestination(GameObject.Find("p_spot_6").transform.position);
+           // agent.SetDestination(GameObject.Find("p_spot_6").transform.position);
             check = false;
         }
     }
@@ -73,28 +75,34 @@ public class ParticleTrigger : MonoBehaviour
                 agent.SetDestination(GameObject.Find("p_spot_5").transform.position);
                 while(door.position != target){
                     door.position = Vector3.Lerp(door.position, target, Time.deltaTime*5.0f);
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.01f);
                 }
             }
         }
-        else if(this.name == "p_spot_5")
+        else if(this.name == "p_spot_5"){
+            //yield return new WaitForSeconds(10.0f);
+            GameObject.Find("P_spot").transform.GetChild(6).gameObject.SetActive(true);
+           // GameObject.Find("P_spot").transform.GetChild(5).gameObject.SetActive(false);
+        }
+        else if(this.name == "p_spot_7")
         {
             if(LayerMask.LayerToName(GameObject.Find("Alley_Tuto").layer) != "Ignore Raycast"){
                 while(door.position != origin){
-                    door.position = Vector3.Lerp(door.position, origin, Time.deltaTime*5.0f);
+                    door.position = Vector3.Lerp(door.position, origin, Time.deltaTime*10.0f);
                     GameObject.Find("Sealed_Coffin_02").transform.position = Vector3.Lerp(GameObject.Find("Sealed_Coffin_02").transform.position, 
                     GameObject.Find("Sealed_target").transform.position, Time.deltaTime*5.0f);
-                    yield return new WaitForSeconds(0.1f);
+                    yield return new WaitForSeconds(0.01f);
                 }
-                particle.Stop();
+              //  GameObject.Find("P_spot").transform.GetChild(6).gameObject.SetActive(false);
+               // particle.Stop();
             }
            //yield return new WaitForSeconds(10.0f);
            // 지하실문이겟죠 문 원상태 다시
         }
-        else if(this.name == "p_spot_6")
+        /*else if(this.name == "p_spot_6")
         {
-            particle.Stop();
+           // particle.Stop();
             yield return new WaitForSeconds(1.0f);
-        }
+        }*/
     }
 }
