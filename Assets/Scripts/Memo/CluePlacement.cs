@@ -12,10 +12,10 @@ public class CluePlacement : MonoBehaviour
     private int totalLocations = 15;  //단서가 생기는 장소 수
     private int clueListCount = 10;  //json에 들어가 있는 데이터 수
 
-    private int totalClues = 10;  //real + fake + curse
+    // totalclue를 알맞게 증가시키고, 생성되는 위치(cluePosition)도 totalClue보다 많게 조정해야함.
+    // totalLocations도 수정하고, clueType, clueListCount도 수정 필요
+    private int totalClues = 10;  //생성하고 싶은 단서의 수(진짜+가짜 합해서) 
     private int realClue = 10;
-    private int fakeClue = 0;
-    private int cursedClue = 0;
 
     private List<Vector3> cluePositions = new List<Vector3>();
 
@@ -100,16 +100,12 @@ public class CluePlacement : MonoBehaviour
         {
             if (i < realClue)
             {
+                //진짜 단서 10개는 무조건 게임 내 존재해야하니 모두 생성
                 int key = RandomClue(1);
                 clues[i].GetComponent<MemoScript>().key = key;
                 clues[i].GetComponent<MemoScript>().type = true;
                 clues[i].GetComponent<MemoScript>().memoData = readMemos[key].GetMemoData();
                 
-            }
-            else if (i>= (realClue + fakeClue))
-            {
-                //이 부분은 저주가 들어감(임시)
-                clues[i].GetComponent<MemoScript>().memoData = "저주";
             }
             else
             {
@@ -125,11 +121,25 @@ public class CluePlacement : MonoBehaviour
     {
         int randomIndex;
         //뭔가 중복이 많아 비효율적이지만 단서가 적으므로 일단 이렇게 작성해봄
-        do
-        {
-            randomIndex = Random.Range(0, clueListCount);
+        if(type==1){
+            //진짜 단서 타입 지정
+            //index 0~9까지 진짜 단서(10개)
+            do
+            {
+                randomIndex = Random.Range(0, realClue);
+            }
+            while (clueType[randomIndex] != 0);
+            
+        }else{
+            //진짜 단서 모두 지정 후 남는 단서들에 가짜 추가
+            //index 10~clueListCount까지 중 랜덤하게 선택
+            do
+            {
+                randomIndex = Random.Range(realClue, clueListCount);
+            }
+            while (clueType[randomIndex] != 0);
         }
-        while (clueType[randomIndex] != 0);
+        
 
         clueType[randomIndex] = type;
         return randomIndex;

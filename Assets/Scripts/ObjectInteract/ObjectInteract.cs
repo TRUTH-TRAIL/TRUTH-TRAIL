@@ -54,6 +54,9 @@ public class ObjectInteract : MonoBehaviour
     //Poster 占쏙옙占쏙옙
     private int cnt = 0;
     private bool[] getClue = new bool[15]; //단서 습득 유무
+    private int trueKeyCount;
+    private int[] fakeClue = new int[10] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    private int fakeClueCount = 0;
 
     //
     private MemoInteract memoInteract;
@@ -93,6 +96,7 @@ public class ObjectInteract : MonoBehaviour
         iscoffin = false;
         iscellar = false;
         newClue = false;
+        trueKeyCount = 0;
     }
 
     private void Update(){
@@ -219,27 +223,49 @@ public class ObjectInteract : MonoBehaviour
     private void ClueUpdate(GameObject clue)
     {
         int RandomInt = Random.Range(0, 5);
-        RandomInt = 1;//임시 저주만 발생
+        //RandomInt = 0;//임시 저주만 발생
         Debug.Log(RandomInt);
         
+        //20% 확률로 저주. 80%확률로 가짜 + 진짜
         if (RandomInt!=0 || curse.activeCurse)
         {
-            MemoScript memoscript = clue.GetComponent<MemoScript>();
-            text[clueTextIndex].text = memoscript.memoData;
-            getClue[memoscript.key] = true; // 이부분은 추후 GameManager를 통해 관리
-            text[clueTextIndex].gameObject.SetActive(true);
-            clueTextIndex++;
-            Debug.Log(memoscript.key + "AAA");
-            memoInteract.ObjectAppear(memoscript.key);
-            if(memoscript.key==0)
-                iscellar=true;
-            if(memoscript.key==2)
-                iscoffin=true;
-            if(memoscript.key==3) 
-                isbath=true;
-            Destroy(clue);
-            if(clueTextIndex>=10)
-                Blood_Decals_05.SetActive(true);
+            //메모에 표현되는 개수 10개 초과 못함
+            if(clueTextIndex<10){
+                //clueTextIndex 이전 비어있는 칸 있으면 그곳에 채움
+                int idx = clueTextIndex;
+                MemoScript memoscript = clue.GetComponent<MemoScript>();
+                for(int i=0;i<clueTextIndex;i++){
+                    if(text[i].gameObject.activeSelf==false){
+                        idx = i;
+                        break;
+                    }
+                }
+                text[idx].text = memoscript.memoData;
+                getClue[memoscript.key] = true; // 이부분은 추후 GameManager를 통해 관리
+                text[idx].gameObject.SetActive(true);
+                clueTextIndex++;
+                Debug.Log(memoscript.key + "AAA");
+                memoInteract.ObjectAppear(memoscript.key);
+                if(memoscript.key==0)
+                    iscellar=true;
+                if(memoscript.key==2)
+                    iscoffin=true;
+                if(memoscript.key==3) 
+                    isbath=true;
+                Destroy(clue);
+                //진짜 단서일 경우 count
+                if(memoscript.key<10){
+                    trueKeyCount++;
+                }else{
+                    fakeClue[fakeClueCount] = idx;
+                    fakeClueCount++;
+                }
+                if(trueKeyCount>=10)
+                    Blood_Decals_05.SetActive(true);
+            }else{
+                Debug.Log("양초를 사용해 가짜 저주를 없애세요."); //이 부분은 추후 기획에 맞게 고쳐야함.
+            }
+            
         }
         else
         {
@@ -480,10 +506,10 @@ public class ObjectInteract : MonoBehaviour
     }*/
     private void HandleCandle(Transform target)
     {
-        Debug.Log(clueTextIndex);
+        Debug.Log(trueKeyCount);
         Debug.Log(fCandle);
         //가짜 단서도 추가하면 이 조건도 좀 수정해야겠군
-        if(clueTextIndex>=10&&candleNum<3){
+        if(trueKeyCount>=10&&candleNum<3){
             Destroy(target.parent.gameObject);
             itemGroup.GetChild(2+candleNum).gameObject.SetActive(true);
             candleNum++;
@@ -492,10 +518,18 @@ public class ObjectInteract : MonoBehaviour
             {
                 if (curse.curseKey < 20 && curse.activeCurse)
                 {
-                    RawImage rawImage = Player.transform.GetChild(3).GetChild(0).GetComponent<RawImage>();
-                    StartCoroutine(AlphaColor(rawImage));
+                    //허허 이펙트 적용했었는데 Player의 getchild(3) 어디갔어?????????
+                    //RawImage rawImage = Player.transform.GetChild(3).GetChild(0).GetComponent<RawImage>();
+                    //StartCoroutine(AlphaColor(rawImage));
                     curse.ClearCurse();
                     //audioSource.Play();
+                }
+                if(fakeClueCount!=0){
+                    for(int i=0;i<fakeClueCount;i++){
+                        text[fakeClue[i]].text = "";
+                        text[fakeClue[i]].gameObject.SetActive(false);
+                        clueTextIndex--;
+                    }
                 }
                 //가짜단서 clear if문 필요
                 Player.transform.GetChild(1).GetChild(5).gameObject.SetActive(false);
