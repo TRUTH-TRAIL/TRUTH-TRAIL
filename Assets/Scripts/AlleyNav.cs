@@ -155,8 +155,8 @@ public class AlleyNav : MonoBehaviour
         if(!flashlight.activeSelf){
             flashlight.SetActive(true);
         }
-        target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().C_Blink();
-        target.GetChild(1).transform.GetChild(1).GetComponent<blinkSpot>().Alley_pos = this.transform.position;
+        target.GetChild(1).transform.GetChild(0).GetComponent<blinkSpot>().C_Blink();
+        target.GetChild(1).transform.GetChild(0).GetComponent<blinkSpot>().Alley_pos = this.transform.position;
         this.transform.GetComponent<NavMeshAgent>().enabled = false;
         anim.SetTrigger("Idle");
         BGM.SetActive(false);

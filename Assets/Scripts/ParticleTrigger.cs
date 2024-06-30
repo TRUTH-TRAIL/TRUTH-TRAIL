@@ -80,19 +80,21 @@ public class ParticleTrigger : MonoBehaviour
             }
         }
         else if(this.name == "p_spot_5"){
-            //yield return new WaitForSeconds(10.0f);
-            GameObject.Find("P_spot").transform.GetChild(6).gameObject.SetActive(true);
-           // GameObject.Find("P_spot").transform.GetChild(5).gameObject.SetActive(false);
+            if(LayerMask.LayerToName(GameObject.Find("Alley_Tuto").layer) != "Ignore Raycast"){
+                GameObject.Find("P_spot").transform.GetChild(6).gameObject.SetActive(true);
+                yield return null;
+            }
         }
         else if(this.name == "p_spot_7")
         {
             if(LayerMask.LayerToName(GameObject.Find("Alley_Tuto").layer) != "Ignore Raycast"){
-                while(door.position != origin){
+                while(door.position != origin){ // 좀 고장나니까 이게 아닌 거리 비례로...?
                     door.position = Vector3.Lerp(door.position, origin, Time.deltaTime*10.0f);
                     GameObject.Find("Sealed_Coffin_02").transform.position = Vector3.Lerp(GameObject.Find("Sealed_Coffin_02").transform.position, 
                     GameObject.Find("Sealed_target").transform.position, Time.deltaTime*5.0f);
                     yield return new WaitForSeconds(0.01f);
                 }
+                // 좀 닫히는 게 이상함... 다시 할 것 밑의 코드
               //  GameObject.Find("P_spot").transform.GetChild(6).gameObject.SetActive(false);
                // particle.Stop();
             }
